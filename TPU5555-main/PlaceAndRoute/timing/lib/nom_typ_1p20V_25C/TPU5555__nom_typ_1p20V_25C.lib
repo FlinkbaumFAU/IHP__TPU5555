@@ -1,0 +1,94 @@
+library (TPU5555) {
+  comment                        : "";
+  delay_model                    : table_lookup;
+  simulation                     : false;
+  capacitive_load_unit (1,pF);
+  leakage_power_unit             : 1pW;
+  current_unit                   : "1uA";
+  pulling_resistance_unit        : "1kohm";
+  time_unit                      : "1ns";
+  voltage_unit                   : "1v";
+  library_features(report_delay_calculation);
+
+  input_threshold_pct_rise : 50;
+  input_threshold_pct_fall : 50;
+  output_threshold_pct_rise : 50;
+  output_threshold_pct_fall : 50;
+  slew_lower_threshold_pct_rise : 20;
+  slew_lower_threshold_pct_fall : 20;
+  slew_upper_threshold_pct_rise : 80;
+  slew_upper_threshold_pct_fall : 80;
+  slew_derate_from_library : 1.0;
+
+
+  nom_process                    : 1.0;
+  nom_temperature                : 25.0;
+  nom_voltage                    : 1.20;
+
+  type ("pad_spare") {
+    base_type : array;
+    data_type : bit;
+    bit_width : 5;
+    bit_from : 4;
+    bit_to : 0;
+  }
+
+  cell ("TPU5555") {
+    area : 4020235.750 
+    is_macro_cell : true;
+    pin("pad_clk") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    pin("pad_cs_n") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    pin("pad_led") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_miso") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mosi") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    pin("pad_rstn") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    pin("pad_sclk") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    bus("pad_spare") {
+      bus_type : pad_spare;
+      direction : inout;
+      capacitance : 0.0000;
+    pin("pad_spare[4]") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    pin("pad_spare[3]") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    pin("pad_spare[2]") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    pin("pad_spare[1]") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    pin("pad_spare[0]") {
+      direction : inout;
+      capacitance : 0.2645;
+    }
+    }
+  }
+
+}

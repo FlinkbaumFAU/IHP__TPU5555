@@ -1,0 +1,2324 @@
+{
+    "STD_CELL_LIBRARY": "sg13cmos5l_stdcell",
+    "VDD_PIN": "VPWR",
+    "GND_PIN": "VGND",
+    "TECH_LEFS": {
+        "nom_*": "/scratch.local/fi08deni/eda/hdc/asic/lef/sg13cmos5l_tech_ant195.lef",
+        "min_*": "/scratch.local/fi08deni/eda/hdc/asic/lef/sg13cmos5l_tech_ant195.lef",
+        "max_*": "/scratch.local/fi08deni/eda/hdc/asic/lef/sg13cmos5l_tech_ant195.lef"
+    },
+    "PRIMARY_GDSII_STREAMOUT_TOOL": "klayout",
+    "DEFAULT_MAX_TRAN": null,
+    "DEFAULT_CORNER": "nom_typ_1p20V_25C",
+    "STA_CORNERS": [
+        "nom_fast_1p32V_m40C",
+        "nom_slow_1p08V_125C",
+        "nom_typ_1p20V_25C"
+    ],
+    "RT_MIN_LAYER": "Metal2",
+    "RT_MAX_LAYER": "TopMetal1",
+    "SCL_GROUND_PINS": [
+        "VSS"
+    ],
+    "SCL_POWER_PINS": [
+        "VDD"
+    ],
+    "TRISTATE_CELLS": [
+        "sg13cmos5l_ebufn_*",
+        "sg13cmos5l_einvn_*"
+    ],
+    "FILL_CELLS": [
+        "sg13cmos5l_fill_1",
+        "sg13cmos5l_fill_2"
+    ],
+    "DECAP_CELLS": [
+        "sg13cmos5l_decap_*"
+    ],
+    "LIB": {
+        "nom_typ_1p20V_25C": [
+            "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_typ_1p20V_25C.lib",
+            "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_typ_1p2V_3p3V_25C.lib"
+        ],
+        "nom_fast_1p32V_m40C": [
+            "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_fast_1p32V_m40C.lib",
+            "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_fast_1p32V_3p6V_m40C.lib"
+        ],
+        "nom_slow_1p08V_125C": [
+            "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lib/sg13cmos5l_stdcell_slow_1p08V_125C.lib",
+            "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_slow_1p08V_3p0V_125C.lib"
+        ]
+    },
+    "CELL_LEFS": [
+        "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/lef/sg13cmos5l_stdcell.lef"
+    ],
+    "CELL_GDS": [
+        "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/gds/sg13cmos5l_stdcell.gds"
+    ],
+    "CELL_VERILOG_MODELS": [
+        "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/verilog/sg13cmos5l_stdcell.v"
+    ],
+    "CELL_BB_VERILOG_MODELS": null,
+    "CELL_SPICE_MODELS": [
+        "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/spice/sg13cmos5l_stdcell.spice"
+    ],
+    "CELL_CDLS": [
+        "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_stdcell/cdl/sg13cmos5l_stdcell.cdl"
+    ],
+    "SYNTH_EXCLUDED_CELL_FILE": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/synth_exclude.cells",
+    "PNR_EXCLUDED_CELL_FILE": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/pnr_exclude.cells",
+    "OUTPUT_CAP_LOAD": 6,
+    "MAX_FANOUT_CONSTRAINT": 10,
+    "MAX_TRANSITION_CONSTRAINT": null,
+    "MAX_CAPACITANCE_CONSTRAINT": null,
+    "CLOCK_UNCERTAINTY_CONSTRAINT": 0.25,
+    "CLOCK_TRANSITION_CONSTRAINT": 0.15,
+    "TIME_DERATING_CONSTRAINT": 5,
+    "IO_DELAY_CONSTRAINT": 20,
+    "SYNTH_DRIVING_CELL": "sg13cmos5l_buf_4/X",
+    "SYNTH_CLK_DRIVING_CELL": null,
+    "SYNTH_TIEHI_CELL": "sg13cmos5l_tiehi/L_HI",
+    "SYNTH_TIELO_CELL": "sg13cmos5l_tielo/L_LO",
+    "SYNTH_BUFFER_CELL": "sg13cmos5l_buf_1/A/X",
+    "PLACE_SITE": "CoreSite",
+    "CELL_PAD_EXCLUDE": [
+        "sg13cmos5l_fill_*",
+        "sg13cmos5l_decap_*"
+    ],
+    "DIODE_CELL": "sg13cmos5l_antennanp/A",
+    "WELLTAP_CELL": null,
+    "ENDCAP_CELL": null,
+    "DESIGN_DIR": "/scratch.local/fi08deni/eda/hdc/asic",
+    "PDK_ROOT": "/scratch/IHP-Open-PDK",
+    "DESIGN_NAME": "hdc_chip_top",
+    "PDK": "ihp-sg13cmos5l",
+    "CLOCK_PERIOD": 20,
+    "CLOCK_PORT": "pad_clk",
+    "CLOCK_NET": "clk_pad/p2c",
+    "VDD_NETS": [
+        "VDD"
+    ],
+    "GND_NETS": [
+        "VSS"
+    ],
+    "DIE_AREA": [
+        0,
+        0,
+        2400,
+        2000
+    ],
+    "EXTRA_EXCLUDED_CELLS": null,
+    "MACROS": {
+        "RM_IHPSG13_1P_256x48_c2_bm_bist": {
+            "gds": [
+                "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_256x48_c2_bm_bist.gds"
+            ],
+            "lef": [
+                "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_256x48_c2_bm_bist.lef"
+            ],
+            "instances": {
+                "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem": {
+                    "location": [
+                        661.8,
+                        1031.5
+                    ],
+                    "orientation": "N"
+                }
+            },
+            "vh": [],
+            "nl": [],
+            "pnl": [],
+            "spef": {},
+            "lib": {
+                "*_typ_1p20V_25C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x48_c2_bm_bist_typ_1p20V_25C.lib"
+                ],
+                "*_fast_1p32V_m40C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x48_c2_bm_bist_fast_1p32V_m55C.lib"
+                ],
+                "*_slow_1p08V_125C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_256x48_c2_bm_bist_slow_1p08V_125C.lib"
+                ]
+            },
+            "spice": [],
+            "sdf": {},
+            "json_h": null
+        },
+        "RM_IHPSG13_1P_1024x8_c2_bm_bist": {
+            "gds": [
+                "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x8_c2_bm_bist.gds"
+            ],
+            "lef": [
+                "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_1024x8_c2_bm_bist.lef"
+            ],
+            "instances": {
+                "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem": {
+                    "location": [
+                        1445.16,
+                        405
+                    ],
+                    "orientation": "S"
+                },
+                "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem": {
+                    "location": [
+                        841.64,
+                        405
+                    ],
+                    "orientation": "S"
+                }
+            },
+            "vh": [],
+            "nl": [],
+            "pnl": [],
+            "spef": {},
+            "lib": {
+                "*_typ_1p20V_25C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x8_c2_bm_bist_typ_1p20V_25C.lib"
+                ],
+                "*_fast_1p32V_m40C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x8_c2_bm_bist_fast_1p32V_m55C.lib"
+                ],
+                "*_slow_1p08V_125C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x8_c2_bm_bist_slow_1p08V_125C.lib"
+                ]
+            },
+            "spice": [],
+            "sdf": {},
+            "json_h": null
+        },
+        "RM_IHPSG13_1P_1024x32_c2_bm_bist": {
+            "gds": [
+                "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x32_c2_bm_bist.gds"
+            ],
+            "lef": [
+                "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_1024x32_c2_bm_bist.lef"
+            ],
+            "instances": {
+                "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem": {
+                    "location": [
+                        1008.52,
+                        405
+                    ],
+                    "orientation": "S"
+                },
+                "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem": {
+                    "location": [
+                        405,
+                        405
+                    ],
+                    "orientation": "S"
+                }
+            },
+            "vh": [],
+            "nl": [],
+            "pnl": [],
+            "spef": {},
+            "lib": {
+                "*_typ_1p20V_25C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_typ_1p20V_25C.lib"
+                ],
+                "*_fast_1p32V_m40C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_fast_1p32V_m55C.lib"
+                ],
+                "*_slow_1p08V_125C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x32_c2_bm_bist_slow_1p08V_125C.lib"
+                ]
+            },
+            "spice": [],
+            "sdf": {},
+            "json_h": null
+        },
+        "RM_IHPSG13_1P_1024x16_c2_bm_bist": {
+            "gds": [
+                "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/gds/RM_IHPSG13_1P_1024x16_c2_bm_bist.gds"
+            ],
+            "lef": [
+                "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lef/RM_IHPSG13_1P_1024x16_c2_bm_bist.lef"
+            ],
+            "instances": {
+                "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem": {
+                    "location": [
+                        405,
+                        1021.5
+                    ],
+                    "orientation": "N"
+                }
+            },
+            "vh": [],
+            "nl": [],
+            "pnl": [],
+            "spef": {},
+            "lib": {
+                "*_typ_1p20V_25C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x16_c2_bm_bist_typ_1p20V_25C.lib"
+                ],
+                "*_fast_1p32V_m40C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x16_c2_bm_bist_fast_1p32V_m55C.lib"
+                ],
+                "*_slow_1p08V_125C": [
+                    "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_sram/lib/RM_IHPSG13_1P_1024x16_c2_bm_bist_slow_1p08V_125C.lib"
+                ]
+            },
+            "spice": [],
+            "sdf": {},
+            "json_h": null
+        }
+    },
+    "EXTRA_LEFS": [
+        "/scratch.local/fi08deni/eda/hdc/asic/ip/bondpad_70x70/lef/bondpad_70x70.lef"
+    ],
+    "EXTRA_VERILOG_MODELS": [
+        "/scratch.local/fi08deni/eda/hdc/asic/rtl/pad_keep.v"
+    ],
+    "EXTRA_SPICE_MODELS": null,
+    "EXTRA_CDLS": [
+        "/scratch.local/fi08deni/eda/hdc/asic/cdl/sram.cdl",
+        "/scratch.local/fi08deni/eda/hdc/asic/ip/bondpad_70x70/cdl/bondpad_70x70.cdl"
+    ],
+    "EXTRA_LIBS": null,
+    "EXTRA_GDS": [
+        "/scratch.local/fi08deni/eda/hdc/asic/ip/bondpad_70x70/gds/bondpad_70x70.gds"
+    ],
+    "FALLBACK_SDC": "/scratch.local/fi08deni/eda/hdc/asic/chip_top.sdc",
+    "PAD_LIBS": null,
+    "PAD_LEFS": [
+        "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/lef/sg13cmos5l_io.lef"
+    ],
+    "PAD_GDS": [
+        "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/gds/sg13cmos5l_io.gds"
+    ],
+    "PAD_VERILOG_MODELS": [
+        "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/verilog/sg13cmos5l_io.v"
+    ],
+    "PAD_SPICE_MODELS": [
+        "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.ref/sg13cmos5l_io/spice/sg13cmos5l_io.spice"
+    ],
+    "PAD_CDLS": [
+        "/scratch.local/fi08deni/eda/hdc/asic/cdl/sg13cmos5l_io.cdl"
+    ],
+    "PAD_CORNER": [
+        "sg13cmos5l_Corner"
+    ],
+    "PAD_FILLERS": [
+        "sg13cmos5l_Filler10000",
+        "sg13cmos5l_Filler4000",
+        "sg13cmos5l_Filler2000",
+        "sg13cmos5l_Filler1000",
+        "sg13cmos5l_Filler400",
+        "sg13cmos5l_Filler200"
+    ],
+    "PAD_SITE_NAME": "sg13cmos5l_ioSite",
+    "PAD_CORNER_SITE_NAME": "sg13cmos5l_cornerSite",
+    "PAD_FAKE_SITES": null,
+    "PAD_BONDPAD_NAME": "bondpad_70x70",
+    "PAD_BONDPAD_WIDTH": 70,
+    "PAD_BONDPAD_HEIGHT": 70,
+    "PAD_BONDPAD_OFFSETS": {
+        "sg13cmos5l_IOPad*": [
+            5,
+            -70
+        ]
+    },
+    "PAD_PLACE_IO_TERMINALS": null,
+    "PAD_EDGE_SPACING": 140,
+    "RUN_TAP_ENDCAP_INSERTION": true,
+    "RUN_POST_GPL_DESIGN_REPAIR": true,
+    "RUN_POST_GRT_DESIGN_REPAIR": true,
+    "RUN_CTS": true,
+    "RUN_POST_CTS_RESIZER_TIMING": true,
+    "RUN_POST_GRT_RESIZER_TIMING": true,
+    "RUN_HEURISTIC_DIODE_INSERTION": false,
+    "RUN_ANTENNA_REPAIR": true,
+    "RUN_DRT": true,
+    "RUN_FILL_INSERTION": true,
+    "RUN_MCSTA": true,
+    "RUN_SPEF_EXTRACTION": true,
+    "RUN_IRDROP_REPORT": true,
+    "RUN_LVS": true,
+    "RUN_MAGIC_STREAMOUT": true,
+    "RUN_KLAYOUT_STREAMOUT": true,
+    "RUN_MAGIC_WRITE_LEF": true,
+    "RUN_KLAYOUT_XOR": true,
+    "RUN_MAGIC_DRC": true,
+    "RUN_KLAYOUT_DRC": true,
+    "RUN_EQY": false,
+    "RUN_LINTER": true,
+    "SYNTH_LATCH_MAP": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/latch_map.v",
+    "SYNTH_TRISTATE_MAP": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/tribuff_map.v",
+    "SYNTH_CSA_MAP": null,
+    "SYNTH_RCA_MAP": null,
+    "SYNTH_FA_MAP": null,
+    "SYNTH_CLOCKGATE_MIN_WIDTH": null,
+    "SYNTH_CLOCKGATE_POSEDGE_ICG": null,
+    "SYNTH_CLOCKGATE_NEGEDGE_ICG": null,
+    "YOSYS_LOG_LEVEL": "ALL",
+    "SYNTH_CORNER": null,
+    "SYNTH_SHOW": false,
+    "SYNTH_CHECKS_ALLOW_TRISTATE": true,
+    "SYNTH_AUTONAME": false,
+    "SYNTH_STRATEGY": "AREA 0",
+    "SYNTH_ABC_BUFFERING": false,
+    "SYNTH_ABC_LEGACY_REFACTOR": false,
+    "SYNTH_ABC_LEGACY_REWRITE": false,
+    "SYNTH_ABC_DFF": false,
+    "SYNTH_ABC_USE_MFS3": false,
+    "SYNTH_ABC_AREA_USE_NF": false,
+    "SYNTH_DIRECT_WIRE_BUFFERING": true,
+    "SYNTH_SPLITNETS": true,
+    "SYNTH_SIZING": false,
+    "SYNTH_HIERARCHY_MODE": "flatten",
+    "SYNTH_KEEP_HIERARCHY_MIN_COST": null,
+    "SYNTH_KEEP_HIERARCHY_INSTANCES": null,
+    "SYNTH_KEEP_HIERARCHY_MODULES": null,
+    "SYNTH_SHARE_RESOURCES": true,
+    "SYNTH_ADDER_TYPE": "YOSYS",
+    "SYNTH_EXTRA_MAPPING_FILE": null,
+    "SYNTH_ELABORATE_ONLY": false,
+    "SYNTH_MUL_BOOTH": false,
+    "SYNTH_TIE_UNDEFINED": "low",
+    "SYNTH_WRITE_NOATTR": true,
+    "SYNTH_NORMALIZE_SINGLE_BIT_VECTORS": true,
+    "VHDL_FILES": [
+        "/scratch.local/fi08deni/eda/hdc/asic/rtl/sg13_sram_macro.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/asic/rtl/sram_array.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/asic/rtl/sram_w40.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/asic/rtl/IdentityMemory.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/asic/rtl/ContinuousMemory.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/asic/rtl/AssociativeMemory.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/asic/rtl/ClassCounterRAM.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/Accelerator.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/spi_slave.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/hdc_spi_loader.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/hdc_cmd_loader.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/hdc_word40_top.vhdl",
+        "/scratch.local/fi08deni/eda/hdc/asic/rtl/hdc_chip_top.vhdl"
+    ],
+    "GHDL_ARGUMENTS": [
+        "--std=08"
+    ],
+    "ERROR_ON_UNMAPPED_CELLS": true,
+    "ERROR_ON_SYNTH_CHECKS": true,
+    "ERROR_ON_NL_ASSIGN_STATEMENTS": true,
+    "PNR_SDC_FILE": "/scratch.local/fi08deni/eda/hdc/asic/chip_top.sdc",
+    "SIGNOFF_SDC_FILE": "/scratch.local/fi08deni/eda/hdc/asic/chip_top.sdc",
+    "PNR_CORNERS": null,
+    "SET_RC_VERBOSE": false,
+    "LAYERS_RC": {},
+    "VIAS_R": null,
+    "SIGNAL_WIRE_RC_LAYERS": null,
+    "CLOCK_WIRE_RC_LAYERS": null,
+    "PDN_CONNECT_MACROS_TO_GRID": true,
+    "PDN_MACRO_CONNECTIONS": [
+        "i_core.*u_macro.* VDD VSS VDD! VSS!",
+        "i_core.*u_macro.* VDD VSS VDDARRAY! VSS!",
+        ".*_pad VDD VSS ^vdd$ ^vss$",
+        ".*_pad IOVDD IOVSS ^iovdd$ ^iovss$"
+    ],
+    "PDN_ENABLE_GLOBAL_CONNECTIONS": true,
+    "STA_EXTRA_CORNER_TCL_FILE": null,
+    "DEDUPLICATE_CORNERS": false,
+    "STA_MACRO_PRIORITIZE_NL": true,
+    "STA_MAX_VIOLATOR_COUNT": null,
+    "EXTRA_SPEFS": null,
+    "STA_THREADS": null,
+    "FP_FLIP_SITES": null,
+    "FP_TRACKS_INFO": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/librelane/sg13cmos5l_stdcell/tracks.info",
+    "FP_SIZING": "absolute",
+    "FP_ASPECT_RATIO": 1,
+    "FP_CORE_UTIL": 50,
+    "FP_OBSTRUCTIONS": null,
+    "PL_SOFT_OBSTRUCTIONS": null,
+    "CORE_AREA": [
+        365,
+        365,
+        2035,
+        1635
+    ],
+    "BOTTOM_MARGIN_MULT": 4,
+    "TOP_MARGIN_MULT": 4,
+    "LEFT_MARGIN_MULT": 12,
+    "RIGHT_MARGIN_MULT": 12,
+    "EXTRA_SITES": null,
+    "PAD_CFG": null,
+    "PAD_SOUTH": [
+        "vdd0_pad",
+        "vss0_pad",
+        "iovdd_pad"
+    ],
+    "PAD_EAST": [
+        "miso_pad",
+        "spare3_pad",
+        "vdd3_pad",
+        "mosi_pad",
+        "vss3_pad",
+        "spare4_pad",
+        "led_pad"
+    ],
+    "PAD_NORTH": [
+        "iovss_pad",
+        "vdd1_pad",
+        "vss1_pad"
+    ],
+    "PAD_WEST": [
+        "rstn_pad",
+        "spare0_pad",
+        "vdd2_pad",
+        "clk_pad",
+        "spare1_pad",
+        "vss2_pad",
+        "sclk_pad",
+        "spare2_pad",
+        "cs_n_pad"
+    ],
+    "MACRO_PLACEMENT_CFG": null,
+    "FP_MACRO_HORIZONTAL_HALO": 10,
+    "FP_MACRO_VERTICAL_HALO": 10,
+    "FP_PRUNE_THRESHOLD": null,
+    "FP_TAPCELL_DIST": 0,
+    "PDN_OBSTRUCTIONS": null,
+    "PDN_SKIPTRIM": false,
+    "PDN_CORE_RING": true,
+    "PDN_ENABLE_RAILS": true,
+    "PDN_HORIZONTAL_HALO": 10,
+    "PDN_VERTICAL_HALO": 10,
+    "PDN_MULTILAYER": true,
+    "PDN_RAIL_OFFSET": 0,
+    "PDN_VWIDTH": 1,
+    "PDN_HWIDTH": 6,
+    "PDN_VSPACING": 2,
+    "PDN_HSPACING": 2,
+    "PDN_VPITCH": 50,
+    "PDN_HPITCH": 50,
+    "PDN_VOFFSET": 10,
+    "PDN_HOFFSET": 14,
+    "PDN_CORE_RING_VWIDTH": 15,
+    "PDN_CORE_RING_HWIDTH": 15,
+    "PDN_CORE_RING_VSPACING": 5,
+    "PDN_CORE_RING_HSPACING": 5,
+    "PDN_CORE_RING_VOFFSET": 2,
+    "PDN_CORE_RING_HOFFSET": 2,
+    "PDN_CORE_RING_CONNECT_TO_PADS": true,
+    "PDN_CORE_RING_ALLOW_OUT_OF_DIE": true,
+    "PDN_RAIL_LAYER": "Metal1",
+    "PDN_RAIL_WIDTH": 0.44,
+    "PDN_HORIZONTAL_LAYER": "TopMetal1",
+    "PDN_VERTICAL_LAYER": "Metal4",
+    "PDN_CORE_HORIZONTAL_LAYER": null,
+    "PDN_CORE_VERTICAL_LAYER": null,
+    "PDN_EXTEND_TO": "core_ring",
+    "PDN_ENABLE_PINS": false,
+    "PDN_CFG": "/scratch.local/fi08deni/eda/hdc/asic/pdn_cfg.tcl",
+    "ROUTING_OBSTRUCTIONS": null,
+    "RT_CLOCK_MIN_LAYER": null,
+    "RT_CLOCK_MAX_LAYER": null,
+    "GRT_ADJUSTMENT": 0.3,
+    "GRT_MACRO_EXTENSION": 0,
+    "GRT_LAYER_ADJUSTMENTS": [
+        0,
+        0,
+        0,
+        0,
+        0
+    ],
+    "PL_OPTIMIZE_MIRRORING": true,
+    "PL_MAX_DISPLACEMENT_X": 500,
+    "PL_MAX_DISPLACEMENT_Y": 100,
+    "DPL_CELL_PADDING": 0,
+    "RSZ_DONT_TOUCH_RX": "$^",
+    "RSZ_DONT_TOUCH_LIST": null,
+    "RSZ_CORNERS": null,
+    "PL_TARGET_DENSITY_PCT": 40,
+    "PL_SKIP_INITIAL_PLACEMENT": false,
+    "PL_WIRE_LENGTH_COEF": 0.25,
+    "PL_MIN_PHI_COEFFICIENT": null,
+    "PL_MAX_PHI_COEFFICIENT": null,
+    "GPL_CELL_PADDING": 0,
+    "PL_KEEP_RESIZE_BELOW_OVERFLOW": null,
+    "IO_PIN_PLACEMENT_MODE": "matching",
+    "IO_PIN_ORDER_CFG": null,
+    "FP_DEF_TEMPLATE": null,
+    "FP_TEMPLATE_MATCH_MODE": "strict",
+    "FP_TEMPLATE_COPY_POWER_PINS": false,
+    "PL_TIMING_DRIVEN": false,
+    "PL_ROUTABILITY_DRIVEN": true,
+    "PL_ROUTABILITY_OVERFLOW_THRESHOLD": null,
+    "ERROR_ON_PDN_VIOLATIONS": true,
+    "DIODE_PADDING": null,
+    "GRT_ALLOW_CONGESTION": true,
+    "GRT_ANTENNA_REPAIR_ITERS": 5,
+    "GRT_OVERFLOW_ITERS": 50,
+    "GRT_ANTENNA_REPAIR_MARGIN": 30,
+    "GRT_ANTENNA_REPAIR_JUMPER_ONLY": false,
+    "GRT_ANTENNA_REPAIR_DIODE_ONLY": false,
+    "DESIGN_REPAIR_BUFFER_INPUT_PORTS": true,
+    "DESIGN_REPAIR_BUFFER_OUTPUT_PORTS": true,
+    "DESIGN_REPAIR_TIE_FANOUT": true,
+    "DESIGN_REPAIR_TIE_SEPARATION": false,
+    "DESIGN_REPAIR_MAX_WIRE_LENGTH": 150,
+    "DESIGN_REPAIR_MAX_SLEW_PCT": 30,
+    "DESIGN_REPAIR_MAX_CAP_PCT": 30,
+    "DESIGN_REPAIR_REMOVE_BUFFERS": false,
+    "MANUAL_GLOBAL_PLACEMENTS": null,
+    "CTS_BALANCE_LEVELS": null,
+    "CTS_SINK_BUFFER_MAX_CAP_DERATE_PCT": null,
+    "CTS_DELAY_BUFFER_DERATE_PCT": null,
+    "CTS_OBSTRUCTION_AWARE": true,
+    "CTS_SINK_CLUSTERING_ENABLE": true,
+    "CTS_SINK_CLUSTERING_SIZE": null,
+    "CTS_SINK_CLUSTERING_MAX_DIAMETER": null,
+    "CTS_MACRO_CLUSTERING_SIZE": null,
+    "CTS_MACRO_CLUSTERING_MAX_DIAMETER": null,
+    "CTS_CLK_MAX_WIRE_LENGTH": 0,
+    "CTS_DISABLE_POST_PROCESSING": false,
+    "CTS_DISTANCE_BETWEEN_BUFFERS": 0,
+    "CTS_CORNERS": null,
+    "CTS_ROOT_BUFFER": "sg13cmos5l_buf_8",
+    "CTS_CLK_BUFFERS": [
+        "sg13cmos5l_buf_8",
+        "sg13cmos5l_buf_4",
+        "sg13cmos5l_buf_2",
+        "sg13cmos5l_buf_1"
+    ],
+    "CTS_MAX_CAP": null,
+    "CTS_MAX_SLEW": null,
+    "CTS_APPLY_NDR": "half",
+    "PL_RESIZER_HOLD_SLACK_MARGIN": 0.5,
+    "PL_RESIZER_SETUP_SLACK_MARGIN": 0.05,
+    "PL_RESIZER_HOLD_MAX_BUFFER_PCT": 50,
+    "PL_RESIZER_SETUP_MAX_BUFFER_PCT": 50,
+    "PL_RESIZER_ALLOW_SETUP_VIOS": false,
+    "PL_RESIZER_SETUP_GATE_CLONING": true,
+    "PL_RESIZER_SETUP_BUFFERING": true,
+    "PL_RESIZER_SETUP_BUFFER_REMOVAL": true,
+    "PL_RESIZER_SETUP_REPAIR_TNS_PCT": null,
+    "PL_RESIZER_SETUP_MAX_UTIL_PCT": null,
+    "PL_RESIZER_HOLD_REPAIR_TNS_PCT": null,
+    "PL_RESIZER_HOLD_MAX_UTIL_PCT": null,
+    "PL_RESIZER_FIX_HOLD_FIRST": false,
+    "INSERT_ECO_DIODES": [
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_CLK",
+            "placement": [
+                954.33,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_WEN",
+            "placement": [
+                957.39,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_REN",
+            "placement": [
+                957.9,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_ADDR[0]",
+            "placement": [
+                956.37,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_ADDR[1]",
+            "placement": [
+                955.86,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_ADDR[2]",
+            "placement": [
+                964.02,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_ADDR[3]",
+            "placement": [
+                963,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_ADDR[4]",
+            "placement": [
+                966.57,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_ADDR[5]",
+            "placement": [
+                965.55,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_ADDR[6]",
+            "placement": [
+                944.13,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_ADDR[7]",
+            "placement": [
+                945.15,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[0]",
+            "placement": [
+                665.22,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[1]",
+            "placement": [
+                676.46,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[2]",
+            "placement": [
+                687.7,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[3]",
+            "placement": [
+                698.94,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[4]",
+            "placement": [
+                710.18,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[5]",
+            "placement": [
+                721.42,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[6]",
+            "placement": [
+                732.66,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[7]",
+            "placement": [
+                743.9,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[8]",
+            "placement": [
+                755.14,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[9]",
+            "placement": [
+                766.38,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[10]",
+            "placement": [
+                777.62,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[11]",
+            "placement": [
+                788.86,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[12]",
+            "placement": [
+                800.1,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[13]",
+            "placement": [
+                811.34,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[14]",
+            "placement": [
+                822.58,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[15]",
+            "placement": [
+                833.82,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[16]",
+            "placement": [
+                845.06,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[17]",
+            "placement": [
+                856.3,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[18]",
+            "placement": [
+                867.54,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[19]",
+            "placement": [
+                878.78,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[20]",
+            "placement": [
+                890.02,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[21]",
+            "placement": [
+                901.26,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[22]",
+            "placement": [
+                912.5,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[23]",
+            "placement": [
+                923.74,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[24]",
+            "placement": [
+                996.34,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[25]",
+            "placement": [
+                1007.58,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[26]",
+            "placement": [
+                1018.82,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[27]",
+            "placement": [
+                1030.06,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[28]",
+            "placement": [
+                1041.3,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[29]",
+            "placement": [
+                1052.54,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[30]",
+            "placement": [
+                1063.78,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[31]",
+            "placement": [
+                1075.02,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[32]",
+            "placement": [
+                1086.26,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[33]",
+            "placement": [
+                1097.5,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[34]",
+            "placement": [
+                1108.74,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[35]",
+            "placement": [
+                1119.98,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[36]",
+            "placement": [
+                1131.22,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[37]",
+            "placement": [
+                1142.46,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[38]",
+            "placement": [
+                1153.7,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.am.u_mem.g_256.u_mem.g_banks:1.g_cols:1.u_macro.g_256x48.u_mem/A_DIN[39]",
+            "placement": [
+                1164.94,
+                1019.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_CLK",
+            "placement": [
+                1524.31,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_WEN",
+            "placement": [
+                1521.25,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_REN",
+            "placement": [
+                1520.74,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[0]",
+            "placement": [
+                1522.27,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[1]",
+            "placement": [
+                1522.78,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[2]",
+            "placement": [
+                1514.62,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[3]",
+            "placement": [
+                1515.64,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[4]",
+            "placement": [
+                1512.07,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[5]",
+            "placement": [
+                1513.09,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[6]",
+            "placement": [
+                1534.51,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[7]",
+            "placement": [
+                1533.49,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[8]",
+            "placement": [
+                1504.42,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[9]",
+            "placement": [
+                1509.52,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[0]",
+            "placement": [
+                1588.62,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[1]",
+            "placement": [
+                1577.38,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[2]",
+            "placement": [
+                1566.14,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[3]",
+            "placement": [
+                1554.9,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[4]",
+            "placement": [
+                1482.3,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[5]",
+            "placement": [
+                1471.06,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[6]",
+            "placement": [
+                1459.82,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[7]",
+            "placement": [
+                1448.58,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_CLK",
+            "placement": [
+                1222.55,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_WEN",
+            "placement": [
+                1219.49,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_REN",
+            "placement": [
+                1218.98,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[0]",
+            "placement": [
+                1220.51,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[1]",
+            "placement": [
+                1221.02,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[2]",
+            "placement": [
+                1212.86,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[3]",
+            "placement": [
+                1213.88,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[4]",
+            "placement": [
+                1210.31,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[5]",
+            "placement": [
+                1211.33,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[6]",
+            "placement": [
+                1232.75,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[7]",
+            "placement": [
+                1231.73,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[8]",
+            "placement": [
+                1202.66,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[9]",
+            "placement": [
+                1207.76,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[0]",
+            "placement": [
+                1421.74,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[1]",
+            "placement": [
+                1410.5,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[2]",
+            "placement": [
+                1399.26,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[3]",
+            "placement": [
+                1388.02,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[4]",
+            "placement": [
+                1376.78,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[5]",
+            "placement": [
+                1365.54,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[6]",
+            "placement": [
+                1354.3,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[7]",
+            "placement": [
+                1343.06,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[8]",
+            "placement": [
+                1331.82,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[9]",
+            "placement": [
+                1320.58,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[10]",
+            "placement": [
+                1309.34,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[11]",
+            "placement": [
+                1298.1,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[12]",
+            "placement": [
+                1286.86,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[13]",
+            "placement": [
+                1275.62,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[14]",
+            "placement": [
+                1264.38,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[15]",
+            "placement": [
+                1253.14,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[16]",
+            "placement": [
+                1180.54,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[17]",
+            "placement": [
+                1169.3,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[18]",
+            "placement": [
+                1158.06,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[19]",
+            "placement": [
+                1146.82,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[20]",
+            "placement": [
+                1135.58,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[21]",
+            "placement": [
+                1124.34,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[22]",
+            "placement": [
+                1113.1,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[23]",
+            "placement": [
+                1101.86,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[24]",
+            "placement": [
+                1090.62,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[25]",
+            "placement": [
+                1079.38,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[26]",
+            "placement": [
+                1068.14,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[27]",
+            "placement": [
+                1056.9,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[28]",
+            "placement": [
+                1045.66,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[29]",
+            "placement": [
+                1034.42,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[30]",
+            "placement": [
+                1023.18,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.cim.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[31]",
+            "placement": [
+                1011.94,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_CLK",
+            "placement": [
+                517.69,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_WEN",
+            "placement": [
+                520.75,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_REN",
+            "placement": [
+                521.26,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[0]",
+            "placement": [
+                519.73,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[1]",
+            "placement": [
+                519.22,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[2]",
+            "placement": [
+                527.38,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[3]",
+            "placement": [
+                526.36,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[4]",
+            "placement": [
+                529.93,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[5]",
+            "placement": [
+                528.91,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[6]",
+            "placement": [
+                507.49,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[7]",
+            "placement": [
+                508.51,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[8]",
+            "placement": [
+                537.58,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_ADDR[9]",
+            "placement": [
+                532.48,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[0]",
+            "placement": [
+                408.42,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[1]",
+            "placement": [
+                419.66,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[2]",
+            "placement": [
+                430.9,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[3]",
+            "placement": [
+                442.14,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[4]",
+            "placement": [
+                453.38,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[5]",
+            "placement": [
+                464.62,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[6]",
+            "placement": [
+                475.86,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[7]",
+            "placement": [
+                487.1,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[8]",
+            "placement": [
+                559.7,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[9]",
+            "placement": [
+                570.94,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.gen_training_ram.cc.g_1024.u_mem.g_banks:1.g_cols:1.u_macro.g_1024x16.u_mem/A_DIN[10]",
+            "placement": [
+                582.18,
+                1009.5
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_CLK",
+            "placement": [
+                920.79,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_WEN",
+            "placement": [
+                917.73,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_REN",
+            "placement": [
+                917.22,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[0]",
+            "placement": [
+                918.75,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[1]",
+            "placement": [
+                919.26,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[2]",
+            "placement": [
+                911.1,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[3]",
+            "placement": [
+                912.12,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[4]",
+            "placement": [
+                908.55,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[5]",
+            "placement": [
+                909.57,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[6]",
+            "placement": [
+                930.99,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[7]",
+            "placement": [
+                929.97,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[8]",
+            "placement": [
+                900.9,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_ADDR[9]",
+            "placement": [
+                906,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[0]",
+            "placement": [
+                985.1,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[1]",
+            "placement": [
+                973.86,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[2]",
+            "placement": [
+                962.62,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[3]",
+            "placement": [
+                951.38,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[4]",
+            "placement": [
+                878.78,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[5]",
+            "placement": [
+                867.54,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[6]",
+            "placement": [
+                856.3,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_hi.g_banks:1.g_cols:1.u_macro.g_1024x8.u_mem/A_DIN[7]",
+            "placement": [
+                845.06,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_CLK",
+            "placement": [
+                619.03,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_WEN",
+            "placement": [
+                615.97,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_REN",
+            "placement": [
+                615.46,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[0]",
+            "placement": [
+                616.99,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[1]",
+            "placement": [
+                617.5,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[2]",
+            "placement": [
+                609.34,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[3]",
+            "placement": [
+                610.36,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[4]",
+            "placement": [
+                606.79,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[5]",
+            "placement": [
+                607.81,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[6]",
+            "placement": [
+                629.23,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[7]",
+            "placement": [
+                628.21,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[8]",
+            "placement": [
+                599.14,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_ADDR[9]",
+            "placement": [
+                604.24,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[0]",
+            "placement": [
+                818.22,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[1]",
+            "placement": [
+                806.98,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[2]",
+            "placement": [
+                795.74,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[3]",
+            "placement": [
+                784.5,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[4]",
+            "placement": [
+                773.26,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[5]",
+            "placement": [
+                762.02,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[6]",
+            "placement": [
+                750.78,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[7]",
+            "placement": [
+                739.54,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[8]",
+            "placement": [
+                728.3,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[9]",
+            "placement": [
+                717.06,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[10]",
+            "placement": [
+                705.82,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[11]",
+            "placement": [
+                694.58,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[12]",
+            "placement": [
+                683.34,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[13]",
+            "placement": [
+                672.1,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[14]",
+            "placement": [
+                660.86,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[15]",
+            "placement": [
+                649.62,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[16]",
+            "placement": [
+                577.02,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[17]",
+            "placement": [
+                565.78,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[18]",
+            "placement": [
+                554.54,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[19]",
+            "placement": [
+                543.3,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[20]",
+            "placement": [
+                532.06,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[21]",
+            "placement": [
+                520.82,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[22]",
+            "placement": [
+                509.58,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[23]",
+            "placement": [
+                498.34,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[24]",
+            "placement": [
+                487.1,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[25]",
+            "placement": [
+                475.86,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[26]",
+            "placement": [
+                464.62,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[27]",
+            "placement": [
+                453.38,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[28]",
+            "placement": [
+                442.14,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[29]",
+            "placement": [
+                430.9,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[30]",
+            "placement": [
+                419.66,
+                753.46
+            ]
+        },
+        {
+            "target": "i_core.accel_unit.im.u_mem.g_1024.u_lo.g_banks:1.g_cols:1.u_macro.g_1024x32.u_mem/A_DIN[31]",
+            "placement": [
+                408.42,
+                753.46
+            ]
+        }
+    ],
+    "GRT_DESIGN_REPAIR_RUN_GRT": true,
+    "GRT_DESIGN_REPAIR_MAX_WIRE_LENGTH": 150,
+    "GRT_DESIGN_REPAIR_MAX_SLEW_PCT": 20,
+    "GRT_DESIGN_REPAIR_MAX_CAP_PCT": 20,
+    "DIODE_ON_PORTS": "none",
+    "HEURISTIC_ANTENNA_THRESHOLD": 90,
+    "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.5,
+    "GRT_RESIZER_SETUP_SLACK_MARGIN": 0.025,
+    "GRT_RESIZER_HOLD_MAX_BUFFER_PCT": 50,
+    "GRT_RESIZER_SETUP_MAX_BUFFER_PCT": 50,
+    "GRT_RESIZER_ALLOW_SETUP_VIOS": false,
+    "GRT_RESIZER_SETUP_GATE_CLONING": true,
+    "GRT_RESIZER_RUN_GRT": true,
+    "GRT_RESIZER_SETUP_BUFFERING": true,
+    "GRT_RESIZER_SETUP_BUFFER_REMOVAL": true,
+    "GRT_RESIZER_SETUP_REPAIR_TNS_PCT": null,
+    "GRT_RESIZER_SETUP_MAX_UTIL_PCT": null,
+    "GRT_RESIZER_HOLD_REPAIR_TNS_PCT": null,
+    "GRT_RESIZER_HOLD_MAX_UTIL_PCT": null,
+    "GRT_RESIZER_FIX_HOLD_FIRST": false,
+    "INSERT_ECO_BUFFERS": [
+        {
+            "target": "_23641_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23642_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23643_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23644_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23645_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23646_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23647_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23648_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23649_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23650_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23651_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23652_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23653_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23654_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23655_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23656_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23657_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23658_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23659_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23660_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23661_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23662_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23663_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23665_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23666_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23667_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23668_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23669_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23670_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23672_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        },
+        {
+            "target": "_23673_/D",
+            "buffer": "sg13cmos5l_dlygate4sd3_1",
+            "placement": null
+        }
+    ],
+    "DRT_THREADS": null,
+    "DRT_OPT_ITERS": 64,
+    "DRT_SAVE_SNAPSHOTS": false,
+    "DRT_ANTENNA_REPAIR_ITERS": 5,
+    "DRT_ANTENNA_REPAIR_MARGIN": 30,
+    "DRT_ANTENNA_REPAIR_JUMPER_ONLY": false,
+    "DRT_ANTENNA_REPAIR_DIODE_ONLY": false,
+    "DRT_SAVE_DRC_REPORT_ITERS": null,
+    "NON_DEFAULT_RULES": null,
+    "DRT_ASSIGN_NDR": null,
+    "ERROR_ON_TR_DRC": true,
+    "IGNORE_DISCONNECTED_MODULES": [
+        "bondpad_70x70"
+    ],
+    "ERROR_ON_DISCONNECTED_PINS": true,
+    "ERROR_ON_LONG_WIRE": true,
+    "WIRE_LENGTH_THRESHOLD": null,
+    "RCX_MERGE_VIA_WIRE_RES": true,
+    "RCX_SDC_FILE": null,
+    "RCX_RULESETS": {
+        "nom_*": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/librelane/IHP_rcx_patterns.rules"
+    },
+    "VSRC_LOC_FILES": null,
+    "KLAYOUT_TECH": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/sg13cmos5l.lyt",
+    "KLAYOUT_PROPERTIES": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/sg13cmos5l.lyp",
+    "KLAYOUT_DEF_LAYER_MAP": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/sg13cmos5l.map",
+    "KLAYOUT_CONFLICT_RESOLUTION": "SkipNewCell",
+    "KLAYOUT_RENDER_GRID_VISBLE": false,
+    "KLAYOUT_RENDER_SHOW_RULER": false,
+    "KLAYOUT_RENDER_BACKGROUND_COLOR": "white",
+    "KLAYOUT_RENDER_TEXT_VISIBLE": false,
+    "KLAYOUT_RENDER_RESOLUTION": 1000,
+    "KLAYOUT_RENDER_OVERSAMPLING": 0,
+    "KLAYOUT_ANTENNA_RUNSET": "/scratch.local/fi08deni/eda/hdc/asic/drc/antenna_cmos5l_pr990.drc",
+    "KLAYOUT_ANTENNA_DEFINES": {
+        "drc_json_default": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/rule_decks/sg13cmos5l_tech_default.json",
+        "drc_json": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json"
+    },
+    "ERROR_ON_KLAYOUT_ANTENNA": true,
+    "KLAYOUT_SEALRING_SCRIPT": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/scripts/sealring.py",
+    "KLAYOUT_FILLER_SCRIPT": "/scratch.local/fi08deni/eda/hdc/asic/drc/filler/filler_deep.py",
+    "KLAYOUT_FILLER_DEFINES": null,
+    "KLAYOUT_DENSITY_RUNSET": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/rule_decks/density.drc",
+    "KLAYOUT_DENSITY_DEFINES": {},
+    "KLAYOUT_DENSITY_THREADS": null,
+    "ERROR_ON_KLAYOUT_DENSITY": true,
+    "KLAYOUT_DRC_RUNSET": "/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/ihp-sg13cmos5l.drc",
+    "KLAYOUT_DRC_DEFINES": {
+        "no_recommended": "true",
+        "run_mode": "deep"
+    },
+    "KLAYOUT_DRC_THREADS": null,
+    "ERROR_ON_KLAYOUT_DRC": true,
+    "KLAYOUT_LVS_SCRIPT": "/scratch.local/fi08deni/eda/hdc/asic/lvs/sg13cmos5l_chip.lvs",
+    "KLAYOUT_LVS_OPTIONS": {
+        "run_mode": "deep"
+    },
+    "ERROR_ON_LVS_ERROR": true,
+    "TIMING_VIOLATION_CORNERS": [
+        "*typ*"
+    ],
+    "SETUP_VIOLATION_CORNERS": null,
+    "HOLD_VIOLATION_CORNERS": [
+        "*"
+    ],
+    "MAX_SLEW_VIOLATION_CORNERS": [
+        ""
+    ],
+    "MAX_CAP_VIOLATION_CORNERS": [
+        ""
+    ],
+    "meta": {
+        "version": 3,
+        "flow": "Chip",
+        "substituting_steps": {
+            "Verilator.Lint": null,
+            "Checker.LintTimingConstructs": null,
+            "Checker.LintErrors": null,
+            "Checker.LintWarnings": null,
+            "Yosys.JsonHeader": null,
+            "Yosys.Synthesis": "Yosys.VHDLSynthesis",
+            "Odb.SetPowerConnections": null,
+            "Odb.WriteVerilogHeader": null,
+            "Yosys.EQY": null,
+            "Magic.DRC": null,
+            "Checker.MagicDRC": null,
+            "Magic.SpiceExtraction": null,
+            "Checker.IllegalOverlap": null,
+            "+OpenROAD.IRDropReport": "OpenROAD.WriteCDL",
+            "Netgen.LVS": "KLayout.LVS",
+            "Magic.StreamOut": null,
+            "KLayout.XOR": null,
+            "Checker.XOR": null,
+            "+OpenROAD.CheckAntennas": "Odb.InsertECODiodes",
+            "+OpenROAD.ResizerTimingPostGRT": "Odb.InsertECOBuffers"
+        },
+        "step": null,
+        "librelane_version": "3.0.16"
+    }
+}

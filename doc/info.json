@@ -1,0 +1,28 @@
+{
+  "name": "TPU5555",
+  "design_type": "D",
+  "technology": "IHP",
+  "unique_id": "5555",
+  "license": "Apache-2.0",
+  "trl": 4,
+  "sealring_x": 2.4,
+  "sealring_y": 2.0,
+  "repository": "https://github.com/FlinkbaumFAU/IHP__TPU5555.git",
+  "pdk_version": "IHP-Open-PDK 3f66c9137d520b3b5a3e39a2364afd6f9e2d7fee (2026-10-07)",
+  "process": "SG13CMOS5L",
+  "dependencies": {},
+  "tools": {
+    "LibreLane": "3.0.16 (Chip flow, VHDLClassic substitutions)",
+    "GHDL / ghdl-yosys-plugin": "bundled with LibreLane 3.0.16",
+    "Yosys": "bundled with LibreLane 3.0.16",
+    "OpenROAD": "bundled with LibreLane 3.0.16",
+    "KLayout": "bundled with LibreLane 3.0.16 (DRC, LVS, antenna, density, seal ring, fill)"
+  },
+  "top_cell_name": "TPU5555",
+  "release": {
+    "version": "v.1.0.0",
+    "gds": "release/v.1.0.0/gds/TPU5555.gds",
+    "netlist": "release/v.1.0.0/netlist/TPU5555.cdl",
+    "doc": "release/v.1.0.0/doc"
+  }
+}
