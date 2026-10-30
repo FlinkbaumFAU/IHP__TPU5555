@@ -1,0 +1,30 @@
+TPU5555
+Copyright 2026 The TPU5555 authors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This repository contains files derived from third-party projects. All of them are
+also licensed under the Apache License, Version 2.0, and keep their original notices
+where the source file had one.
+
+IHP Open PDK (https://github.com/IHP-GmbH/IHP-Open-PDK), commit 3f66c9137d520b3b5a3e39a2364afd6f9e2d7fee
+Copyright IHP GmbH and the IHP Open PDK authors
+  - release/v.1.0.0/gds/TPU5555.gds: contains PDK standard cells, IO cells, SRAM macros,
+    the sealring PCell and fill cells
+  - release/v.1.0.0/netlist/sram.cdl, sg13cmos5l_io.cdl: merged / reduced PDK CDLs
+  - TPU5555-main/Flow/scripts/LibreLane/cdl/: same as above, plus merge_sram_cdl.py
+  - TPU5555-main/Flow/scripts/LibreLane/lef/sg13cmos5l_tech_ant195.lef: PDK tech LEF with
+    a lowered antenna ratio
+  - TPU5555-main/Flow/scripts/LibreLane/drc/antenna_cmos5l_pr990.drc: PDK antenna deck with
+    IHP-Open-PDK PR #990 ported to SG13CMOS5L
+  - TPU5555-main/Flow/scripts/LibreLane/drc/filler/: PDK fill script and macros, run in deep mode
+  - TPU5555-main/Flow/scripts/LibreLane/lvs/sg13cmos5l_chip.lvs: PDK LVS deck with the
+    hard-IP comparison hook (lvs/hard_ip.rb)
+  - TPU5555-main/Flow/scripts/LibreLane/ip/bondpad_70x70/: generated with the PDK bondpad.py
+
+LibreLane (https://github.com/librelane/librelane)
+Copyright LibreLane Contributors (adapted from OpenLane)
+  - TPU5555-main/Flow/scripts/LibreLane/pdn_cfg.tcl
+
+IHP SG13 LibreLane template (https://github.com/IHP-GmbH/ihp-sg13-librelane-template)
+  - Structure of TPU5555-main/Flow/scripts/LibreLane/config.yaml

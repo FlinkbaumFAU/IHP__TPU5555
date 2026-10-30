@@ -10,4 +10,4 @@ category **Digital / TPU** (ML accelerator).
 - `TPU5555-main/`: RTL, constraints, LibreLane flow, implementation views, verification reports
 - `measurements/v.1.0.0/`: empty until silicon is available
 
-License: Apache-2.0
+License: Apache-2.0 (see `LICENSE`; third-party notices in `NOTICE`)

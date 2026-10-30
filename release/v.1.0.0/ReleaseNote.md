@@ -10,16 +10,29 @@ First tape-out release (2026-10-26).
 | `netlist/TPU5555.cdl` | LVS netlist of the top cell (OpenROAD `write_cdl`) |
 | `netlist/sram.cdl`, `netlist/sg13cmos5l_io.cdl`, `netlist/bondpad_70x70.cdl` | Sub-circuits referenced by `TPU5555.cdl` (SRAM macros, IO cells without `IOPadInOut30mA`, bondpad) |
 | `netlist/TPU5555.v` | Powered gate-level Verilog netlist |
-| `doc/` | Datasheet, specification, layout render, signoff metrics |
+| `doc/` | Datasheet, specification, signoff report (`Signoff.md`), layout render, flow-run metrics |
 
 ## Signoff
 
-The data comes from LibreLane run `full-test-v7` (2026-10-16), using IHP-Open-PDK `3f66c91`, process SG13CMOS5L.
-It reports KLayout DRC 0, antenna 0, density 0, LVS clean, and setup/hold met in all corners.
+Every physical check was re-run on the final `gds/TPU5555.gds` and `netlist/TPU5555.cdl` themselves, using KLayout 0.30.7 and IHP-Open-PDK `3f66c91` on 2026-10-30:
 
-After signoff, the top cell was renamed from `hdc_chip_top` to `TPU5555` and the file was re-saved with the
-required KLayout options. KLayout `LayoutDiff` against the signed-off GDS reports the two as identical apart
-from the name. The file has 0 zero-area polygons on the layers checked by IHP's `zero.py`.
+- DRC: 0 markers
+- DRC with `precheck_drc=true`: 0 markers
+- Density: 0 markers
+- Antenna: 0 markers
+- LVS: netlists match, with the IO cells and SRAM macros compared as black boxes
+
+Timing comes from LibreLane run `full-test-v7`: setup and hold are met in all corners.
+
+`doc/Signoff.md` has the file hashes, the LVS scope and waivers, the max-fanout waiver, and the provenance of the release GDS.
+
+## Changes after the review in issue #76 (2026-10-30)
+
+- `gds/TPU5555.gds`: the sealring area label now reads "4.8 sq mm" instead of the PDK PCell's "4.8e-06 sq mm". Geometry is unchanged.
+- `doc/info.json`: `sealring_x/y` are now given in µm (2400.0 / 2000.0).
+- The repository now has a `LICENSE` (Apache-2.0) and a `NOTICE`.
+- The precheck DRC was actually run. The earlier documentation claimed precheck coverage that the flow run did not have.
+- The reproducible release scripts (`TPU5555-main/Flow/scripts/release/`) and the result databases (`TPU5555-main/verification/`) were added.
 
 ## Known limitations
 

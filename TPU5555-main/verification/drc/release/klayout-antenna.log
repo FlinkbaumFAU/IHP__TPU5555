@@ -1,0 +1,105 @@
+2026-10-30 12:51:32 +0100: Memory Usage (422028K) : Starting running IHP-SG13CMOS5L Klayout DRC antenna runset on /scratch.local/fi08deni/eda/tpu5555_signoff/in/TPU5555.gds
+2026-10-30 12:51:32 +0100: Memory Usage (422028K) : Ruby Version for klayout: 3.3.10
+2026-10-30 12:51:32 +0100: Memory Usage (470952K) : Loading database to memory is complete.
+2026-10-30 12:51:32 +0100: Memory Usage (470952K) : IHP-SG13CMOS5L Klayout DRC antenna runset output at: /scratch.local/fi08deni/eda/tpu5555_signoff/antenna/antenna.klayout.lyrdb
+2026-10-30 12:51:32 +0100: Memory Usage (470952K) : Evaluate switches.
+2026-10-30 12:51:32 +0100: Memory Usage (471016K) : KLayout will use 96 thread(s) in tiling mode.
+2026-10-30 12:51:32 +0100: Memory Usage (471016K) : deep mode is enabled for antenna table.
+2026-10-30 12:51:32 +0100: Memory Usage (471016K) : Read in polygons from layers.
+2026-10-30 12:51:33 +0100: Memory Usage (486216K) : activ_drw has 2275664 polygons
+2026-10-30 12:51:33 +0100: Memory Usage (486216K) : gatpoly_drw has 1867863 polygons
+2026-10-30 12:51:33 +0100: Memory Usage (498748K) : cont_drw has 12478292 polygons
+2026-10-30 12:51:33 +0100: Memory Usage (498780K) : nsd_block has 0 polygons
+2026-10-30 12:51:34 +0100: Memory Usage (498780K) : metal1_drw has 3714166 polygons
+2026-10-30 12:51:34 +0100: Memory Usage (504564K) : metal2_drw has 1628867 polygons
+2026-10-30 12:51:34 +0100: Memory Usage (504824K) : psd_drw has 536604 polygons
+2026-10-30 12:51:35 +0100: Memory Usage (504824K) : digisub_drw has 147047 polygons
+2026-10-30 12:51:35 +0100: Memory Usage (504824K) : via1_drw has 1314806 polygons
+2026-10-30 12:51:35 +0100: Memory Usage (504824K) : via2_drw has 698164 polygons
+2026-10-30 12:51:35 +0100: Memory Usage (504824K) : metal3_drw has 658979 polygons
+2026-10-30 12:51:36 +0100: Memory Usage (504824K) : nwell_drw has 385131 polygons
+2026-10-30 12:51:36 +0100: Memory Usage (504824K) : nbulay_drw has 0 polygons
+2026-10-30 12:51:36 +0100: Memory Usage (504824K) : pwell_block has 0 polygons
+2026-10-30 12:51:36 +0100: Memory Usage (504824K) : via3_drw has 533825 polygons
+2026-10-30 12:51:36 +0100: Memory Usage (504824K) : metal4_drw has 61174 polygons
+2026-10-30 12:51:37 +0100: Memory Usage (504824K) : topvia1_drw has 202779 polygons
+2026-10-30 12:51:37 +0100: Memory Usage (504824K) : topmetal1_drw has 4730 polygons
+2026-10-30 12:51:37 +0100: Memory Usage (504824K) : recog_diode has 523 polygons
+2026-10-30 12:51:37 +0100: Memory Usage (504824K) : recog_esd has 0 polygons
+2026-10-30 12:51:37 +0100: Memory Usage (505016K) : text_drw has 1355375 polygons
+2026-10-30 12:51:37 +0100: Memory Usage (505016K) : Total no. of polygons in the design is 27863989
+2026-10-30 12:51:37 +0100: Memory Usage (505028K) : Loaded TECH DRC rules values from /scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json
+2026-10-30 12:51:37 +0100: Memory Usage (505028K) : Loaded default DRC rules values from /scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/rule_decks/sg13cmos5l_tech_default.json
+2026-10-30 12:51:38 +0100: Memory Usage (500112K) : Total area of the design is 4800000.0 um^2.
+2026-10-30 12:51:38 +0100: Memory Usage (500112K) : The design dimensions are 2400.0 um * 2000.0 um.
+2026-10-30 12:51:38 +0100: Memory Usage (500112K) : Starting general IHP-SG13CMOS5L derivations.
+2026-10-30 12:52:00 +0100: Memory Usage (969716K) : Starting IHP-SG13CMOS5L DRC rules.
+2026-10-30 12:52:00 +0100: Memory Usage (969716K) : Starting 7.1 Antenna Rules table
+2026-10-30 12:52:00 +0100: Memory Usage (969716K) : Executing rule Ant.a
+2026-10-30 12:52:12 +0100: Memory Usage (1111904K) : Executing rule Ant.c
+2026-10-30 12:52:12 +0100: Memory Usage (1111904K) : Starting cumulative antenna ratio calculations
+2026-10-30 12:52:12 +0100: Memory Usage (1111904K) : Evaluating metal1_drw ratio
+2026-10-30 12:52:42 +0100: Memory Usage (1235372K) : Evaluating via1_drw ratio
+2026-10-30 12:53:11 +0100: Memory Usage (1248660K) : Evaluating metal2_drw ratio
+2026-10-30 12:53:46 +0100: Memory Usage (1346092K) : Evaluating via2_drw ratio
+2026-10-30 12:54:25 +0100: Memory Usage (1368608K) : Evaluating metal3_drw ratio
+2026-10-30 12:55:10 +0100: Memory Usage (1398652K) : Evaluating via3_drw ratio
+2026-10-30 12:55:54 +0100: Memory Usage (1422004K) : Evaluating metal4_drw ratio
+2026-10-30 12:56:41 +0100: Memory Usage (1438884K) : Evaluating topvia1_drw ratio
+2026-10-30 12:57:31 +0100: Memory Usage (1464876K) : Evaluating topmetal1_drw ratio
+2026-10-30 12:58:28 +0100: Memory Usage (1498612K) : Creating base layer with all individual ratios and diode flag
+2026-10-30 12:59:08 +0100: Memory Usage (2341896K) : Executing rules Ant.b and Ant.e
+2026-10-30 12:59:08 +0100: Memory Usage (2341896K) : Executing Ant.b_Metal1
+2026-10-30 12:59:10 +0100: Memory Usage (2250428K) : Executing Ant.e_Metal1
+2026-10-30 12:59:10 +0100: Memory Usage (2250428K) : Evaluating cumulative ratio after Metal2
+2026-10-30 12:59:14 +0100: Memory Usage (2258280K) : Executing Ant.b_Metal2
+2026-10-30 12:59:16 +0100: Memory Usage (2258280K) : Executing Ant.e_Metal2
+2026-10-30 12:59:16 +0100: Memory Usage (2258280K) : Evaluating cumulative ratio after Metal3
+2026-10-30 12:59:19 +0100: Memory Usage (2258368K) : Executing Ant.b_Metal3
+2026-10-30 12:59:20 +0100: Memory Usage (2258368K) : Executing Ant.e_Metal3
+2026-10-30 12:59:21 +0100: Memory Usage (2258368K) : Evaluating cumulative ratio after Metal4
+2026-10-30 12:59:24 +0100: Memory Usage (2258368K) : Executing Ant.b_Metal4
+2026-10-30 12:59:25 +0100: Memory Usage (2258368K) : Executing Ant.e_Metal4
+2026-10-30 12:59:26 +0100: Memory Usage (2258368K) : Evaluating cumulative ratio after TopMetal1
+2026-10-30 12:59:30 +0100: Memory Usage (2258368K) : Executing Ant.b_TopMetal1
+2026-10-30 12:59:31 +0100: Memory Usage (2258368K) : Executing Ant.e_TopMetal1
+2026-10-30 12:59:32 +0100: Memory Usage (2258368K) : Executing rules Ant.d and Ant.f
+2026-10-30 12:59:32 +0100: Memory Usage (2258368K) : Evaluating cumulative ratio after Via1
+2026-10-30 12:59:36 +0100: Memory Usage (2258368K) : Executing Ant.d_Via1
+2026-10-30 12:59:37 +0100: Memory Usage (2258368K) : Executing Ant.f_Via1
+2026-10-30 12:59:38 +0100: Memory Usage (2258368K) : Evaluating cumulative ratio after Via2
+2026-10-30 12:59:41 +0100: Memory Usage (2258368K) : Executing Ant.d_Via2
+2026-10-30 12:59:43 +0100: Memory Usage (2258368K) : Executing Ant.f_Via2
+2026-10-30 12:59:43 +0100: Memory Usage (2258368K) : Evaluating cumulative ratio after Via3
+2026-10-30 12:59:47 +0100: Memory Usage (2346696K) : Executing Ant.d_Via3
+2026-10-30 12:59:48 +0100: Memory Usage (2346744K) : Executing Ant.f_Via3
+2026-10-30 12:59:49 +0100: Memory Usage (2346744K) : Evaluating cumulative ratio after TopVia1
+2026-10-30 12:59:52 +0100: Memory Usage (2473596K) : Executing Ant.d_TopVia1
+2026-10-30 12:59:53 +0100: Memory Usage (2476100K) : Executing Ant.f_TopVia1
+2026-10-30 12:59:55 +0100: Memory Usage (2476100K) : Executing rule Ant.g
+2026-10-30 13:00:02 +0100: Memory Usage (2476544K) : Executing rule Ant.h
+2026-10-30 13:00:04 +0100: Memory Usage (2510620K) : Executing rule Ant.i
+	Command being timed: "/nix/store/c8mymw0gckkiw7lqwnm2l6mqnd99xmzy-klayout-0.30.7/bin/klayout -b -zz -r /scratch.local/fi08deni/eda/hdc/asic/drc/antenna_cmos5l_pr990.drc -rd input=/scratch.local/fi08deni/eda/tpu5555_signoff/in/TPU5555.gds -rd topcell=TPU5555 -rd report=/scratch.local/fi08deni/eda/tpu5555_signoff/antenna/antenna.klayout.lyrdb -rd drc_json_default=/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/tech/drc/rule_decks/sg13cmos5l_tech_default.json -rd drc_json=/scratch/IHP-Open-PDK/ihp-sg13cmos5l/libs.tech/klayout/python/sg13cmos5l_pycell_lib/sg13cmos5l_tech_mod.json"
+	User time (seconds): 529.67
+	System time (seconds): 29.86
+	Percent of CPU this job got: 106%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 8:43.49
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 2550520
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 328
+	Minor (reclaiming a frame) page faults: 3354059
+	Voluntary context switches: 1257701
+	Involuntary context switches: 710
+	Swaps: 0
+	File system inputs: 9152
+	File system outputs: 208
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
+exit 0

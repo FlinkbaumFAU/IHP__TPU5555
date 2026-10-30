@@ -34,8 +34,7 @@ pads ─ spi_slave ─ hdc_spi_loader ─ hdc_cmd_loader ─ Accelerator
 | GDS, netlists (CDL, Verilog), DEF, LIB, SDF, SPEF | `TPU5555` |
 
 The RTL top name was kept so the LibreLane flow under `TPU5555-main/Flow/` runs unchanged.
-The layout and netlists were renamed to `TPU5555` after signoff. The rename touched only
-the cell name: KLayout `LayoutDiff` shows the geometry is identical to the signed-off GDS.
+The layout and netlists were renamed to `TPU5555` after the flow run. `make_release.py` renames the top cell and corrects the sealring area label. KLayout `LayoutDiff` shows those are the only changes, and all physical checks were re-run on the result (see `release/v.1.0.0/doc/Signoff.md`).
 
 ## Clocks and timing
 
@@ -46,7 +45,8 @@ the cell name: KLayout `LayoutDiff` shows the geometry is identical to the signe
 
 Worst slacks after routing: setup +2.30 ns (slow, 1.08 V / 125 °C), hold +0.18 ns
 (fast, 1.32 V / −40 °C). There are 0 slew and 0 cap violations. The 216 max-fanout
-reports are CTS leaf clusters.
+entries are all CTS clock buffers, each driving 10–16 flip-flops against a limit of 8.
+They are waived in `release/v.1.0.0/doc/Signoff.md`.
 
 ## Physical implementation
 
@@ -56,16 +56,19 @@ reports are CTS leaf clusters.
 - 207 ECO antenna diodes sit on SRAM inputs.
 - The seal ring was added by the LibreLane `KLayout.SealRing` step and fill by `KLayout.Filler`.
 
-## Signoff (LibreLane run `full-test-v7`, 2026-10-16)
+## Signoff
+
+The physical checks were re-run on the final release files (`TPU5555.gds` / `TPU5555.cdl`) with KLayout 0.30.7 and the IHP-Open-PDK `3f66c91` decks. The full report is in `release/v.1.0.0/doc/Signoff.md`, covering scope, waivers, hashes and provenance.
 
 | Check | Result |
 | --- | --- |
-| KLayout DRC (PDK deck, including precheck rules) | 0 violations |
-| KLayout antenna (PR #990 deck) | 0 violations |
-| KLayout density | 0 violations |
-| KLayout LVS (PDK deck; IO and SRAM compared as black boxes) | clean |
-| OpenROAD DRT | 0 violations |
-| Setup / hold (all corners) | met |
-| Power grid | 0 violations |
+| KLayout DRC (PDK deck, `no_recommended`) | 0 markers |
+| KLayout DRC with `precheck_drc=true` | 0 markers |
+| KLayout antenna (PR #990 deck) | 0 markers |
+| KLayout density | 0 markers |
+| KLayout LVS (PDK deck; IO cells and SRAM macros compared as black boxes, see Signoff.md) | netlists match |
+| OpenROAD DRT (flow run) | 0 violations |
+| Setup / hold (all corners, flow run) | met; the 216 max-fanout entries are CTS clock buffers (waiver in Signoff.md) |
+| Power grid (flow run) | 0 violations |
 
-The logs are in `TPU5555-main/verification/`.
+Logs and result databases are in `TPU5555-main/verification/*/release/` (final files) and `*/full-test-v7/` (original flow run).
