@@ -46,3 +46,24 @@ DONE
 50/2: same xor_polys=0 texts 0/0
 50/25: same xor_polys=0 texts 104/104
 RESULT RM_IHPSG13_1P_1024x32_c2_bm_bist: GEOMETRICALLY IDENTICAL
+
+## Why compare_hard_ip.py reports RM_IHPSG13_1P_1024x32_c2_bm_bist as DIFFERENT
+
+The per-cell check is strict about the hierarchy, meaning cell names and instances, not just geometry.
+The four PDK SRAM GDS files all define bitcell sub-cells with the same names (e.g.
+RM_IHPSG13_1P_BITKIT_CELL_SUB, RM_IHPSG13_1P_BITKIT_EDGE_LR). In the 1024x32 file these use a
+GatPoly via cell named M1_GatPoly_CDNS_7558030484048. In the other three files they use
+VIA_M1_GatPoly_db_0x0283451d instead. A layout can hold only one cell per name, so the chip keeps a
+single version of each shared sub-cell: the one the 1024x16, 1024x8 and 256x48 files share. Child
+cells of RM_IHPSG13_1P_BITKIT_CELL_SUB (shared_sram_cells.py, same tools and PDK):
+
+  release GDS                       : VIA_M1_Activ_db_0x02835b9b, VIA_M1_GatPoly_db_0x0283451d
+  PDK RM_IHPSG13_1P_1024x32_c2_bm_bist : M1_GatPoly_CDNS_7558030484048, VIA_M1_Activ_db_0x02835b9b
+  PDK RM_IHPSG13_1P_1024x16_c2_bm_bist : VIA_M1_Activ_db_0x02835b9b, VIA_M1_GatPoly_db_0x0283451d
+  PDK RM_IHPSG13_1P_1024x8_c2_bm_bist  : VIA_M1_Activ_db_0x02835b9b, VIA_M1_GatPoly_db_0x0283451d
+  PDK RM_IHPSG13_1P_256x48_c2_bm_bist  : VIA_M1_Activ_db_0x02835b9b, VIA_M1_GatPoly_db_0x0283451d
+
+The two via cells draw the same shapes. compare_macro_flat.py proves this for the whole macro:
+it XORs all layers of the 1024x32 macro as placed in the release GDS against the PDK GDS and finds
+0 differing polygons and identical texts on every layer (result above: GEOMETRICALLY IDENTICAL).
+The mask data of the macro is therefore exactly the PDK's. Only the internal cell naming differs.
