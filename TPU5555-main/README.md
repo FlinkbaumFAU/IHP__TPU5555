@@ -14,6 +14,7 @@ renamed to `TPU5555` after signoff.
 | `synthesis/netlist/` | Yosys netlist |
 | `PlaceAndRoute/` | GDS, DEF, powered netlist, LIB/SDF per corner, SPEF |
 | `testbenches/` | GHDL equivalence testbench: behavioral memories vs. SRAM-macro mapping of `Accelerator` |
+| `testbenches/gls/` | Post-layout simulation of the routed netlist through SPI against the RTL (Verilator); see its README |
 | `verification/` | KLayout DRC/antenna/density/LVS logs, STA summary, signoff metrics |
 
 Never compile `rtl/*Memory*.vhdl` and `rtl/asic/*Memory*.vhdl` into one library: the entity names are the same.

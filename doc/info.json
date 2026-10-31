@@ -4,7 +4,7 @@
   "technology": "IHP",
   "unique_id": "5555",
   "license": "Apache-2.0",
-  "trl": 4,
+  "trl": 5,
   "sealring_x": 2400.0,
   "sealring_y": 2000.0,
   "repository": "https://github.com/FlinkbaumFAU/IHP__TPU5555.git",

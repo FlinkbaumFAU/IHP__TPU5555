@@ -1,0 +1,15 @@
+gate seed 1: full trace IDENTICAL to RTL
+gate seed 1: all predictions identical
+4347 training, 1088 test samples, 1039/1088 correct
+4084.45 s wall
+gate seed 2: full trace IDENTICAL to RTL
+gate seed 2: all predictions identical
+4347 training, 1088 test samples, 1039/1088 correct
+4038.36 s wall
+gate seed 3: full trace IDENTICAL to RTL
+gate seed 3: all predictions identical
+4347 training, 1088 test samples, 1039/1088 correct
+3814.55 s wall
+RTL:
+4347 training, 1088 test samples, 1039/1088 correct
+105.35 s wall

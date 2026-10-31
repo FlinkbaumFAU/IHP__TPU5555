@@ -1,0 +1,128 @@
+cmd M nargs 1 -> ack 4b at 15076000
+cmd L nargs 1 -> ack 4b at 24485000
+cmd X nargs 0 -> ack 4b at 31566000
+result byte 5a at 164359000
+load I row 0 -> ack 4b at 474080000
+load I row 1 -> ack 4b at 783801000
+load I row 2 -> ack 4b at 1093522000
+load I row 3 -> ack 4b at 1403243000
+load I row 4 -> ack 4b at 1712964000
+load I row 5 -> ack 4b at 2022685000
+load I row 6 -> ack 4b at 2332406000
+load I row 7 -> ack 4b at 2642127000
+load I row 8 -> ack 4b at 2951848000
+load I row 9 -> ack 4b at 3261569000
+load I row 10 -> ack 4b at 3571290000
+load I row 11 -> ack 4b at 3881011000
+load I row 12 -> ack 4b at 4190732000
+load I row 13 -> ack 4b at 4500453000
+load I row 14 -> ack 4b at 4810174000
+load I row 15 -> ack 4b at 5119895000
+load I row 16 -> ack 4b at 5429616000
+load I row 17 -> ack 4b at 5739337000
+load I row 18 -> ack 4b at 6049058000
+load I row 19 -> ack 4b at 6358779000
+load I row 20 -> ack 4b at 6668500000
+load I row 21 -> ack 4b at 6978221000
+load I row 22 -> ack 4b at 7287942000
+load I row 23 -> ack 4b at 7597663000
+load I row 24 -> ack 4b at 7907384000
+load I row 25 -> ack 4b at 8217105000
+load I row 26 -> ack 4b at 8526826000
+load I row 27 -> ack 4b at 8836547000
+load I row 28 -> ack 4b at 9146268000
+load I row 29 -> ack 4b at 9455989000
+load I row 30 -> ack 4b at 9765710000
+load I row 31 -> ack 4b at 10075431000
+load C row 0 -> ack 4b at 10385152000
+load C row 1 -> ack 4b at 10694873000
+load C row 2 -> ack 4b at 11004594000
+load C row 3 -> ack 4b at 11314315000
+load C row 4 -> ack 4b at 11624036000
+load C row 5 -> ack 4b at 11933757000
+load C row 6 -> ack 4b at 12243478000
+load C row 7 -> ack 4b at 12553199000
+load C row 8 -> ack 4b at 12862920000
+load C row 9 -> ack 4b at 13172641000
+load C row 10 -> ack 4b at 13482362000
+load C row 11 -> ack 4b at 13792083000
+load C row 12 -> ack 4b at 14101804000
+load C row 13 -> ack 4b at 14411525000
+load C row 14 -> ack 4b at 14721246000
+load C row 15 -> ack 4b at 15030967000
+load C row 16 -> ack 4b at 15340688000
+load C row 17 -> ack 4b at 15650409000
+load C row 18 -> ack 4b at 15960130000
+load C row 19 -> ack 4b at 16269851000
+load C row 20 -> ack 4b at 16579572000
+load C row 21 -> ack 4b at 16889293000
+load C row 22 -> ack 4b at 17199014000
+load C row 23 -> ack 4b at 17508735000
+load C row 24 -> ack 4b at 17818456000
+load C row 25 -> ack 4b at 18128177000
+load C row 26 -> ack 4b at 18437898000
+load C row 27 -> ack 4b at 18747619000
+load C row 28 -> ack 4b at 19057340000
+load C row 29 -> ack 4b at 19367061000
+load C row 30 -> ack 4b at 19676782000
+load C row 31 -> ack 4b at 19986503000
+load C row 32 -> ack 4b at 20296224000
+load C row 33 -> ack 4b at 20605945000
+load C row 34 -> ack 4b at 20915666000
+load C row 35 -> ack 4b at 21225387000
+load C row 36 -> ack 4b at 21535108000
+load C row 37 -> ack 4b at 21844829000
+load C row 38 -> ack 4b at 22154550000
+load C row 39 -> ack 4b at 22464271000
+cmd M nargs 1 -> ack 4b at 22473680000
+cmd L nargs 1 -> ack 4b at 22483089000
+features -> ack 4b at 22788154000
+result byte 00 at 22941899000
+cmd L nargs 1 -> ack 4b at 22951308000
+cmd X nargs 0 -> ack 4b at 22958389000
+result byte 5a at 23091182000
+cmd L nargs 1 -> ack 4b at 23100591000
+features -> ack 4b at 23405656000
+result byte 00 at 23559401000
+cmd L nargs 1 -> ack 4b at 23568810000
+cmd X nargs 0 -> ack 4b at 23575891000
+result byte 5a at 23708684000
+cmd L nargs 1 -> ack 4b at 23718093000
+features -> ack 4b at 24023158000
+result byte 00 at 24176903000
+cmd L nargs 1 -> ack 4b at 24186312000
+cmd X nargs 0 -> ack 4b at 24193393000
+result byte 5a at 24326186000
+cmd L nargs 1 -> ack 4b at 24335595000
+features -> ack 4b at 24640660000
+result byte 00 at 24794405000
+cmd L nargs 1 -> ack 4b at 24803814000
+cmd X nargs 0 -> ack 4b at 24810895000
+result byte 5a at 24943688000
+cmd L nargs 1 -> ack 4b at 24953097000
+features -> ack 4b at 25258162000
+result byte 00 at 25411907000
+cmd L nargs 1 -> ack 4b at 25421316000
+cmd X nargs 0 -> ack 4b at 25428397000
+result byte 5a at 25561190000
+cmd M nargs 1 -> ack 4b at 25570599000
+features -> ack 4b at 25875664000
+result byte 00 at 25945601000
+test sample 0: label 0, predicted 0
+features -> ack 4b at 26250666000
+result byte 01 at 26320603000
+test sample 1: label 1, predicted 1
+features -> ack 4b at 26625668000
+result byte 04 at 26695605000
+test sample 2: label 2, predicted 4
+features -> ack 4b at 27000670000
+result byte 03 at 27070607000
+test sample 3: label 3, predicted 3
+features -> ack 4b at 27375672000
+result byte 04 at 27445609000
+test sample 4: label 4, predicted 4
+5 training, 5 test samples, 4/5 correct
+- tb_hdc_word40_gate.v:308: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.044 2026-01-01
+- Verilator: $finish at 27ms; walltime 1.340 s; speed 20.513 ms/s
+- Verilator: cpu 1.338 s on 1 threads; alloced 18 MB

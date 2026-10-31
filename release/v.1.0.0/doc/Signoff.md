@@ -94,7 +94,16 @@ The release netlists are the flow's `write_cdl` and powered Verilog outputs. The
 
 The seal ring is the PDK `sealring` PCell, instantiated at (0, 0) in `TPU5555`. Its bbox is (0, 0)–(2400, 2000) µm, giving an area of 4.8 mm². `doc/info.json` records `sealring_x` = 2400.0 and `sealring_y` = 2000.0 in µm.
 
+## Post-layout simulation
+
+The routed netlist `TPU5555` was simulated through its SPI pads with the IHP cell, IO and SRAM models. The simulation is zero-delay (Verilator); timing is covered by the STA above. It ran the full classifier flow: all 4347 training and 1088 test samples of the supplied EMG data set.
+
+- For three different random power-up states of all flops and SRAMs, the SPI protocol trace (every command, acknowledgement and result byte, with timestamps) and all 1088 predictions are identical to the RTL reference.
+- Accuracy is 1039/1088 (95.5 %) in every run.
+
+Testbench, model fixes and results: `TPU5555-main/testbenches/gls/` (README.md).
+
 ## Not covered
 
-- No post-synthesis or post-layout gate-level simulation. The supplied testbench (`TPU5555-main/testbenches/`) checks the behavioral memory models against the SRAM-macro mapping of the `Accelerator`, not the full chip interface. The TRL is therefore declared as 4.
+- No timing-annotated (SDF) simulation; timing is verified by STA only.
 - No silicon measurements yet.

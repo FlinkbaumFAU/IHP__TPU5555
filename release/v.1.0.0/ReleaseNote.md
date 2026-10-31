@@ -24,6 +24,8 @@ Every physical check was re-run on the final `gds/TPU5555.gds` and `netlist/TPU5
 
 Timing comes from LibreLane run `full-test-v7`: setup and hold are met in all corners.
 
+Post-layout simulation of the routed netlist through SPI (zero delay, full EMG data set, three random power-up states): the protocol trace and all 1088 test predictions are identical to the RTL, with 1039/1088 correct. See `TPU5555-main/testbenches/gls/README.md`.
+
 `doc/Signoff.md` has the file hashes, the LVS scope and waivers, the max-fanout waiver, and the provenance of the release GDS.
 
 ## Changes after the review in issue #76 (2026-10-30)

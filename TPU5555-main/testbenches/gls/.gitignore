@@ -1,0 +1,5 @@
+build/
+runs/
+build_gate.log
+# EMG recordings: not published, see README.md
+data/TestData/

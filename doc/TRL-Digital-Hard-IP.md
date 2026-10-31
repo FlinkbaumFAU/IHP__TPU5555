@@ -10,24 +10,30 @@
 - [x] Have the potential applications of the IP been identified and described?
 - [x] Are the IP requirements and specifications described (I/O description, Target technology, does it include a standard interface...)?
 - [x] Has the RTL design been completed (Doesn't need to be synthesized)?
-- [ ] Has a complete behavioral simulation been performed?
+- [x] Has a complete behavioral simulation been performed?
+  RTL of the full core through the SPI interface, all 4347 training and 1088 test samples: 1039/1088 correct (`TPU5555-main/testbenches/gls/`).
 - [x] Is a RTL model provided (doesn't need to be synthesizable)?
-- [ ] Are the behavioral testbenches provided?
+- [x] Are the behavioral testbenches provided?
+  `TPU5555-main/testbenches/gls/` (`./build.sh rtl`), plus `TPU5555-main/testbenches/` (memory equivalence).
 
 ## TRL4 - Component prototype
 
 - [x] Has the design been synthesized?
-- [ ] Has a complete post-synthesis simulation been performed?
+- [x] Has a complete post-synthesis simulation been performed?
+  Done on the routed netlist, which contains the synthesized logic (see TRL5).
 - [x] Is a post-synthesis model provided with all required files?
-- [ ] Are the post-synthesis testbenches provided?
+- [x] Are the post-synthesis testbenches provided?
+  `TPU5555-main/testbenches/gls/` (`./build.sh gate`).
 - [x] Are the preliminary Power, Performance and Area (PPA) results provided?
 
 ## TRL5 - Subsystem designed and tested
 
 - [x] Is the Place and Route stage performed successfully?
 - [ ] Are all the required files to instantiate the IP provided (LEF, netlist, .gds, liberty file .lib…)?
+  Netlist, GDS, LIB and SDF are provided. No LEF, because TPU5555 is a complete padded chip, not a block to instantiate.
 - [x] Are all the library dependencies stated?
-- [ ] Are the post-place&Route simulations performed and the testbenches provided?
+- [x] Are the post-place&Route simulations performed and the testbenches provided?
+  Zero-delay simulation of the routed netlist with the PDK cell and SRAM models, full data set, three random power-up states: SPI trace and all 1088 predictions identical to RTL (`TPU5555-main/testbenches/gls/`, README.md).
 - [x] Are there clear instructions to use and integrate the hard IP?
 
 ## TRL6 - Functional (Alpha) prototype
