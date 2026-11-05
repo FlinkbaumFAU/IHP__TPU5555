@@ -21,13 +21,13 @@ mixed-signal) and the open points are in `../../mdll/mixed_signal_design_blocks/
 
 ## Known limitations at tape-out
 
-- **Lock range at the slow corner.** The PEX sweep fails at ss (mos_ss, 1.08 V, 125 °C) for
-  134–150 MHz. The ring is already too slow at the start code (0x18): the TDC hands over at
-  once, and the missed-injection restart fires before the bang-bang loop has walked the code
-  down, so acquisition restarts every 9–12 cycles. tt and ff lock up to 150 MHz (ff at 139 and
-  150 MHz: PASS, swing about 70 ps pp). The ss limit lies between the last runs that handed
-  over (118–123 MHz) and 134 MHz. The runs still going will narrow it down. At 100 MHz
-  every corner locks.
+- **Lock range at the slow corner.** Finished PEX runs at ss (mos_ss, 1.08 V, 125 °C):
+  PASS at 100 and 112.7 MHz, FAIL from 123.3 to 150 MHz. The ring is already too slow at
+  the start code (0x18): the TDC reads `hit` and hands over at START, and the missed-injection
+  restart fires before the bang-bang loop has walked the code down far enough, so acquisition
+  keeps restarting (`locked` rises 3–13 times). tt and
+  ff pass at 100 MHz and from 123.3 to 150 MHz. The remaining runs (70–118 MHz, and 100 MHz
+  with the full supply network) were still going at release time.
 - **Chip fill inside the MDLL outline.** The chip's KLayout filler placed metal fill
   (16–35 % on Metal1–TopMetal1) and Activ/GatPoly fill inside the macro's area. The Calibre
   extraction above is of the macro without that fill, so on the chip the ring nodes see

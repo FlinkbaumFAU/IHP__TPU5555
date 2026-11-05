@@ -20,9 +20,9 @@
   },
   "top_cell_name": "TPU5555",
   "release": {
-    "version": "v.1.0.0",
-    "gds": "release/v.1.0.0/gds/TPU5555.gds",
-    "netlist": "release/v.1.0.0/netlist/TPU5555.cdl",
-    "doc": "release/v.1.0.0/doc"
+    "version": "v.2.0.0",
+    "gds": "release/v.2.0.0/gds/TPU5555.gds",
+    "netlist": "release/v.2.0.0/netlist/TPU5555.cdl",
+    "doc": "release/v.2.0.0/doc"
   }
 }

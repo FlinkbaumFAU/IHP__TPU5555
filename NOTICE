@@ -9,9 +9,9 @@ where the source file had one.
 
 IHP Open PDK (https://github.com/IHP-GmbH/IHP-Open-PDK), commit 3f66c9137d520b3b5a3e39a2364afd6f9e2d7fee
 Copyright IHP GmbH and the IHP Open PDK authors
-  - release/v.1.0.0/gds/TPU5555.gds: contains PDK standard cells, IO cells, SRAM macros,
-    the sealring PCell and fill cells
-  - release/v.1.0.0/netlist/sram.cdl, sg13cmos5l_io.cdl: merged / reduced PDK CDLs
+  - release/v.1.0.0/gds/TPU5555.gds, release/v.2.0.0/gds/TPU5555.gds: contain PDK standard
+    cells, IO cells, SRAM macros, the sealring PCell and fill cells
+  - release/v.*/netlist/sram.cdl, sg13cmos5l_io.cdl: merged / reduced PDK CDLs
   - TPU5555-main/Flow/scripts/LibreLane/cdl/: same as above, plus merge_sram_cdl.py
   - TPU5555-main/Flow/scripts/LibreLane/lef/sg13cmos5l_tech_ant195.lef: PDK tech LEF with
     a lowered antenna ratio

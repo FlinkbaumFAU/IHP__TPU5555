@@ -1,14 +1,14 @@
 # PEX (Calibre xRC of the MDLL, CMOS5L_2026-11-04_14-28-46, = ip/mdll) closed-loop runs on cae02, state at the v.2.0.0 commit
 # 100 MHz: rc* (full supply), rc_ideal* (ideal supply); sweep/f<MHz>_<corner>: ideal supply, 120 reference cycles.
-# 'finished' lines: check_mdll.py grade; 'running' lines: analyse_mdll.py of the 300 ns snapshot (acquisition only).
-Thu Nov  5 14:33:13 CET 2026
-done: 6/54
+# 'finished' lines: check_mdll.py grade and analyse_mdll.py lock offset (div - clk_ref, last 30 cycles); 'running' lines: the 300 ns snapshot (acquisition only).
+Thu Nov  5 18:00:21 CET 2026
+done: 22/54
 rc | running, no snapshot yet
 rc_ss | running, no snapshot yet
 rc_ff | running, no snapshot yet
-rc_ideal | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x3e/ 0x4d/ 
-rc_ideal_ss | running, 300 ns snapshot | locked at ref cycle: [7] | codes: 0x18/ 
-rc_ideal_ff | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x6d/109 0x89/137 
+rc_ideal | finished | PASS | handover at cycle 33; bang-bang alone from 0x80 ~42 cycles + dither;final 6-bit code band 21..22 over 46 cycles; | lock offset: mean +276.2  sd 62.6  min +168.5  max +362.0
+rc_ideal_ss | finished | PASS | handover at cycle 8; bang-bang alone from 0x80 ~96 cycles + dither;final 6-bit code band 8..8 over 71 cycles; | lock offset: mean +447.3  sd 37.1  min +410.2  max +484.4
+rc_ideal_ff | finished | PASS | handover at cycle 32; bang-bang alone from 0x80 ~22 cycles + dither;final 6-bit code band 37..38 over 47 cycles; | lock offset: mean +201.1  sd 19.1  min +181.9  max +220.2
 sweep/f070.0_fast | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0xae/174 
 sweep/f070.0_slow | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x35/ 
 sweep/f070.0_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x68/104 
@@ -34,26 +34,26 @@ sweep/f107.3_fast | running, 300 ns snapshot | locked at ref cycle: [31] | codes
 sweep/f107.3_slow | running, 300 ns snapshot | locked at ref cycle: [7] | codes: 0x18/ 
 sweep/f107.3_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x36/ 0x43/ 
 sweep/f112.7_fast | running, 300 ns snapshot | locked at ref cycle: [28] | codes: 0x18/ 0x5e/ 0x76/118 0x7a/122 
-sweep/f112.7_slow | running, 300 ns snapshot | locked at ref cycle: [] | codes: 
+sweep/f112.7_slow | finished | PASS | handover at cycle 34; bang-bang alone from 0x80 ~108 cycles + dither;final 6-bit code band 5..5 over 45 cycles; | lock offset: mean +454.2  sd 20.3  min +433.8  max +474.5
 sweep/f112.7_typ | running, 300 ns snapshot | locked at ref cycle: [22] | codes: 0x18/ 0x33/ 0x3f/ 
 sweep/f118.0_fast | running, 300 ns snapshot | locked at ref cycle: [30] | codes: 0x18/ 0x57/ 0x6e/110 0x73/115 
 sweep/f118.0_slow | running, 300 ns snapshot | locked at ref cycle: [29] | codes: 0x18/ 
 sweep/f118.0_typ | running, 300 ns snapshot | locked at ref cycle: [26] | codes: 0x18/ 0x2f/ 0x38/ 
-sweep/f123.3_fast | running, 300 ns snapshot | locked at ref cycle: [32] | codes: 0x18/ 0x53/ 0x65/101 0x6b/107 
-sweep/f123.3_slow | running, 300 ns snapshot | locked at ref cycle: [33] | codes: 0x18/ 
-sweep/f123.3_typ | running, 300 ns snapshot | locked at ref cycle: [31] | codes: 0x18/ 0x2a/ 0x33/ 
-sweep/f128.7_fast | running, 300 ns snapshot | locked at ref cycle: [35] | codes: 0x18/ 0x4c/ 0x5e/ 0x64/100 
-sweep/f128.7_slow | running, 300 ns snapshot | locked at ref cycle: [11, 23, 35] | codes: 0x18/ 0x18/ 0x18/ 
-sweep/f128.7_typ | running, 300 ns snapshot | locked at ref cycle: [27] | codes: 0x18/ 0x28/ 0x2f/ 
-sweep/f134.0_fast | running, 300 ns snapshot | locked at ref cycle: [32] | codes: 0x18/ 0x49/ 0x5a/ 0x5e/ 
-sweep/f134.0_slow | finished | FAIL: locked rose 13x and fell 12x (want 1, 0) | handover at cycle 11; bang-bang alone from 0x80 ~104 cycles + dither;final 6-bit code band 6..6 over 69 cycles;FAIL: loa
-sweep/f134.0_typ | running, 300 ns snapshot | locked at ref cycle: [26] | codes: 0x18/ 0x25/ 0x2b/ 
-sweep/f139.3_fast | finished | PASS | handover at cycle 30; bang-bang alone from 0x80 ~32 cycles + dither;final 6-bit code band 24..24 over 49 cycles;
-sweep/f139.3_slow | finished | FAIL: locked rose 10x and fell 9x (want 1, 0) | handover at cycle 10; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 69 cycles;FAIL: loa
-sweep/f139.3_typ | running, 300 ns snapshot | locked at ref cycle: [32] | codes: 0x18/ 0x21/ 0x27/ 
-sweep/f144.7_fast | running, 300 ns snapshot | locked at ref cycle: [34] | codes: 0x18/ 0x40/ 0x4f/ 0x54/ 
-sweep/f144.7_slow | finished | FAIL: locked rose 13x and fell 12x (want 1, 0) | handover at cycle 9; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 70 cycles;FAIL: load
-sweep/f144.7_typ | running, 300 ns snapshot | locked at ref cycle: [29] | codes: 0x18/ 0x1f/ 0x23/ 
-sweep/f150.0_fast | finished | PASS | handover at cycle 32; bang-bang alone from 0x80 ~44 cycles + dither;final 6-bit code band 21..21 over 47 cycles;
-sweep/f150.0_slow | finished | FAIL: locked rose 13x and fell 12x (want 1, 0) | handover at cycle 9; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 70 cycles;FAIL: load
-sweep/f150.0_typ | running, 300 ns snapshot | locked at ref cycle: [17] | codes: 0x18/ 0x1d/ 
+sweep/f123.3_fast | finished | PASS | handover at cycle 33; bang-bang alone from 0x80 ~16 cycles + dither;final 6-bit code band 28..28 over 47 cycles; | lock offset: mean +172.1  sd 29.4  min +142.7  max +201.5
+sweep/f123.3_slow | finished | FAIL | handover at cycle 34; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 46 cycles;FAIL: locked rose 3x and fell | lock offset: mean +1373.3  sd 2855.7  min -3917.8  max +4270.1
+sweep/f123.3_typ | finished | PASS | handover at cycle 32; bang-bang alone from 0x80 ~68 cycles + dither;final 6-bit code band 15..15 over 48 cycles; | lock offset: mean +279.1  sd 38.4  min +225.7  max +334.2
+sweep/f128.7_fast | finished | PASS | handover at cycle 36; bang-bang alone from 0x80 ~22 cycles + dither;final 6-bit code band 26..27 over 44 cycles; | lock offset: mean +194.4  sd 32.9  min +151.7  max +242.4
+sweep/f128.7_slow | finished | FAIL | handover at cycle 12; bang-bang alone from 0x80 ~104 cycles + dither;final 6-bit code band 6..6 over 68 cycles;FAIL: locked rose 9x and fell | lock offset: mean -203.5  sd 3097.9  min -4150.2  max +3701.6
+sweep/f128.7_typ | finished | PASS | handover at cycle 28; bang-bang alone from 0x80 ~74 cycles + dither;final 6-bit code band 13..14 over 52 cycles; | lock offset: mean +301.1  sd 62.0  min +196.6  max +378.0
+sweep/f134.0_fast | finished | PASS | handover at cycle 33; bang-bang alone from 0x80 ~28 cycles + dither;final 6-bit code band 25..25 over 47 cycles; | lock offset: mean +201.9  sd 25.3  min +176.7  max +227.2
+sweep/f134.0_slow | finished | FAIL | handover at cycle 11; bang-bang alone from 0x80 ~104 cycles + dither;final 6-bit code band 6..6 over 69 cycles;FAIL: locked rose 13x and fel | lock offset: mean -391.1  sd 3049.8  min -4063.4  max +3524.3
+sweep/f134.0_typ | finished | PASS | handover at cycle 27; bang-bang alone from 0x80 ~78 cycles + dither;final 6-bit code band 12..13 over 53 cycles; | lock offset: mean +321.7  sd 72.0  min +214.8  max +423.0
+sweep/f139.3_fast | finished | PASS | handover at cycle 30; bang-bang alone from 0x80 ~32 cycles + dither;final 6-bit code band 24..24 over 49 cycles; | lock offset: mean +204.9  sd 25.7  min +178.0  max +248.7
+sweep/f139.3_slow | finished | FAIL | handover at cycle 10; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 69 cycles;FAIL: locked rose 10x and fel | lock offset: mean +323.6  sd 2919.7  min -3378.7  max +3952.5
+sweep/f139.3_typ | finished | PASS | handover at cycle 33; bang-bang alone from 0x80 ~82 cycles + dither;final 6-bit code band 11..12 over 46 cycles; | lock offset: mean +305.4  sd 53.8  min +255.1  max +396.2
+sweep/f144.7_fast | finished | PASS | handover at cycle 35; bang-bang alone from 0x80 ~40 cycles + dither;final 6-bit code band 22..22 over 44 cycles; | lock offset: mean +195.8  sd 26.9  min +155.8  max +230.5
+sweep/f144.7_slow | finished | FAIL | handover at cycle 9; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 70 cycles;FAIL: locked rose 13x and fell | lock offset: mean -1265.6  sd 2939.0  min -4242.9  max +2812.4
+sweep/f144.7_typ | finished | PASS | handover at cycle 30; bang-bang alone from 0x80 ~86 cycles + dither;final 6-bit code band 10..11 over 49 cycles; | lock offset: mean +323.3  sd 68.4  min +237.2  max +405.6
+sweep/f150.0_fast | finished | PASS | handover at cycle 32; bang-bang alone from 0x80 ~44 cycles + dither;final 6-bit code band 21..21 over 47 cycles; | lock offset: mean +177.6  sd 23.5  min +154.1  max +201.0
+sweep/f150.0_slow | finished | FAIL | handover at cycle 9; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 70 cycles;FAIL: locked rose 13x and fell | lock offset: mean -791.7  sd 2795.1  min -3764.5  max +3026.9
+sweep/f150.0_typ | finished | PASS | handover at cycle 18; bang-bang alone from 0x80 ~90 cycles + dither;final 6-bit code band 9..10 over 61 cycles; | lock offset: mean +296.4  sd 57.5  min +215.4  max +368.2
