@@ -1,0 +1,64 @@
+# KLayout per-layer XOR (flattened top cell) of the CMOS5L MDLL builds: laptop (PDK 6ac9bb9d) vs cae02 (PDK 3f66c91), both from a6808fa with the same tool store paths. Script: gds_xor.py (below)
+== clk_gen: laptop CMOS5L_2026-11-03_12-46-43 vs cae02 CMOS5L_2026-11-04_14-19-50
+cells: 38 / 38; only in a: []; only in b: []
+top instances: 2815 / 2815; masters with different counts: []
+RESULT clk_gen: 0 of 17 layers differ
+== tdc: laptop CMOS5L_2026-11-04_14-28-02 vs cae02 CMOS5L_2026-11-04_14-19-49
+cells: 32 / 32; only in a: []; only in b: []
+top instances: 1630 / 1630; masters with different counts: []
+RESULT tdc: 0 of 17 layers differ
+== bbpd: laptop CMOS5L_2026-11-03_13-44-16 vs cae02 CMOS5L_2026-11-04_14-19-52
+cells: 30 / 30; only in a: []; only in b: []
+top instances: 1573 / 1573; masters with different counts: []
+RESULT bbpd: 0 of 17 layers differ
+== lock_ctrl: laptop CMOS5L_2026-11-03_12-46-43 vs cae02 CMOS5L_2026-11-04_14-19-49
+cells: 37 / 37; only in a: []; only in b: []
+top instances: 4332 / 4332; masters with different counts: []
+RESULT lock_ctrl: 0 of 17 layers differ
+== mdll: laptop CMOS5L_2026-11-04_14-28-46 vs cae02 CMOS5L_2026-11-04_14-21-44
+cells: 66 / 66; only in a: []; only in b: []
+top instances: 1484 / 1484; masters with different counts: []
+RESULT mdll: 0 of 23 layers differ
+
+## gds_xor.py
+# klayout -b -r gds_xor.py -rd a=<gds> -rd b=<gds> -rd top=<cell>
+# Per-layer XOR of the flattened top cells, plus cell-list and instance
+# comparison. Prints one summary line per differing layer.
+import pya
+
+def load(p):
+    ly = pya.Layout()
+    ly.read(p)
+    return ly
+
+A, B = load(a), load(b)
+ta, tb = A.cell(top), B.cell(top)
+ca = {c.name for c in A.each_cell()}
+cb = {c.name for c in B.each_cell()}
+print(f"cells: {len(ca)} / {len(cb)}; only in a: {sorted(ca - cb)[:8]}; only in b: {sorted(cb - ca)[:8]}")
+
+def insts(ly, c):
+    r = {}
+    for i in c.each_inst():
+        r[i.cell.name] = r.get(i.cell.name, 0) + i.size()
+    return r
+ia, ib = insts(A, ta), insts(B, tb)
+print(f"top instances: {sum(ia.values())} / {sum(ib.values())}; masters with different counts: "
+      f"{sorted(k for k in set(ia) | set(ib) if ia.get(k) != ib.get(k))[:8]}")
+
+layers = {}
+for ly, key in ((A, 'a'), (B, 'b')):
+    for li in ly.layer_indexes():
+        info = ly.get_info(li)
+        layers.setdefault((info.layer, info.datatype), {})[key] = li
+ndiff = 0
+for (l, d), idx in sorted(layers.items()):
+    ra = pya.Region(ta.begin_shapes_rec(idx['a'])) if 'a' in idx else pya.Region()
+    rb = pya.Region(tb.begin_shapes_rec(idx['b'])) if 'b' in idx else pya.Region()
+    x = ra ^ rb
+    if not x.is_empty():
+        ndiff += 1
+        bb = x.bbox()
+        print(f"  layer {l}/{d}: {x.count()} XOR polygons, area {x.area() / 1e6:.3f} um2, "
+              f"bbox ({bb.left/1000:.2f},{bb.bottom/1000:.2f})-({bb.right/1000:.2f},{bb.top/1000:.2f})")
+print(f"RESULT {top}: {ndiff} of {len(layers)} layers differ")

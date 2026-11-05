@@ -1,0 +1,10 @@
+2026-11-04_14:19:48 start a6808fa PDK 3f66c913
+2026-11-04_14:20:41 tdc harden_cmos5l exit 0
+2026-11-04_14:20:46 bbpd harden_cmos5l exit 0
+2026-11-04_14:21:41 lock_ctrl harden_cmos5l exit 0
+2026-11-04_14:21:43 clk_gen harden_cmos5l exit 0
+2026-11-04_14:22:58 top harden_cmos5l exit 0
+2026-11-04_14:22:59 match_report_cmos5l exit 0 worst |clk_ref_g - div| = 8.6 ps; gate 20 ps: PASS
+2026-11-04_14:23:00 ip_cmos5l exit 0
+2026-11-04_14:23:57 full DRC exit 0 pnr/runs/CMOS5L_2026-11-04_14-21-44
+2026-11-04_14:23:57 done

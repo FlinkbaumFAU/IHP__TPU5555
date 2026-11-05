@@ -1,0 +1,113 @@
+# Hard-IP cells of release/v.2.0.0/gds/TPU5555.gds (sha256 17299d3e874d...) vs IHP-Open-PDK 3f66c91, and the MDLL macro vs its packaged GDS; KLayout 0.30.7, cae02, 2026-11-05
+## compare_hard_ip.py (per cell, per layer, texts and instances, whole sub-hierarchy)
+IDENTICAL RM_IHPSG13_1P_1024x16_c2_bm_bist (144 cells checked) []
+DIFFERENT RM_IHPSG13_1P_1024x32_c2_bm_bist (141 cells checked) ['cell M1_GatPoly_CDNS_7558030484048 missing', 'RM_IHPSG13_1P_BITKIT_CELL_SUB: instances differ', 'cell viagen34_CDNS_7558030484049 missing', 'RM_IHPSG13_1P_BITKIT_EDGE_LR: instances differ', 'cell viagen23_CDNS_7558030484038 missing', 'cell M3_M2_CDNS_7558030484037 missing']
+IDENTICAL RM_IHPSG13_1P_1024x8_c2_bm_bist (144 cells checked) []
+IDENTICAL RM_IHPSG13_1P_256x48_c2_bm_bist (138 cells checked) []
+IDENTICAL sg13cmos5l_Corner (1 cells checked) []
+IDENTICAL sg13cmos5l_Filler1000 (1 cells checked) []
+IDENTICAL sg13cmos5l_Filler10000 (1 cells checked) []
+IDENTICAL sg13cmos5l_Filler200 (1 cells checked) []
+IDENTICAL sg13cmos5l_Filler2000 (1 cells checked) []
+IDENTICAL sg13cmos5l_Filler400 (1 cells checked) []
+IDENTICAL sg13cmos5l_Filler4000 (1 cells checked) []
+IDENTICAL sg13cmos5l_IOPadIOVdd (4 cells checked) []
+IDENTICAL sg13cmos5l_IOPadIOVss (3 cells checked) []
+IDENTICAL sg13cmos5l_IOPadIn (7 cells checked) []
+IDENTICAL sg13cmos5l_IOPadOut16mA (7 cells checked) []
+IDENTICAL sg13cmos5l_IOPadOut30mA (7 cells checked) []
+IDENTICAL sg13cmos5l_IOPadOut4mA (7 cells checked) []
+IDENTICAL sg13cmos5l_IOPadVdd (4 cells checked) []
+IDENTICAL sg13cmos5l_IOPadVss (3 cells checked) []
+DONE
+
+## compare_macro_flat.py RM_IHPSG13_1P_1024x32_c2_bm_bist (hierarchical XOR of all layers incl. text-only layers)
+8/0: same xor_polys=0 texts 0/0
+6/0: same xor_polys=0 texts 0/0
+5/0: same xor_polys=0 texts 0/0
+1/0: same xor_polys=0 texts 0/0
+31/0: same xor_polys=0 texts 0/0
+19/0: same xor_polys=0 texts 0/0
+10/0: same xor_polys=0 texts 0/0
+14/0: same xor_polys=0 texts 0/0
+63/0: same xor_polys=0 texts 399156/399156
+30/0: same xor_polys=0 texts 0/0
+30/2: same xor_polys=0 texts 4352/4352
+30/29: same xor_polys=0 texts 0/0
+10/2: same xor_polys=0 texts 256/256
+10/29: same xor_polys=0 texts 0/0
+29/0: same xor_polys=0 texts 0/0
+16/0: same xor_polys=0 texts 0/0
+10/25: same xor_polys=0 texts 238488/238488
+30/25: same xor_polys=0 texts 102510/102510
+25/0: same xor_polys=0 texts 0/0
+49/0: same xor_polys=0 texts 0/0
+50/0: same xor_polys=0 texts 0/0
+8/2: same xor_polys=0 texts 11381/11381
+8/29: same xor_polys=0 texts 0/0
+8/25: same xor_polys=0 texts 633/633
+189/4: same xor_polys=0 texts 0/0
+50/2: same xor_polys=0 texts 0/0
+50/25: same xor_polys=0 texts 104/104
+RESULT RM_IHPSG13_1P_1024x32_c2_bm_bist: GEOMETRICALLY IDENTICAL
+
+## Why compare_hard_ip.py reports RM_IHPSG13_1P_1024x32_c2_bm_bist as DIFFERENT
+
+The per-cell check is strict about the hierarchy, meaning cell names and instances, not just geometry.
+The four PDK SRAM GDS files all define bitcell sub-cells with the same names (e.g.
+RM_IHPSG13_1P_BITKIT_CELL_SUB, RM_IHPSG13_1P_BITKIT_EDGE_LR). In the 1024x32 file these use a
+GatPoly via cell named M1_GatPoly_CDNS_7558030484048. In the other three files they use
+VIA_M1_GatPoly_db_0x0283451d instead. A layout can hold only one cell per name, so the chip keeps a
+single version of each shared sub-cell: the one the 1024x16, 1024x8 and 256x48 files share. Child
+cells of RM_IHPSG13_1P_BITKIT_CELL_SUB (shared_sram_cells.py, same tools and PDK):
+
+  release GDS                       : VIA_M1_Activ_db_0x02835b9b, VIA_M1_GatPoly_db_0x0283451d
+  PDK RM_IHPSG13_1P_1024x32_c2_bm_bist : M1_GatPoly_CDNS_7558030484048, VIA_M1_Activ_db_0x02835b9b
+  PDK RM_IHPSG13_1P_1024x16_c2_bm_bist : VIA_M1_Activ_db_0x02835b9b, VIA_M1_GatPoly_db_0x0283451d
+  PDK RM_IHPSG13_1P_1024x8_c2_bm_bist  : VIA_M1_Activ_db_0x02835b9b, VIA_M1_GatPoly_db_0x0283451d
+  PDK RM_IHPSG13_1P_256x48_c2_bm_bist  : VIA_M1_Activ_db_0x02835b9b, VIA_M1_GatPoly_db_0x0283451d
+
+The two via cells draw the same shapes. compare_macro_flat.py proves this for the whole macro:
+it XORs all layers of the 1024x32 macro as placed in the release GDS against the PDK GDS and finds
+0 differing polygons and identical texts on every layer (result above: GEOMETRICALLY IDENTICAL).
+The mask data of the macro is therefore exactly the PDK's. Only the internal cell naming differs.
+
+Child cells as recorded by shared_sram_cells.py on the v.2.0.0 release GDS:
+== RM_IHPSG13_1P_BITKIT_CELL_SUB
+  release      : ['VIA_M1_Activ_db_0x02835b9b', 'VIA_M1_GatPoly_db_0x0283451d']
+  RM_IHPSG13_1P_1024x32_c2_bm_bist  : ['M1_GatPoly_CDNS_7558030484048', 'VIA_M1_Activ_db_0x02835b9b']
+  RM_IHPSG13_1P_1024x16_c2_bm_bist  : ['VIA_M1_Activ_db_0x02835b9b', 'VIA_M1_GatPoly_db_0x0283451d']
+  RM_IHPSG13_1P_1024x8_c2_bm_bist   : ['VIA_M1_Activ_db_0x02835b9b', 'VIA_M1_GatPoly_db_0x0283451d']
+  RM_IHPSG13_1P_256x48_c2_bm_bist   : ['VIA_M1_Activ_db_0x02835b9b', 'VIA_M1_GatPoly_db_0x0283451d']
+== RM_IHPSG13_1P_BITKIT_EDGE_LR
+  release      : ['VIA_M1_Activ_db_0x02835b9b', 'VIA_M1_GatPoly_db_0x0283451d']
+  RM_IHPSG13_1P_1024x32_c2_bm_bist  : ['M1_GatPoly_CDNS_7558030484048', 'VIA_M1_Activ_db_0x02835b9b']
+  RM_IHPSG13_1P_1024x16_c2_bm_bist  : ['VIA_M1_Activ_db_0x02835b9b', 'VIA_M1_GatPoly_db_0x0283451d']
+  RM_IHPSG13_1P_1024x8_c2_bm_bist   : ['VIA_M1_Activ_db_0x02835b9b', 'VIA_M1_GatPoly_db_0x0283451d']
+  RM_IHPSG13_1P_256x48_c2_bm_bist   : ['VIA_M1_Activ_db_0x02835b9b', 'VIA_M1_GatPoly_db_0x0283451d']
+
+## compare_macro_flat.py mdll: the MDLL cell of the release GDS vs Flow/scripts/LibreLane/ip/mdll/gds/mdll.gds (hierarchical XOR of all layers incl. texts)
+189/4: same xor_polys=0 texts 0/0
+8/0: same xor_polys=0 texts 0/0
+8/2: same xor_polys=0 texts 0/0
+8/25: same xor_polys=0 texts 11796/11796
+5/0: same xor_polys=0 texts 0/0
+14/0: same xor_polys=0 texts 0/0
+1/0: same xor_polys=0 texts 0/0
+31/0: same xor_polys=0 texts 0/0
+6/0: same xor_polys=0 texts 0/0
+10/0: same xor_polys=0 texts 0/0
+30/0: same xor_polys=0 texts 0/0
+29/0: same xor_polys=0 texts 0/0
+19/0: same xor_polys=0 texts 0/0
+50/0: same xor_polys=0 texts 0/0
+49/0: same xor_polys=0 texts 0/0
+10/2: same xor_polys=0 texts 0/0
+10/25: same xor_polys=0 texts 106/106
+30/2: same xor_polys=0 texts 0/0
+30/25: same xor_polys=0 texts 20/20
+99/31: same xor_polys=0 texts 0/0
+63/0: same xor_polys=0 texts 14/14
+50/2: same xor_polys=0 texts 0/0
+50/25: same xor_polys=0 texts 2/2
+RESULT mdll: GEOMETRICALLY IDENTICAL

@@ -1,0 +1,7 @@
+date: 2026-11-05T14:25:29+01:00
+host: cae02
+KLayout 0.30.7
+PDK: 3f66c9137d520b3b5a3e39a2364afd6f9e2d7fee
+decks: /scratch.local/fi08deni/eda/hdc/asic (hdc f442cc4a390fd87d105f7d0962744d075d376ffa)
+3f637a4863a6bc61ee669c9f5076f7cf06a8ae92b82399ff711227098f842b52  in/TPU5555.cdl
+17299d3e874d71e983490d9eaee8304a1fcd9fa8bcd229816d300e5ce95b27fe  in/TPU5555.gds

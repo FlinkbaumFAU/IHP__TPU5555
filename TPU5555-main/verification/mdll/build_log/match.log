@@ -1,0 +1,17 @@
+./pnr/match_report.py --cmos5l
+pnr/runs/CMOS5L_2026-11-04_14-21-44  (macros: build/sg13cmos5l/macros/RUNS.txt)
+
+typ_1p20V_25C:  gates (rise/fall)  div x11.x5+x11.x9 205/169 ps,  clk_ref_g x5+x7 207/177 ps
+                clk_ref to x5/CLK minus to x1/clk_ref: +2.4 ps
+                tdc : routes div   0.2 / clk_ref_g   1.5 ps;  clk_ref_g - div =   +6.1 ps (rising)
+                bbpd: routes div   1.4 / clk_ref_g   2.0 ps;  clk_ref_g - div =   +5.4 ps (rising)
+slow_1p08V_125C:  gates (rise/fall)  div x11.x5+x11.x9 323/266 ps,  clk_ref_g x5+x7 316/263 ps
+                clk_ref to x5/CLK minus to x1/clk_ref: +2.4 ps
+                tdc : routes div   0.2 / clk_ref_g   1.5 ps;  clk_ref_g - div =   -4.0 ps (rising)
+                bbpd: routes div   1.4 / clk_ref_g   2.0 ps;  clk_ref_g - div =   -4.7 ps (rising)
+fast_1p32V_m40C:  gates (rise/fall)  div x11.x5+x11.x9 138/113 ps,  clk_ref_g x5+x7 143/123 ps
+                clk_ref to x5/CLK minus to x1/clk_ref: +2.5 ps
+                tdc : routes div   0.2 / clk_ref_g   1.5 ps;  clk_ref_g - div =   +8.6 ps (rising)
+                bbpd: routes div   1.5 / clk_ref_g   2.1 ps;  clk_ref_g - div =   +7.9 ps (rising)
+
+worst |clk_ref_g - div| = 8.6 ps; gate 20 ps: PASS

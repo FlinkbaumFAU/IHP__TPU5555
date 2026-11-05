@@ -1,0 +1,4 @@
+clk_gen    CMOS5L_2026-11-04_14-19-50   drc_error=0 lvs_error=0 drc_errors=0 violating=0 setup=0.047 hold=0.113 setup_vio=0 hold_vio=0
+tdc        CMOS5L_2026-11-04_14-19-49   drc_error=0 lvs_error=0 drc_errors=0 violating=0 setup=0.093 hold=0.106 setup_vio=0 hold_vio=0
+bbpd       CMOS5L_2026-11-04_14-19-52   drc_error=0 lvs_error=0 drc_errors=0 violating=0 setup=0.067 hold=0.326 setup_vio=0 hold_vio=0
+lock_ctrl  CMOS5L_2026-11-04_14-19-49   drc_error=0 lvs_error=0 drc_errors=0 violating=0 setup=5.688 hold=0.137 setup_vio=0 hold_vio=0

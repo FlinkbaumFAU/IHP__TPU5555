@@ -1,0 +1,59 @@
+# PEX (Calibre xRC of the MDLL, CMOS5L_2026-11-04_14-28-46, = ip/mdll) closed-loop runs on cae02, state at the v.2.0.0 commit
+# 100 MHz: rc* (full supply), rc_ideal* (ideal supply); sweep/f<MHz>_<corner>: ideal supply, 120 reference cycles.
+# 'finished' lines: check_mdll.py grade; 'running' lines: analyse_mdll.py of the 300 ns snapshot (acquisition only).
+Thu Nov  5 14:33:13 CET 2026
+done: 6/54
+rc | running, no snapshot yet
+rc_ss | running, no snapshot yet
+rc_ff | running, no snapshot yet
+rc_ideal | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x3e/ 0x4d/ 
+rc_ideal_ss | running, 300 ns snapshot | locked at ref cycle: [7] | codes: 0x18/ 
+rc_ideal_ff | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x6d/109 0x89/137 
+sweep/f070.0_fast | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0xae/174 
+sweep/f070.0_slow | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x35/ 
+sweep/f070.0_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x68/104 
+sweep/f075.3_fast | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0xa0/160 0xc7/199 
+sweep/f075.3_slow | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x2f/ 
+sweep/f075.3_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x5e/ 
+sweep/f080.7_fast | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x90/144 0xb5/181 
+sweep/f080.7_slow | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 
+sweep/f080.7_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x55/ 
+sweep/f086.0_fast | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x85/133 0xa9/169 
+sweep/f086.0_slow | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x24/ 
+sweep/f086.0_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x4d/ 
+sweep/f091.3_fast | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x7e/126 0x9b/155 
+sweep/f091.3_slow | running, 300 ns snapshot | locked at ref cycle: [20] | codes: 0x18/ 0x20/ 
+sweep/f091.3_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x47/ 
+sweep/f096.7_fast | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x74/116 0x8f/143 
+sweep/f096.7_slow | running, 300 ns snapshot | locked at ref cycle: [7] | codes: 0x18/ 
+sweep/f096.7_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x40/ 
+sweep/f102.0_fast | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x6b/107 0x86/134 
+sweep/f102.0_slow | running, 300 ns snapshot | locked at ref cycle: [7] | codes: 0x18/ 
+sweep/f102.0_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x3c/ 0x4a/ 
+sweep/f107.3_fast | running, 300 ns snapshot | locked at ref cycle: [31] | codes: 0x18/ 0x63/ 0x7d/125 0x83/131 
+sweep/f107.3_slow | running, 300 ns snapshot | locked at ref cycle: [7] | codes: 0x18/ 
+sweep/f107.3_typ | running, 300 ns snapshot | locked at ref cycle: [] | codes: 0x18/ 0x36/ 0x43/ 
+sweep/f112.7_fast | running, 300 ns snapshot | locked at ref cycle: [28] | codes: 0x18/ 0x5e/ 0x76/118 0x7a/122 
+sweep/f112.7_slow | running, 300 ns snapshot | locked at ref cycle: [] | codes: 
+sweep/f112.7_typ | running, 300 ns snapshot | locked at ref cycle: [22] | codes: 0x18/ 0x33/ 0x3f/ 
+sweep/f118.0_fast | running, 300 ns snapshot | locked at ref cycle: [30] | codes: 0x18/ 0x57/ 0x6e/110 0x73/115 
+sweep/f118.0_slow | running, 300 ns snapshot | locked at ref cycle: [29] | codes: 0x18/ 
+sweep/f118.0_typ | running, 300 ns snapshot | locked at ref cycle: [26] | codes: 0x18/ 0x2f/ 0x38/ 
+sweep/f123.3_fast | running, 300 ns snapshot | locked at ref cycle: [32] | codes: 0x18/ 0x53/ 0x65/101 0x6b/107 
+sweep/f123.3_slow | running, 300 ns snapshot | locked at ref cycle: [33] | codes: 0x18/ 
+sweep/f123.3_typ | running, 300 ns snapshot | locked at ref cycle: [31] | codes: 0x18/ 0x2a/ 0x33/ 
+sweep/f128.7_fast | running, 300 ns snapshot | locked at ref cycle: [35] | codes: 0x18/ 0x4c/ 0x5e/ 0x64/100 
+sweep/f128.7_slow | running, 300 ns snapshot | locked at ref cycle: [11, 23, 35] | codes: 0x18/ 0x18/ 0x18/ 
+sweep/f128.7_typ | running, 300 ns snapshot | locked at ref cycle: [27] | codes: 0x18/ 0x28/ 0x2f/ 
+sweep/f134.0_fast | running, 300 ns snapshot | locked at ref cycle: [32] | codes: 0x18/ 0x49/ 0x5a/ 0x5e/ 
+sweep/f134.0_slow | finished | FAIL: locked rose 13x and fell 12x (want 1, 0) | handover at cycle 11; bang-bang alone from 0x80 ~104 cycles + dither;final 6-bit code band 6..6 over 69 cycles;FAIL: loa
+sweep/f134.0_typ | running, 300 ns snapshot | locked at ref cycle: [26] | codes: 0x18/ 0x25/ 0x2b/ 
+sweep/f139.3_fast | finished | PASS | handover at cycle 30; bang-bang alone from 0x80 ~32 cycles + dither;final 6-bit code band 24..24 over 49 cycles;
+sweep/f139.3_slow | finished | FAIL: locked rose 10x and fell 9x (want 1, 0) | handover at cycle 10; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 69 cycles;FAIL: loa
+sweep/f139.3_typ | running, 300 ns snapshot | locked at ref cycle: [32] | codes: 0x18/ 0x21/ 0x27/ 
+sweep/f144.7_fast | running, 300 ns snapshot | locked at ref cycle: [34] | codes: 0x18/ 0x40/ 0x4f/ 0x54/ 
+sweep/f144.7_slow | finished | FAIL: locked rose 13x and fell 12x (want 1, 0) | handover at cycle 9; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 70 cycles;FAIL: load
+sweep/f144.7_typ | running, 300 ns snapshot | locked at ref cycle: [29] | codes: 0x18/ 0x1f/ 0x23/ 
+sweep/f150.0_fast | finished | PASS | handover at cycle 32; bang-bang alone from 0x80 ~44 cycles + dither;final 6-bit code band 21..21 over 47 cycles;
+sweep/f150.0_slow | finished | FAIL: locked rose 13x and fell 12x (want 1, 0) | handover at cycle 9; bang-bang alone from 0x80 ~106 cycles + dither;final 6-bit code band 5..6 over 70 cycles;FAIL: load
+sweep/f150.0_typ | running, 300 ns snapshot | locked at ref cycle: [17] | codes: 0x18/ 0x1d/ 

@@ -1,0 +1,553 @@
+
+
+
+                  ##################################################
+                  ##                                              ##
+                  ##         C A L I B R E    S Y S T E M         ##
+                  ##                                              ##
+                  ##             L V S   R E P O R T              ##
+                  ##                                              ##
+                  ##################################################
+
+
+
+REPORT FILE NAME:         mdll.lvs.report
+LAYOUT NAME:              svdb/mdll.sp ('mdll')
+SOURCE NAME:              mdll.cdl ('mdll')
+RULE FILE:                _xrc.tvf_
+CREATION TIME:            Wed Nov  4 15:03:21 2026
+CURRENT DIRECTORY:        /home/rzlin/fi08deni/sg13cmos5l_mdll/CALIBRE_PEX
+USER NAME:                fi08deni
+CALIBRE VERSION:          v2025.4_18.11    Wed Oct 1 14:55:53 PDT 2025
+
+
+
+                               OVERALL COMPARISON RESULTS
+
+
+
+                         #       ###################       _   _   
+                        #        #                 #       *   *   
+                   #   #         #     CORRECT     #         |     
+                    # #          #                 #       \___/  
+                     #           ###################               
+
+
+  Warning:  Unbalanced smashed mosfets were matched.
+  Warning:  Ambiguity points were found and resolved arbitrarily.
+
+
+**************************************************************************************************************
+                                      CELL  SUMMARY
+**************************************************************************************************************
+
+  Result         Layout                        Source
+  -----------    -----------                   --------------
+  CORRECT        mdll                          mdll
+
+
+
+**************************************************************************************************************
+                                      LVS PARAMETERS
+**************************************************************************************************************
+
+
+o LVS Setup:
+
+   // LVS COMPONENT TYPE PROPERTY
+   // LVS COMPONENT SUBTYPE PROPERTY
+   // LVS PIN NAME PROPERTY
+   // LVS POWER NAME
+   LVS GROUND NAME                        "sub"
+   LVS CELL SUPPLY                        NO
+   LVS RECOGNIZE GATES                    ALL
+   // LVS HCELL REPORT
+   LVS IGNORE PORTS                       NO
+   LVS CHECK PORT NAMES                   NO
+   LVS IGNORE TRIVIAL NAMED PORTS         NO
+   LVS BUILTIN DEVICE PIN SWAP            YES
+   LVS ALL CAPACITOR PINS SWAPPABLE       NO
+   LVS DISCARD PINS BY DEVICE             NO
+   LVS SOFT SUBSTRATE PINS                NO
+   LVS INJECT LOGIC                       NO
+   LVS EXPAND UNBALANCED CELLS            YES
+   LVS FLATTEN INSIDE CELL                NO
+   LVS EXPAND SEED PROMOTIONS             NO
+   LVS PRESERVE PARAMETERIZED CELLS       NO
+   LVS GLOBALS ARE PORTS                  NO
+   LVS RELAX INITIAL CPOINTS              NONE
+   LVS REVERSE WL                         NO
+   // LVS NETLIST FILTER DEVICES          NO
+   // LVS PRESERVE BOX PORTS              NO
+   LVS SPICE PREFER PINS                  NO
+   LVS SPICE SLASH IS SPACE               YES
+   LVS SPICE ALLOW FLOATING PINS          YES
+   LVS SPICE ALLOW INLINE PARAMETERS      NO
+   LVS SPICE ALLOW UNQUOTED STRINGS       YES
+   LVS SPICE CONDITIONAL LDD              NO
+   LVS SPICE CULL PRIMITIVE SUBCIRCUITS   NO
+   // LVS SPICE EXCLUDE CELL SOURCE
+   // LVS SPICE EXCLUDE CELL LAYOUT
+   // LVS SPICE IGNORE PARAMETER
+   LVS SPICE IMPLIED MOS AREA             NO
+   // LVS SPICE MULTIPLIER NAME
+   LVS SPICE OVERRIDE GLOBALS             NO
+   LVS SPICE REDEFINE PARAM               NO
+   LVS SPICE REPLICATE DEVICES            LPI 
+   LVS SPICE SCALE X PARAMETERS           NO
+   LVS SPICE STRICT WL                    NO
+   // LVS SPICE OPTION
+   LVS STRICT SUBTYPES                    NO
+   LVS EXACT SUBTYPES                     NO
+   LAYOUT CASE                            YES
+   SOURCE CASE                            YES
+   LVS COMPARE CASE                       NAMES
+   LVS COMPARE CASE STRICT                NO
+   LVS DOWNCASE DEVICE                    NO
+   LVS REPORT MAXIMUM                     50
+   LVS PROPERTY RESOLUTION MAXIMUM        32
+   // LVS SIGNATURE MAXIMUM
+   // LVS FILTER UNUSED OPTION
+   // LVS REPORT OPTION
+   LVS REPORT UNITS                       YES
+   LVS SWAPPABLE HCELL PINS               GENERAL
+   // LVS NON USER NAME PORT
+   // LVS NON USER NAME NET
+   // LVS NON USER NAME INSTANCE
+   // LVS IGNORE DEVICE PIN
+   // LVS PREFER NETS FILTER SOURCE
+   // LVS PREFER NETS FILTER LAYOUT
+   LVS PREFER PORT NETS                   NO
+   LVS EXPAND ON ERROR                    NO
+   LVS EXPAND AMBIGUOUSLY HIGH SHORTED HCELLS NO
+   LVS AUGMENT HCELLS                     NONE
+
+   // Reduction
+
+   LVS REDUCE SERIES MOS                  NO
+   LVS REDUCE PARALLEL MOS                YES
+   LVS REDUCE SEMI SERIES MOS             NO
+   LVS REDUCE SPLIT GATES                 NO
+   LVS REDUCE PARALLEL BIPOLAR            YES
+   LVS REDUCE SERIES CAPACITORS           YES
+   LVS REDUCE PARALLEL CAPACITORS         YES
+   LVS REDUCE SERIES RESISTORS            YES
+   LVS REDUCE PARALLEL RESISTORS          YES
+   LVS REDUCE PARALLEL DIODES             YES
+
+   LVS REDUCE  Q(npn13G2)  PARALLEL
+   LVS REDUCE  Q(npn13G2l)  PARALLEL
+   LVS REDUCE  Q(npn13G2v)  PARALLEL
+   LVS REDUCE  M(sg13_lv_pmos)  PARALLEL
+   LVS REDUCE  M(sg13_hv_pmos)  PARALLEL
+   LVS REDUCE  M(rfpmos)  PARALLEL
+   LVS REDUCE  M(rfpmosHV)  PARALLEL
+   LVS REDUCE  M(sg13_lv_nmos)  PARALLEL
+   LVS REDUCE  M(sg13_hv_nmos)  PARALLEL
+   LVS REDUCE  M(rfnmos)  PARALLEL
+   LVS REDUCE  M(rfnmosHV)  PARALLEL
+   LVS REDUCE  MN(nmoselt)  PARALLEL
+   LVS REDUCE  ptap1  PARALLEL
+   LVS REDUCE  ntap1  PARALLEL
+   LVS REDUCE  D(dantenna)  PARALLEL
+   LVS REDUCE  D(dpantenna)  PARALLEL
+   LVS REDUCE  pnpMPA(pnpMPA)  PARALLEL
+   LVS REDUCE  C(cap_cmim)  PARALLEL
+   LVS REDUCE  rfcmim(rfcmim)  PARALLEL
+   LVS REDUCE  sg13_hv_svaricap  PARALLEL
+   LVS REDUCE  isolbox(isolbox)  PARALLEL NO
+   LVS REDUCE  iprobe  PARALLEL NO
+   LVS REDUCE  iprobe  SERIES PLUS MINUS NO
+   LVS REDUCE  diffstbprobe  PARALLEL NO
+   LVS REDUCE  inductor  PARALLEL NO
+   LVS REDUCE  inductor3  PARALLEL NO
+   LVS REDUCTION PRIORITY                 PARALLEL
+   
+   LVS SHORT EQUIVALENT NODES             NO
+
+   // Trace Property
+
+   TRACE PROPERTY  q(npn13g2)  le le 0.01
+   TRACE PROPERTY  q(npn13g2)  we we 0.01
+   TRACE PROPERTY  q(npn13g2)  nx nx 0
+   TRACE PROPERTY  q(npn13g2)  ny ny 0
+   TRACE PROPERTY  q(npn13g2)  m m 0
+   TRACE PROPERTY  q(npn13g2l)  le le 0.01
+   TRACE PROPERTY  q(npn13g2l)  we we 0.01
+   TRACE PROPERTY  q(npn13g2l)  nx nx 0
+   TRACE PROPERTY  q(npn13g2l)  ny ny 0
+   TRACE PROPERTY  q(npn13g2l)  m m 0
+   TRACE PROPERTY  q(npn13g2v)  le le 0.01
+   TRACE PROPERTY  q(npn13g2v)  we we 0.01
+   TRACE PROPERTY  q(npn13g2v)  nx nx 0
+   TRACE PROPERTY  q(npn13g2v)  ny ny 0
+   TRACE PROPERTY  q(npn13g2v)  m m 0
+   TRACE PROPERTY  m(sg13_lv_pmos)  l l 0.01
+   TRACE PROPERTY  m(sg13_lv_pmos)  w w 0.01
+   TRACE PROPERTY  m(sg13_hv_pmos)  l l 0.01
+   TRACE PROPERTY  m(sg13_hv_pmos)  w w 0.01
+   TRACE PROPERTY  m(rfpmos)  l l 0.01
+   TRACE PROPERTY  m(rfpmos)  w w 0.01
+   TRACE PROPERTY  m(rfpmoshv)  l l 0.01
+   TRACE PROPERTY  m(rfpmoshv)  w w 0.01
+   TRACE PROPERTY  m(sg13_lv_nmos)  l l 0.01
+   TRACE PROPERTY  m(sg13_lv_nmos)  w w 0.01
+   TRACE PROPERTY  m(sg13_hv_nmos)  l l 0.01
+   TRACE PROPERTY  m(sg13_hv_nmos)  w w 0.01
+   TRACE PROPERTY  m(rfnmos)  l l 0.01
+   TRACE PROPERTY  m(rfnmos)  w w 0.01
+   TRACE PROPERTY  m(rfnmoshv)  l l 0.01
+   TRACE PROPERTY  m(rfnmoshv)  w w 0.01
+   TRACE PROPERTY  mn(nmoselt)  l l 0.01
+   TRACE PROPERTY  mn(nmoselt)  w w 8
+   TRACE PROPERTY  ntap1  a a 10
+   TRACE PROPERTY  d(dantenna)  a a 0.01
+   TRACE PROPERTY  d(dantenna)  p p 0.01
+   TRACE PROPERTY  d(dpantenna)  a a 0.01
+   TRACE PROPERTY  d(dpantenna)  p p 0.01
+   TRACE PROPERTY  pnpmpa(pnpmpa)  w w 0.01
+   TRACE PROPERTY  pnpmpa(pnpmpa)  l l 0.01
+   TRACE PROPERTY  d(dpsd)  a a 0.01
+   TRACE PROPERTY  d(dpsd)  p p 0.01
+   TRACE PROPERTY  pdnw(pdnw)  a a 0.01
+   TRACE PROPERTY  pdnw(pdnw)  p p 0.01
+   TRACE PROPERTY  schottky_nbl1(schottky_nbl1)  l l 0.01
+   TRACE PROPERTY  schottky_nbl1(schottky_nbl1)  w w 0.01
+   TRACE PROPERTY  schottky_nbl1(schottky_nbl1)  nx nx 0
+   TRACE PROPERTY  schottky_nbl1(schottky_nbl1)  ny ny 0
+   TRACE PROPERTY  schottky_nbl1(schottky_nbl1)  m m 0
+   TRACE PROPERTY  r(res_rsil)  w w 0.01
+   TRACE PROPERTY  r(res_rsil)  l l 0.01
+   TRACE PROPERTY  r(res_rsil)  r r 30
+   TRACE PROPERTY  r(res_rppd)  w w 0.01
+   TRACE PROPERTY  r(res_rppd)  l l 0.01
+   TRACE PROPERTY  r(res_rppd)  r r 30
+   TRACE PROPERTY  r(res_rhigh)  w w 0.01
+   TRACE PROPERTY  r(res_rhigh)  l l 0.01
+   TRACE PROPERTY  r(res_rhigh)  r r 30
+   TRACE PROPERTY  r(lvsres)  length l 0.01
+   TRACE PROPERTY  r(lvsres)  width w 0.01
+   TRACE PROPERTY  c(cap_cmim)  c c 1
+   TRACE PROPERTY  rfcmim(rfcmim)  l l 1
+   TRACE PROPERTY  rfcmim(rfcmim)  w w 1
+   TRACE PROPERTY  rfcmim(rfcmim)  wfeed wfeed 1
+   TRACE PROPERTY  sg13_hv_svaricap  nx nx 0
+   TRACE PROPERTY  sg13_hv_svaricap  w w 0.01
+   TRACE PROPERTY  sg13_hv_svaricap  l l 0.01
+   TRACE PROPERTY  isolbox(isolbox)  a a 0.01
+   TRACE PROPERTY  isolbox(isolbox)  p p 0.01
+   TRACE PROPERTY  tl1  width width 1
+   TRACE PROPERTY  tl1  space space 1
+   TRACE PROPERTY  tl1  length length 1
+   TRACE PROPERTY  tl1_90deg  width width 1
+   TRACE PROPERTY  tl1_90deg  space space 1
+   TRACE PROPERTY  tl1_90deg  leg_length leg_length 1
+   TRACE PROPERTY  tl1_45deg  width width 1
+   TRACE PROPERTY  tl1_45deg  space space 1
+   TRACE PROPERTY  tl1_45deg  leg_length leg_length 1
+   TRACE PROPERTY  tl1_stub  width width 1
+   TRACE PROPERTY  tl1_stub  space space 1
+   TRACE PROPERTY  tl1_stub  leg_length leg_length 1
+   TRACE PROPERTY  tl1_t  width width 1
+   TRACE PROPERTY  tl1_t  space space 1
+   TRACE PROPERTY  tl1_t  leg_length leg_length 1
+   TRACE PROPERTY  tl1_y  width width 1
+   TRACE PROPERTY  tl1_y  space space 1
+   TRACE PROPERTY  tl1_y  leg_length leg_length 1
+   TRACE PROPERTY  tl2  width width 1
+   TRACE PROPERTY  tl2  space space 1
+   TRACE PROPERTY  tl2  space2 space2 1
+   TRACE PROPERTY  tl2  dist dist 1
+   TRACE PROPERTY  tl2  length length 1
+   TRACE PROPERTY  tl2_45deg  width width 1
+   TRACE PROPERTY  tl2_45deg  space space 1
+   TRACE PROPERTY  tl2_45deg  leg_length leg_length 1
+   TRACE PROPERTY  tl2_90deg  width width 1
+   TRACE PROPERTY  tl2_90deg  space space 1
+   TRACE PROPERTY  tl2_90deg  leg_length leg_length 1
+   TRACE PROPERTY  iprobe  width width 0.1
+   TRACE PROPERTY  iprobe  length length 0.01
+   TRACE PROPERTY  diffstbprobe  width width 0.1
+   TRACE PROPERTY  diffstbprobe  length length 0.01
+   TRACE PROPERTY  tsv(tsv)  nx nx 0
+   TRACE PROPERTY  tsv(tsv)  ny ny 0
+   TRACE PROPERTY  l2_ind_lvs(inductor)  length length 1
+   TRACE PROPERTY  l2_ind_lvs(inductor)  width width 1
+   TRACE PROPERTY  inductor  s s 2
+   TRACE PROPERTY  inductor  d d 2
+   TRACE PROPERTY  inductor  w w 2
+   TRACE PROPERTY  inductor  nr_r nr_r 0
+   TRACE PROPERTY  inductor3  s s 2
+   TRACE PROPERTY  inductor3  d d 2
+   TRACE PROPERTY  inductor3  w w 2
+   TRACE PROPERTY  inductor3  nr_r nr_r 0
+
+   TRACE PROPERTY  r(lvsres)  layer layer STRING
+   TRACE PROPERTY  tl1  linetype linetype STRING
+   TRACE PROPERTY  tl1  linemodel linemodel STRING
+   TRACE PROPERTY  tl1_90deg  linetype linetype STRING
+   TRACE PROPERTY  tl1_90deg  linemodel linemodel STRING
+   TRACE PROPERTY  tl1_45deg  linetype linetype STRING
+   TRACE PROPERTY  tl1_45deg  linemodel linemodel STRING
+   TRACE PROPERTY  tl1_stub  linetype linetype STRING
+   TRACE PROPERTY  tl1_stub  linemodel linemodel STRING
+   TRACE PROPERTY  tl1_t  linetype linetype STRING
+   TRACE PROPERTY  tl1_t  linemodel linemodel STRING
+   TRACE PROPERTY  tl1_y  linetype linetype STRING
+   TRACE PROPERTY  tl1_y  linemodel linemodel STRING
+   TRACE PROPERTY  tl2  linetype linetype STRING
+   TRACE PROPERTY  tl2  linemodel linemodel STRING
+   TRACE PROPERTY  tl2_45deg  linetype linetype STRING
+   TRACE PROPERTY  tl2_45deg  linemodel linemodel STRING
+   TRACE PROPERTY  tl2_90deg  linetype linetype STRING
+   TRACE PROPERTY  tl2_90deg  linemodel linemodel STRING
+   TRACE PROPERTY  iprobe  layer layer STRING
+   TRACE PROPERTY  diffstbprobe  layer layer STRING
+
+   // LVS SPICE RENAME PARAMETER
+   
+   LVS SPICE RENAME PARAMETER A AREA D RIGHT LEFT SOURCE COMMENT NOCOMMENT
+   LVS SPICE RENAME PARAMETER P PJ D RIGHT LEFT SOURCE COMMENT NOCOMMENT
+   
+
+
+                   CELL COMPARISON RESULTS ( TOP LEVEL )
+
+
+
+                         #       ###################       _   _   
+                        #        #                 #       *   *   
+                   #   #         #     CORRECT     #         |     
+                    # #          #                 #       \___/  
+                     #           ###################               
+
+
+  Warning:  Unbalanced smashed mosfets were matched.
+  Warning:  Ambiguity points were found and resolved arbitrarily.
+
+LAYOUT CELL NAME:         mdll
+SOURCE CELL NAME:         mdll
+
+--------------------------------------------------------------------------------------------------------------
+
+INITIAL NUMBERS OF OBJECTS
+--------------------------
+
+                Layout    Source         Component Type
+                ------    ------         --------------
+ Ports:             14        14
+
+ Nets:            4791      4791
+
+ Instances:      18243     13970    *    M (4 pins)
+                    14        14         D (2 pins)
+                ------    ------
+ Total Inst:     18257     13984
+
+
+NUMBERS OF OBJECTS AFTER TRANSFORMATION
+---------------------------------------
+
+                Layout    Source         Component Type
+                ------    ------         --------------
+ Ports:             14        14
+
+ Nets:            2787      2787
+
+ Instances:       5410      5410         M (4 pins)
+                    14        14         D (2 pins)
+                  1323      1323         SM2 (4 pins)
+                   152       152         SM3 (5 pins)
+                    14        14         SM4 (6 pins)
+                   328       328         SPM_2_1 (5 pins)
+                     3         3         SPM_2_2 (6 pins)
+                     2         2         SPM_2_2_1 (7 pins)
+                ------    ------
+ Total Inst:      7246      7246
+
+
+       * = Number of objects in layout different from number in source.
+
+
+
+**************************************************************************************************************
+                               INFORMATION AND WARNINGS
+**************************************************************************************************************
+
+
+                  Matched    Matched    Unmatched    Unmatched    Component
+                   Layout     Source       Layout       Source    Type
+                  -------    -------    ---------    ---------    ---------
+   Ports:              14         14            0            0
+
+   Nets:             2787       2787            0            0
+
+   Instances:        2437       2437            0            0    M(sg13_lv_nmos)
+                     2973       2973            0            0    M(sg13_lv_pmos)
+                        7          7            0            0    D(dantenna)
+                        7          7            0            0    D(dpantenna)
+                     1323       1323            0            0    SM2
+                      152        152            0            0    SM3
+                       14         14            0            0    SM4
+                      328        328            0            0    SPM_2_1
+                        3          3            0            0    SPM_2_2
+                        2          2            0            0    SPM_2_2_1
+                  -------    -------    ---------    ---------
+   Total Inst:       7246       7246            0            0
+
+
+o Statistics:
+
+   8858 layout mos transistors were reduced to 189.
+     8669 mos transistors were deleted by parallel reduction.
+   4398 source mos transistors were reduced to 2.
+     4396 mos transistors were deleted by parallel reduction.
+
+   13 nets were matched arbitrarily.
+
+
+o Initial Correspondence Points:
+
+   Ports:        VGND VPWR clk_out clk_ref code[6] code[7] code[4] locked code[0] code[1]
+                 code[2] code[5] code[3] resetb
+
+
+o Ambiguity Resolution Points:
+
+      (Each one of the following objects belongs to a group of indistinguishable objects.
+       The listed objects were matched arbitrarily by the Ambiguity Resolution feature of LVS.
+       Arbitrary matching may be prevented by assigning names to these objects or to adjacent nets).
+
+       Layout                                                    Source
+       ------                                                    ------
+
+                                     Nets
+                                     ----
+
+       X526/2155                                                 Xx2/net53
+       X526/X978/26                                              Xx2/Xx5.xc4/net2
+       X526/X974/26                                              Xx2/Xx5.xc7/net2
+       X526/X979/26                                              Xx2/Xx5.xc6/net2
+       X526/X999/X1/26                                           Xx2/Xx5.xc5/net2
+       X526/X975/26                                              Xx2/Xx5.xc3/net2
+       X526/X1001/X1/27                                          Xx2/Xx4.xc6/net1
+       X526/X981/27                                              Xx2/Xx4.xc2/net1
+       X526/X984/27                                              Xx2/Xx4.xc3/net1
+       X526/X983/27                                              Xx2/Xx4.xc1/net1
+       X526/X982/27                                              Xx2/Xx4.xc7/net1
+       X526/X980/27                                              Xx2/Xx4.xc0/net1
+       X526/X1000/X1/27                                          Xx2/Xx4.xc4/net1
+
+
+
+o Matched Mosfets Which Have Been Unequally Reduced:
+
+       X237/M0(115.705,160.945)                                  Xx1/XFILLER_0_6/MP0
+       X527/X1908/X0/M1(91.645,92.905)                           XFILLER_38_228/MP0
+       X527/X1908/X0/M0(90.265,92.905)                           XFILLER_38_221/MP0
+       X527/X1907/X0/M1(82.045,88.535)                           XFILLER_38_214/MP0
+       X527/X1907/X0/M0(80.665,88.535)                           XFILLER_38_207/MP0
+       X527/X1906/X0/M1(81.565,100.465)                          XFILLER_38_200/MP0
+       X527/X1906/X0/M0(80.185,100.465)                          XFILLER_38_193/MP0
+       X527/X1905/X0/M1(79.165,47.545)                           XFILLER_38_186/MP0
+       X527/X1905/X0/M0(77.785,47.545)                           XFILLER_38_179/MP0
+       X527/X1904/X0/M1(61.885,43.175)                           XFILLER_38_172/MP0
+       X527/X1904/X0/M0(60.505,43.175)                           XFILLER_38_165/MP0
+       X527/X1903/X0/M1(61.885,39.985)                           XFILLER_38_158/MP0
+       X527/X1903/X0/M0(60.505,39.985)                           XFILLER_38_151/MP0
+       X527/X1902/X0/M1(61.885,35.615)                           XFILLER_38_144/MP0
+       X527/X1902/X0/M0(60.505,35.615)                           XFILLER_38_137/MP0
+       X527/X1901/X0/M1(41.725,103.655)                          XFILLER_38_130/MP0
+       X527/X1901/X0/M0(40.345,103.655)                          XFILLER_38_123/MP0
+       X527/X1900/X0/M1(41.725,92.905)                           XFILLER_38_116/MP0
+       X527/X1900/X0/M0(40.345,92.905)                           XFILLER_38_109/MP0
+       X527/X1899/X0/M1(41.725,55.105)                           XFILLER_38_102/MP0
+       X527/X1899/X0/M0(40.345,55.105)                           XFILLER_38_95/MP0
+       X527/X1898/X0/M1(32.605,77.785)                           XFILLER_38_88/MP0
+       X527/X1898/X0/M0(31.225,77.785)                           XFILLER_38_81/MP0
+       X527/X1868/X0/M1(101.725,100.465)                         XFILLER_38_74/MP0
+       X527/X1868/X0/M0(100.345,100.465)                         XFILLER_38_67/MP0
+       X527/X1867/X0/M1(101.725,96.095)                          XFILLER_38_60/MP0
+       X527/X1867/X0/M0(100.345,96.095)                          XFILLER_38_53/MP0
+       X527/X1866/X0/M1(101.725,80.975)                          XFILLER_38_46/MP0
+       X527/X1866/X0/M0(100.345,80.975)                          XFILLER_38_39/MP0
+       X527/X1865/X0/M1(101.725,73.415)                          XFILLER_38_32/MP0
+       X527/X1865/X0/M0(100.345,73.415)                          XFILLER_38_25/MP0
+       X527/X1864/X0/M1(101.725,65.855)                          XFILLER_38_18/MP0
+       X527/X1864/X0/M0(100.345,65.855)                          XFILLER_38_11/MP0
+       X527/X1863/X0/M1(101.725,55.105)                          XFILLER_38_4/MP0
+       X527/X1863/X0/M0(100.345,55.105)                          XFILLER_37_231/MP0
+       X527/X1862/X0/M1(101.725,43.175)                          XFILLER_37_224/MP0
+       X527/X1862/X0/M0(100.345,43.175)                          XFILLER_37_217/MP0
+       X527/X1861/X0/M1(101.725,32.425)                          XFILLER_37_210/MP0
+       X527/X1861/X0/M0(100.345,32.425)                          XFILLER_37_203/MP0
+       X527/X1860/X0/M1(101.725,28.055)                          XFILLER_37_196/MP0
+       X527/X1860/X0/M0(100.345,28.055)                          XFILLER_37_189/MP0
+       X527/X1859/X0/M1(61.885,103.655)                          XFILLER_37_182/MP0
+       X527/X1859/X0/M0(60.505,103.655)                          XFILLER_37_175/MP0
+       X527/X1833/X0/M1(101.725,92.905)                          XFILLER_37_168/MP0
+       X527/X1833/X0/M0(100.345,92.905)                          XFILLER_37_161/MP0
+       X527/X1832/X0/M1(101.725,77.785)                          XFILLER_37_154/MP0
+       X527/X1832/X0/M0(100.345,77.785)                          XFILLER_37_147/MP0
+       X527/X1831/X0/M1(101.725,70.225)                          XFILLER_37_140/MP0
+       X527/X1831/X0/M0(100.345,70.225)                          XFILLER_37_133/MP0
+       X527/X1830/X0/M1(101.725,62.665)                          XFILLER_37_126/MP0
+       X512/X1719/X1/M1(181.885,209.495)                         ** missing smashed mosfet **
+       X512/X1719/X1/M0(180.505,209.495)                         ** missing smashed mosfet **
+       X512/X1719/X0/M1(178.525,209.495)                         ** missing smashed mosfet **
+       X512/X1719/X0/M0(177.145,209.495)                         ** missing smashed mosfet **
+       X512/X1718/X1/M1(181.885,183.625)                         ** missing smashed mosfet **
+       X512/X1718/X1/M0(180.505,183.625)                         ** missing smashed mosfet **
+       X512/X1718/X0/M1(178.525,183.625)                         ** missing smashed mosfet **
+       X512/X1718/X0/M0(177.145,183.625)                         ** missing smashed mosfet **
+       X512/X1717/X1/M1(179.965,221.425)                         ** missing smashed mosfet **
+       X512/X1717/X1/M0(178.585,221.425)                         ** missing smashed mosfet **
+       X512/X1717/X0/M1(176.605,221.425)                         ** missing smashed mosfet **
+       X512/X1717/X0/M0(175.225,221.425)                         ** missing smashed mosfet **
+       X512/X1716/X1/M1(178.045,236.545)                         ** missing smashed mosfet **
+       X512/X1716/X1/M0(176.665,236.545)                         ** missing smashed mosfet **
+       X512/X1716/X0/M1(174.685,236.545)                         ** missing smashed mosfet **
+       X512/X1716/X0/M0(173.305,236.545)                         ** missing smashed mosfet **
+       X512/X1715/X1/M1(177.085,171.695)                         ** missing smashed mosfet **
+       X512/X1715/X1/M0(175.705,171.695)                         ** missing smashed mosfet **
+       X512/X1715/X0/M1(173.725,171.695)                         ** missing smashed mosfet **
+       X512/X1715/X0/M0(172.345,171.695)                         ** missing smashed mosfet **
+       X512/X1714/X1/M1(173.245,221.425)                         ** missing smashed mosfet **
+       X512/X1714/X1/M0(171.865,221.425)                         ** missing smashed mosfet **
+       X512/X1714/X0/M1(169.885,221.425)                         ** missing smashed mosfet **
+       X512/X1714/X0/M0(168.505,221.425)                         ** missing smashed mosfet **
+       X512/X1713/X1/M1(167.965,236.545)                         ** missing smashed mosfet **
+       X512/X1713/X1/M0(166.585,236.545)                         ** missing smashed mosfet **
+       X512/X1713/X0/M1(164.605,236.545)                         ** missing smashed mosfet **
+       X512/X1713/X0/M0(163.225,236.545)                         ** missing smashed mosfet **
+       X512/X1712/X1/M1(162.205,201.935)                         ** missing smashed mosfet **
+       X512/X1712/X1/M0(160.825,201.935)                         ** missing smashed mosfet **
+       X512/X1712/X0/M1(158.845,201.935)                         ** missing smashed mosfet **
+       X512/X1712/X0/M0(157.465,201.935)                         ** missing smashed mosfet **
+       X512/X1711/X1/M1(162.205,186.815)                         ** missing smashed mosfet **
+       X512/X1711/X1/M0(160.825,186.815)                         ** missing smashed mosfet **
+       X512/X1711/X0/M1(158.845,186.815)                         ** missing smashed mosfet **
+       X512/X1711/X0/M0(157.465,186.815)                         ** missing smashed mosfet **
+       X512/X1710/X1/M1(162.205,171.695)                         ** missing smashed mosfet **
+       X512/X1710/X1/M0(160.825,171.695)                         ** missing smashed mosfet **
+       X512/X1710/X0/M1(158.845,171.695)                         ** missing smashed mosfet **
+       X512/X1710/X0/M0(157.465,171.695)                         ** missing smashed mosfet **
+       X512/X1709/X1/M1(157.885,251.665)                         ** missing smashed mosfet **
+       X512/X1709/X1/M0(156.505,251.665)                         ** missing smashed mosfet **
+       X512/X1709/X0/M1(154.525,251.665)                         ** missing smashed mosfet **
+       X512/X1709/X0/M0(153.145,251.665)                         ** missing smashed mosfet **
+       X512/X1708/X1/M1(155.965,176.065)                         ** missing smashed mosfet **
+       X512/X1708/X1/M0(154.585,176.065)                         ** missing smashed mosfet **
+       X512/X1708/X0/M1(152.605,176.065)                         ** missing smashed mosfet **
+       X512/X1708/X0/M0(151.225,176.065)                         ** missing smashed mosfet **
+       X512/X1707/X1/M1(145.405,239.735)                         ** missing smashed mosfet **
+       X512/X1707/X1/M0(144.025,239.735)                         ** missing smashed mosfet **
+
+
+
+**************************************************************************************************************
+                                         SUMMARY
+**************************************************************************************************************
+
+Total CPU Time:      0 sec
+Total Elapsed Time:  0 sec
