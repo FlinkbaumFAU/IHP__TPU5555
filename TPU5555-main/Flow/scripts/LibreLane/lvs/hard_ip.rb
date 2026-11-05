@@ -25,6 +25,9 @@
 
 HARD_IP_PADS = /\Asg13cmos5l_IOPad/i
 HARD_IP_SRAM = /\ARM_IHPSG13_1P_/i
+# The MDLL hard macro: verified on its own (LibreLane KLayout LVS, full-chip
+# LVS and Calibre LVS in mixed_signal_design_blocks); here only its pins.
+HARD_IP_MDLL = /\Amdll\z/i
 HARD_IP_RAILS = /\Asg13cmos5l_(Filler|Corner)/i
 
 def hard_ip_prune(nl, top_name)
@@ -39,13 +42,13 @@ def hard_ip_prune(nl, top_name)
     end
     break if dead.empty?
 
-    dead.each { |c| nl.remove_circuit(c) }
+    dead.each { |c| nl.remove(c) }  # Netlist#remove; there is no remove_circuit
   end
 end
 
 def hard_ip_blank(nl)
   list = []
-  nl.each_circuit { |c| list << c if c.name =~ HARD_IP_PADS || c.name =~ HARD_IP_SRAM }
+  nl.each_circuit { |c| list << c if c.name =~ HARD_IP_PADS || c.name =~ HARD_IP_SRAM || c.name =~ HARD_IP_MDLL }
   list.each(&:blank)
 end
 

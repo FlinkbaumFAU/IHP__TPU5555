@@ -220,3 +220,16 @@ define_pdn_grid \
 add_pdn_connect \
     -grid sram \
     -layers "Metal4 TopMetal1"
+
+# The MDLL hard macro (ip/mdll/): its VPWR/VGND are vertical Metal4 straps
+# (it stops at Metal4), connected to the TopMetal1 stripes crossing it, as
+# for the SRAMs.
+define_pdn_grid \
+    -macro \
+    -cells mdll \
+    -name mdll \
+    -starts_with POWER
+
+add_pdn_connect \
+    -grid mdll \
+    -layers "Metal4 TopMetal1"

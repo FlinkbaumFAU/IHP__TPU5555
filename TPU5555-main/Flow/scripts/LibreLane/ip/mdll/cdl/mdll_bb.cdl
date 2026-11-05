@@ -1,0 +1,4 @@
+* mdll pins only (black box), from build/sg13cmos5l/ip/mdll/cdl/mdll.cdl
+.SUBCKT mdll clk_out clk_ref code[0] code[1] code[2] code[3]
++ code[4] code[5] code[6] code[7] locked resetb VPWR VGND
+.ENDS

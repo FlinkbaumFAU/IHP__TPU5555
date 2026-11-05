@@ -1,0 +1,4 @@
+MDLL hard macro (all-digital clock multiplier, x4), sg13cmos5l, M1-M4 only.
+From https://gitlab.rrze.fau.de/cs3/private/projects/passionate/mixed_signal_design_blocks
+`make ip_cmos5l` (run, commit and PDK in SOURCE.txt); do not edit, re-copy.
+cdl/mdll_bb.cdl: pins only, for the chip LVS (black box, lvs/hard_ip.rb).
