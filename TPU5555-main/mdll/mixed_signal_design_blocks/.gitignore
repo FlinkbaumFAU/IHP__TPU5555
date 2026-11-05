@@ -1,0 +1,14 @@
+# Top-level (MDLL) build output.
+/build/
+
+# xschem writes GUI netlists to $PWD/simulations, and tools/xschem makes that
+# the repo root -- so generated decks and raw files land here. The checkers
+# and sweep drivers in simulations/ ARE tracked.
+/simulations/*.spice
+/simulations/*.raw
+/simulations/*.log
+/simulations/*.csv
+__pycache__/
+
+# Top-level LibreLane runs (as in the blocks): local only, see TAPEOUT.md.
+/pnr/runs/

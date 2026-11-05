@@ -1,0 +1,8 @@
+build/
+
+# simulations/lock_ctrl.spice IS tracked: the structural model of the mapped
+# netlist, like bbpd/simulations/dlf.spice. Regenerate it through make.
+__pycache__/
+
+# LibreLane run directories -- build output, tens of MB per run.
+pnr/runs/

@@ -1,0 +1,28 @@
+** counter: 8-bit synchronous binary counter (Vernier TDC)
+** Generated from build/01-synth/counter.v by common/sim/gen_rtl_spice.py
+** -- do not edit by hand; regenerate through make.
+
+.subckt counter count[7] count[6] count[5] count[4] count[3] count[2] count[1] count[0] clk rst_n VDD VSS
+x_08_ _06_[0] count[0] VDD VSS sg13g2_inv_1
+x_09_ _00_ count[1] count[0] count[2] VDD VSS sg13g2_nand3_1
+x_10_ _01_ count[1] count[0] count[2] count[3] VDD VSS sg13g2_and4_1
+x_11_ _02_ count[4] count[5] _01_ VDD VSS sg13g2_nand3_1
+x_12_ _03_ count[4] count[5] count[6] _01_ VDD VSS sg13g2_nand4_1
+x_13_ _07_[7] count[7] _03_ VDD VSS sg13g2_xnor2_1
+x_14_ _07_[6] count[6] _02_ VDD VSS sg13g2_xnor2_1
+x_15_ _04_ count[4] _01_ count[5] VDD VSS sg13g2_a21o_1
+x_16_ _07_[5] _02_ _04_ VDD VSS sg13g2_and2_1
+x_17_ _07_[4] count[4] _01_ VDD VSS sg13g2_xor2_1
+x_18_ _07_[3] count[3] _00_ VDD VSS sg13g2_xnor2_1
+x_19_ _05_ count[1] count[0] count[2] VDD VSS sg13g2_a21o_1
+x_20_ _07_[2] _00_ _05_ VDD VSS sg13g2_and2_1
+x_21_ _07_[1] count[1] count[0] VDD VSS sg13g2_xor2_1
+x_22_ count[0] clk _06_[0] rst_n VDD VSS sg13g2_dfrbpq_1
+x_23_ count[1] clk _07_[1] rst_n VDD VSS sg13g2_dfrbpq_1
+x_24_ count[2] clk _07_[2] rst_n VDD VSS sg13g2_dfrbpq_1
+x_25_ count[3] clk _07_[3] rst_n VDD VSS sg13g2_dfrbpq_1
+x_26_ count[4] clk _07_[4] rst_n VDD VSS sg13g2_dfrbpq_1
+x_27_ count[5] clk _07_[5] rst_n VDD VSS sg13g2_dfrbpq_1
+x_28_ count[6] clk _07_[6] rst_n VDD VSS sg13g2_dfrbpq_1
+x_29_ count[7] clk _07_[7] rst_n VDD VSS sg13g2_dfrbpq_1
+.ends

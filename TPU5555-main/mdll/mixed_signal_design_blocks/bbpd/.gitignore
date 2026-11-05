@@ -1,0 +1,20 @@
+build/
+
+# Simulation outputs, not sources. The testbenches and the deck generators in
+# simulations/ ARE tracked -- the phase-offset sweep and the closed-loop MDLL
+# run are the acceptance gates for this block, so they belong under version
+# control.
+# Testbench netlists. The Makefile writes decks to build/; xschem's GUI
+# netlister writes them here instead, and they are generated either way.
+# simulations/dlf.spice IS tracked -- it is a hand-generated model, not a deck.
+simulations/test_*.spice
+simulations/*.raw
+simulations/*.csv
+simulations/*.log
+simulations/*.dat
+
+# python bytecode from the sim generators
+__pycache__/
+
+# LibreLane run directories -- build output, tens of MB per run.
+pnr/runs/

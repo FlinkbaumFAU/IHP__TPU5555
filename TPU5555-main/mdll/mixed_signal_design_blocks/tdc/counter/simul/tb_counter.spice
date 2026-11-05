@@ -1,0 +1,17 @@
+.lib cornerMOSlv.lib mos_tt
+.OPTIONS KLU
+.include counter_extracted.cir
+
+.param pw=0.25n
+* Rise-Fall-Time
+.param rft=0.02n
+
+Vclk clk 0 PULSE(0 1.8 0n {rft} {rft} {pw} {pw * 2})
+Vrst_n rst_n 0 PWL(0 0 {(pw - 1n) * 2} 0 {(pw - 1n) * 2 + 0.1n} 1.8)
+Vdd VDD 0 dc 1.8
+Vss VSS 0 0
+
+Xcounter count[0] count[1] count[2] count[3] count[4] clk rst_n VDD VSS counter
+
+.tran 100p {pw * 2 * 32 + 4 * pw}
+.end

@@ -1,0 +1,138 @@
+{
+  "design": "bbpd",
+  "run": "RUN_2026-11-03_13-42-47",
+  "corners": {
+    "typ": "nom_typ_1p20V_25C",
+    "slow": "nom_slow_1p08V_125C",
+    "fast": "nom_fast_1p32V_m40C"
+  },
+  "units": "ns, arrival at the port from the launching flop's clock pin (clock-to-Q + logic + wire), late (max) path",
+  "outputs": {
+    "C[0]": {
+      "typ": {
+        "rise": 0.8093,
+        "fall": 0.7672
+      },
+      "slow": {
+        "rise": 1.2782,
+        "fall": 1.212
+      },
+      "fast": {
+        "rise": 0.5214,
+        "fall": 0.4972
+      }
+    },
+    "C[1]": {
+      "typ": {
+        "rise": 0.6271,
+        "fall": 0.587
+      },
+      "slow": {
+        "rise": 0.9884,
+        "fall": 0.9329
+      },
+      "fast": {
+        "rise": 0.405,
+        "fall": 0.3803
+      }
+    },
+    "C[2]": {
+      "typ": {
+        "rise": 0.6575,
+        "fall": 0.6139
+      },
+      "slow": {
+        "rise": 1.0363,
+        "fall": 0.9767
+      },
+      "fast": {
+        "rise": 0.4277,
+        "fall": 0.4073
+      }
+    },
+    "C[3]": {
+      "typ": {
+        "rise": 0.5623,
+        "fall": 0.524
+      },
+      "slow": {
+        "rise": 0.9848,
+        "fall": 0.9265
+      },
+      "fast": {
+        "rise": 0.404,
+        "fall": 0.3811
+      }
+    },
+    "C[4]": {
+      "typ": {
+        "rise": 0.6903,
+        "fall": 0.6458
+      },
+      "slow": {
+        "rise": 1.0882,
+        "fall": 1.0156
+      },
+      "fast": {
+        "rise": 0.4452,
+        "fall": 0.4213
+      }
+    },
+    "C[5]": {
+      "typ": {
+        "rise": 0.4479,
+        "fall": 0.3987
+      },
+      "slow": {
+        "rise": 0.7023,
+        "fall": 0.6285
+      },
+      "fast": {
+        "rise": 0.2897,
+        "fall": 0.2602
+      }
+    },
+    "C[6]": {
+      "typ": {
+        "rise": 0.5204,
+        "fall": 0.4654
+      },
+      "slow": {
+        "rise": 0.8206,
+        "fall": 0.7323
+      },
+      "fast": {
+        "rise": 0.3361,
+        "fall": 0.3092
+      }
+    },
+    "C[7]": {
+      "typ": {
+        "rise": 0.0634,
+        "fall": 0.0616
+      },
+      "slow": {
+        "rise": 0.1044,
+        "fall": 0.1001
+      },
+      "fast": {
+        "rise": 0.0407,
+        "fall": 0.0402
+      }
+    },
+    "comp": {
+      "typ": {
+        "rise": 0.0599,
+        "fall": 0.0598
+      },
+      "slow": {
+        "rise": 0.098,
+        "fall": 0.0961
+      },
+      "fast": {
+        "rise": 0.0393,
+        "fall": 0.0395
+      }
+    }
+  }
+}

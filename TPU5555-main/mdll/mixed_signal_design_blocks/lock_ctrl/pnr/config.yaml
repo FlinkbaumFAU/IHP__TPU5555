@@ -1,0 +1,135 @@
+# lock_ctrl hardening -- LibreLane, IHP sg13g2 (and sg13cmos5l).
+#
+# Pure RTL, but hardened from the netlist synth_lock_ctrl.tcl mapped and
+# lec_lock_ctrl.tcl proved equivalent (SYNTH_ELABORATE_ONLY): the cells placed
+# here are then exactly the ones simulations/lock_ctrl.spice describes, and the
+# post-PnR STA delays that the mixed-signal MDLL run injects after the
+# Verilator model (common/pnr/output_delays.py) belong to that same netlist.
+
+DESIGN_NAME: lock_ctrl
+VERILOG_FILES:
+  - dir::../build/01-synth/lock_ctrl.flat.v
+SYNTH_ELABORATE_ONLY: true
+
+# STD_CELL_LIBRARY: the PDK's default. SG13CMOS5L (`make harden_cmos5l`):
+# the same netlist, cells renamed -- see clk_gen/pnr/config.yaml.
+"pdk::ihp-sg13cmos5l":
+  VERILOG_FILES:
+    - dir::../build/sg13cmos5l/lock_ctrl.flat.v
+
+# Pre-mapped gate netlist: verilator has no source for the sg13g2 cells.
+RUN_LINTER: false
+
+CLOCK_PORT: clk
+CLOCK_PERIOD: 10
+PNR_SDC_FILE: dir::base.sdc
+SIGNOFF_SDC_FILE: dir::base.sdc
+
+# ---------------------------------------------------------------------------
+# Layer budget: Metal1..Metal3 only.
+#
+# Same recipe as clk_gen/pnr/config.yaml and bbpd/pnr/config.yaml. PDK
+# defaults put the PDN on TopMetal1/2 and allow routing to
+# TopMetal2 -- seven layers for what is here a ~340-cell block.
+#
+# Metal2 straps are required, not optional: Metal1 and Metal3 are both
+# HORIZONTAL in this stack, so they never cross and cannot be via-stacked
+# directly. Metal2 is the only vertical layer below Metal4.
+# ---------------------------------------------------------------------------
+RT_MIN_LAYER: Metal2
+RT_MAX_LAYER: Metal3
+
+PDN_RAIL_LAYER: Metal1
+PDN_VERTICAL_LAYER: Metal2
+PDN_HORIZONTAL_LAYER: Metal3
+PDN_MULTILAYER: true
+PDN_ENABLE_RAILS: true
+PDN_CORE_RING: false
+
+# Promote the straps to block pins so Metal3 carries the power pins.
+PDN_ENABLE_PINS: true
+
+# Stripes stop at the core, NOT the die boundary. With `boundary` every edge
+# carries power pins and signal pins collide with them wherever they coincide
+# -- that cost clk_gen three runs and an LVS short. Insetting to the core
+# leaves the whole die margin free for signal pins; a parent still connects by
+# dropping vias from Metal4+ onto the stripes, and this design leaves Metal4+
+# entirely free.
+PDN_EXTEND_TO: core_ring
+
+# Sized for a small die: the PDK defaults (2.2 um wide, 75.6 um pitch) are
+# TopMetal geometry and would yield barely one stripe here.
+PDN_VWIDTH: 1.2
+PDN_VSPACING: 1.2
+PDN_VPITCH: 20
+PDN_VOFFSET: 5
+PDN_HWIDTH: 1.2
+PDN_HSPACING: 1.2
+PDN_HPITCH: 20
+PDN_HOFFSET: 5
+
+# Metal2 is vertical (top/bottom edges), Metal3 horizontal (left/right edges).
+IO_PIN_V_LAYER: Metal2
+IO_PIN_H_LAYER: Metal3
+
+# All signal pins forced to north/south, i.e. onto Metal2. PDN_HORIZONTAL_LAYER
+# is Metal3 and those stripes terminate on the east and west edges;
+# IO_PIN_H_LAYER is Metal3 too, so horizontal signal pins would compete for the
+# same edges. Leaving east/west entirely to power avoided an LVS short in
+# clk_gen and there is no reason to rediscover it here.
+#
+# NOTE: pin_order.cfg has no comment syntax -- '#' introduces a direction
+# (#N/#S/#E/#W), so a '# comment' line is parsed as a malformed direction.
+IO_PIN_ORDER_CFG: dir::pin_order.cfg
+ERRORS_ON_UNMATCHED_IO: both
+
+# Absolute: the die as it was at 35 % utilisation before the out-of-lock
+# restart (2026-10-28) added ~55 cells, which at 35 % grew the die to 135 x
+# 138 um -- past the top level's die edge where lock_ctrl sits. The old die
+# keeps every pin where the top level expects it; utilisation is ~41 %.
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 123.455, 127.055]
+
+# Core margins. The defaults are 4 site *heights* top/bottom but 12 site
+# *widths* left/right -- and a site is 3.780 um tall vs 0.480 wide, so that is
+# 15.12 um of vertical margin against 5.76 um horizontal. Two rows top and
+# bottom (7.56 um) still leaves room for the Metal2 pins to reach the core.
+TOP_MARGIN_MULT: 2
+BOTTOM_MARGIN_MULT: 2
+
+# Clock tree: yes. Unlike bbpd and tdc there is nothing here whose timing is
+# matched against another path -- two dozen flops on one clock, an ordinary
+# synchronous block. The insertion delay is part of the clock-to-output delays
+# output_delays.py extracts, so the mixed-signal model includes it.
+RUN_CTS: true
+
+# LVS reference: no pads, and see common/pnr/cdl_tail.cdl.
+PAD_CDLS:
+  - dir::../../common/pnr/cdl_tail.cdl
+
+# Signoff via KLayout; magic is disabled for this project.
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+RUN_MAGIC_STREAMOUT: false
+RUN_MAGIC_DRC: false
+RUN_MAGIC_WRITE_LEF: true
+RUN_KLAYOUT_STREAMOUT: true
+RUN_KLAYOUT_DRC: true
+
+meta:
+  version: 2
+  flow: Classic
+  substituting_steps:
+    # No magic anywhere (2026-10-23): the PDK's sg13cmos5l magic tech needs
+    # magic >= 8.3.657 and LibreLane 3.0.16's shell has 8.3.623, which then
+    # cannot read the standard cells and spins forever in Magic.WriteLEF.
+    # LibreLane 3.0.16 has no other step that writes the design LEF, so the
+    # root Makefile's `macros` writes each block's LEF from its final ODB with
+    # OpenROAD's write_abstract_lef (common/pnr/write_lef.tcl), as LibreLane's
+    # own OpenROAD LEF would. Odb.CheckDesignAntennaProperties only reads the
+    # flow's LEF, so it goes too. Magic's StreamOut and DRC are gated off by
+    # default.
+    Magic.WriteLEF: null
+    Odb.CheckDesignAntennaProperties: null
+    Magic.SpiceExtraction: OpenROAD.WriteCDL
+    Checker.IllegalOverlap: null
+    Netgen.LVS: KLayout.LVS

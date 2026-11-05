@@ -1,0 +1,132 @@
+/*
+ * Stub Liberty for the analog varactor cells custom_cap_1 / custom_cap_2.
+ *
+ * These are hand-instantiated, fixed-placed varactors (not synthesized, not
+ * sized, not on a real timing path), so this file is deliberately a STUB:
+ *   - no function, no timing() arcs, no ff/latch groups
+ *   - dont_use / dont_touch so the mapper never picks or resizes them
+ *   - it exists only so link_design resolves the cells and the decoder driving
+ *     the control pin C sees a sane load.
+ * Liberty cannot represent a variable analog capacitance; do not try to model
+ * the varactor here. Pin/area data mirror custom_stdcell.lef.
+ *
+ * Units/PVT header cribbed from sg13g2_stdcell_typ_1p20V_25C.lib.
+ */
+library (custom_stdcell) {
+  comment                     : "Stub library for custom_cap_1/2 varactors — not characterized.";
+  delay_model                 : table_lookup;
+  capacitive_load_unit (1, pf);
+  time_unit                   : "1ns";
+  voltage_unit                : "1V";
+  current_unit                : "1uA";
+  leakage_power_unit          : "1pW";
+  pulling_resistance_unit     : "1kohm";
+
+  /* OpenSTA refuses to load a library without these ("Library custom_stdcell is
+     missing one or more thresholds"), even for a stub with no timing arcs.
+     Values match sg13g2_stdcell_typ_1p20V_25C.lib so the two agree. */
+  input_threshold_pct_rise      : 50;
+  input_threshold_pct_fall      : 50;
+  output_threshold_pct_rise     : 50;
+  output_threshold_pct_fall     : 50;
+  slew_lower_threshold_pct_rise : 20;
+  slew_lower_threshold_pct_fall : 20;
+  slew_upper_threshold_pct_rise : 80;
+  slew_upper_threshold_pct_fall : 80;
+  default_input_pin_cap       : 0.006;
+  default_max_transition      : 2.5074;
+
+  nom_process                 : 1;
+  nom_voltage                 : 1.20;
+  nom_temperature             : 25;
+  voltage_map (VDD, 1.20);
+  voltage_map (VSS, 0.00);
+
+  operating_conditions ("typ_1p20V_25C") {
+    process     : 1;
+    voltage     : 1.20;
+    temperature : 25;
+    tree_type   : balanced_tree;
+  }
+  default_operating_conditions : "typ_1p20V_25C";
+
+  cell (custom_cap_1) {
+    dont_use   : true;
+    dont_touch : true;
+    area       : 13.986;   /* LEF SIZE 3.700 x 3.780 */
+    pg_pin (VDD) { pg_type : primary_power;  voltage_name : VDD; }
+    pg_pin (VSS) { pg_type : primary_ground; voltage_name : VSS; }
+    pin (C) {                        /* digital control from thermometer/binary decoder */
+      direction         : input;
+      related_power_pin  : VDD;
+      related_ground_pin : VSS;
+      capacitance       : 0.003;     /* TODO; refine by extraction */
+    }
+    pin (A) {                        /* analog oscillator node — no timing modeled */
+      direction         : input;
+      related_power_pin  : VDD;
+      related_ground_pin : VSS;
+      capacitance       : 0.000;
+    }
+  }
+
+  cell (custom_cap_2) {
+    dont_use   : true;
+    dont_touch : true;
+    area       : 14.704;   /* LEF SIZE 3.890 x 3.780 */
+    pg_pin (VDD) { pg_type : primary_power;  voltage_name : VDD; }
+    pg_pin (VSS) { pg_type : primary_ground; voltage_name : VSS; }
+    pin (C) {                        /* digital control from thermometer/binary decoder */
+      direction         : input;
+      related_power_pin  : VDD;
+      related_ground_pin : VSS;
+      capacitance       : 0.003;     /* TODO; refine by extraction */
+    }
+    pin (A) {                        /* analog oscillator node — no timing modeled */
+      direction         : input;
+      related_power_pin  : VDD;
+      related_ground_pin : VSS;
+      capacitance       : 0.000;
+    }
+  }
+
+  cell (custom_cap_4) {
+    dont_use   : true;
+    dont_touch : true;
+    area       : 18.144;   /* LEF SIZE 4.800 x 3.780 */
+    pg_pin (VDD) { pg_type : primary_power;  voltage_name : VDD; }
+    pg_pin (VSS) { pg_type : primary_ground; voltage_name : VSS; }
+    pin (C) {                        /* digital control from thermometer/binary decoder */
+      direction         : input;
+      related_power_pin  : VDD;
+      related_ground_pin : VSS;
+      capacitance       : 0.003;     /* TODO; refine by extraction */
+    }
+    pin (A) {                        /* analog oscillator node — no timing modeled */
+      direction         : input;
+      related_power_pin  : VDD;
+      related_ground_pin : VSS;
+      capacitance       : 0.000;
+    }
+  }
+
+  cell (custom_cap_8) {
+    dont_use   : true;
+    dont_touch : true;
+    area       : 21.773;   /* LEF SIZE 5.760 x 3.780 */
+    pg_pin (VDD) { pg_type : primary_power;  voltage_name : VDD; }
+    pg_pin (VSS) { pg_type : primary_ground; voltage_name : VSS; }
+    pin (C) {                        /* digital control from thermometer/binary decoder */
+      direction         : input;
+      related_power_pin  : VDD;
+      related_ground_pin : VSS;
+      capacitance       : 0.003;     /* TODO; refine by extraction */
+    }
+    pin (A) {                        /* analog oscillator node — no timing modeled */
+      direction         : input;
+      related_power_pin  : VDD;
+      related_ground_pin : VSS;
+      capacitance       : 0.000;
+    }
+  }
+}

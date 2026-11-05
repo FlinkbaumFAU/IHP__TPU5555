@@ -1,0 +1,18 @@
+build/
+
+# Simulation outputs, not sources. The deck generators and the structural
+# models in simulations/ ARE tracked (counter.spice is generated from the
+# LEC-proven netlist, like bbpd/simulations/dlf.spice).
+simulations/test_*.spice
+simulations/*.raw
+simulations/*.csv
+simulations/*.log
+simulations/*.dat
+
+# Waveforms
+*.vcd
+
+__pycache__/
+
+# LibreLane run directories -- build output, tens of MB per run.
+pnr/runs/

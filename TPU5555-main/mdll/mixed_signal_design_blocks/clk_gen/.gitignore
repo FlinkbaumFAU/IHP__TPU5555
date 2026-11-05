@@ -1,0 +1,14 @@
+build/
+
+# Simulation outputs, not sources. The testbenches, the char-sweep generator
+# and the monotonicity checker in simulations/ ARE tracked -- the sweep is the
+# acceptance gate for the cap bank, so it belongs under version control.
+simulations/*.raw
+simulations/*.csv
+simulations/*.log
+
+# python bytecode from the sim generators
+__pycache__/
+
+# LibreLane run directories -- build output, tens of MB per run.
+pnr/runs/

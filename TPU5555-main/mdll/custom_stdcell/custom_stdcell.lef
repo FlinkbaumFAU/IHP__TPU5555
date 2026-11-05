@@ -1,0 +1,359 @@
+VERSION 5.7 ;
+  NOWIREEXTENSIONATPIN ON ;
+  DIVIDERCHAR "/" ;
+  BUSBITCHARS "[]" ;
+PROPERTYDEFINITIONS
+  MACRO CatenaDesignType STRING ;
+END PROPERTYDEFINITIONS
+
+MACRO custom_cap_1
+  CLASS Core ;
+  FOREIGN custom_cap_1 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 3.700 BY 3.780 ;
+  SYMMETRY X Y ;
+  SITE CoreSite ;
+  PIN C
+    ANTENNAGATEAREA 0.288600 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 2.985 1.410 3.365 1.995 ;
+    END
+  END C
+  PIN A
+    ANTENNADIFFAREA 0.309400 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 1.895 1.395 2.275 2.115 ;
+    END
+  END A
+  PIN VSS
+    USE GROUND ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 -0.220 3.700 0.220 ;
+    END
+  END VSS
+  PIN VDD
+    USE POWER ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 3.560 3.700 4.000 ;
+    END
+  END VDD
+  OBS
+      LAYER GatPoly ;
+        RECT 0.000 0.000 3.700 3.780 ;
+      LAYER Metal1 ;
+        RECT 0.335 2.295 3.315 3.380 ;
+        RECT 0.335 1.215 1.715 2.295 ;
+        RECT 2.455 2.175 3.315 2.295 ;
+        RECT 2.455 1.230 2.805 2.175 ;
+        RECT 2.455 1.215 3.315 1.230 ;
+        RECT 0.335 0.400 3.315 1.215 ;
+  END
+  PROPERTY CatenaDesignType "deviceLevel" ;
+END custom_cap_1
+MACRO custom_cap_2
+  CLASS Core ;
+  FOREIGN custom_cap_2 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 3.890 BY 3.780 ;
+  SYMMETRY X Y ;
+  SITE CoreSite ;
+  PIN C
+    ANTENNAGATEAREA 0.310700 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 3.175 1.410 3.555 1.995 ;
+    END
+  END C
+  PIN A
+    ANTENNADIFFAREA 0.459000 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 2.085 1.395 2.465 2.115 ;
+    END
+  END A
+  PIN VSS
+    USE GROUND ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 -0.220 3.890 0.220 ;
+    END
+  END VSS
+  PIN VDD
+    USE POWER ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 3.560 3.890 4.000 ;
+    END
+  END VDD
+  OBS
+      LAYER GatPoly ;
+        RECT 0.000 0.000 3.890 3.780 ;
+      LAYER Metal1 ;
+        RECT 0.335 2.295 3.505 3.380 ;
+        RECT 0.335 1.215 1.905 2.295 ;
+        RECT 2.645 2.175 3.505 2.295 ;
+        RECT 2.645 1.230 2.995 2.175 ;
+        RECT 2.645 1.215 3.505 1.230 ;
+        RECT 0.335 0.400 3.505 1.215 ;
+  END
+  PROPERTY CatenaDesignType "deviceLevel" ;
+END custom_cap_2
+MACRO custom_cap_4
+  CLASS Core ;
+  FOREIGN custom_cap_4 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 4.800 BY 3.780 ;
+  SYMMETRY X Y ;
+  SITE CoreSite ;
+  PIN C
+    ANTENNAGATEAREA 0.343200 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 3.885 1.410 4.265 1.995 ;
+    END
+  END C
+  PIN A
+    ANTENNADIFFAREA 0.669800 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 2.495 1.395 2.875 2.115 ;
+    END
+  END A
+  PIN VSS
+    USE GROUND ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 -0.220 4.800 0.220 ;
+    END
+  END VSS
+  PIN VDD
+    USE POWER ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 3.560 4.800 4.000 ;
+    END
+  END VDD
+  OBS
+      LAYER GatPoly ;
+        RECT 0.000 0.000 4.800 3.780 ;
+      LAYER Metal1 ;
+        RECT 0.325 2.295 4.215 3.380 ;
+        RECT 0.325 1.215 2.315 2.295 ;
+        RECT 3.055 2.175 4.215 2.295 ;
+        RECT 3.055 1.230 3.705 2.175 ;
+        RECT 3.055 1.215 4.215 1.230 ;
+        RECT 0.325 0.400 4.215 1.215 ;
+  END
+  PROPERTY CatenaDesignType "deviceLevel" ;
+END custom_cap_4
+MACRO custom_cap_8
+  CLASS Core ;
+  FOREIGN custom_cap_8 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 5.760 BY 3.780 ;
+  SYMMETRY X Y ;
+  SITE CoreSite ;
+  PIN A
+    ANTENNADIFFAREA 0.696600 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 3.375 1.720 4.065 2.115 ;
+    END
+  END A
+  PIN C
+    ANTENNAGATEAREA 0.386100 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 4.965 1.410 5.345 1.995 ;
+    END
+  END C
+  PIN VSS
+    USE GROUND ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 -0.220 5.760 0.220 ;
+    END
+  END VSS
+  PIN VDD
+    USE POWER ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 3.560 5.760 4.000 ;
+    END
+  END VDD
+  OBS
+      LAYER GatPoly ;
+        RECT 0.000 0.000 5.760 3.780 ;
+      LAYER Metal1 ;
+        RECT 0.325 2.295 5.495 3.380 ;
+        RECT 0.325 1.540 3.195 2.295 ;
+        RECT 4.245 2.175 5.495 2.295 ;
+        RECT 4.245 1.540 4.785 2.175 ;
+        RECT 0.325 1.230 4.785 1.540 ;
+        RECT 0.325 0.400 5.495 1.230 ;
+  END
+  PROPERTY CatenaDesignType "deviceLevel" ;
+END custom_cap_8
+MACRO custom_cap_16
+  CLASS Core ;
+  FOREIGN custom_cap_16 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 7.650 BY 3.780 ;
+  SYMMETRY X Y ;
+  SITE CoreSite ;
+  PIN VDD
+    USE POWER ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 3.560 7.650 4.000 ;
+    END
+  END VDD
+  PIN VSS
+    USE GROUND ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 -0.220 7.650 0.220 ;
+    END
+  END VSS
+  PIN C
+    ANTENNAGATEAREA 0.434200 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 6.935 1.410 7.315 1.995 ;
+    END
+  END C
+  PIN A
+    ANTENNADIFFAREA 0.706800 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 5.175 1.395 5.555 2.115 ;
+    END
+  END A
+  OBS
+      LAYER GatPoly ;
+        RECT 0.000 0.000 7.650 3.780 ;
+      LAYER Metal1 ;
+        RECT 0.325 2.295 7.265 3.380 ;
+        RECT 0.325 1.215 4.995 2.295 ;
+        RECT 5.735 2.175 7.265 2.295 ;
+        RECT 5.735 1.230 6.755 2.175 ;
+        RECT 5.735 1.215 7.265 1.230 ;
+        RECT 0.325 0.400 7.265 1.215 ;
+  END
+  PROPERTY CatenaDesignType "deviceLevel" ;
+END custom_cap_16
+MACRO custom_einvn_16
+  CLASS Core ;
+  FOREIGN custom_einvn_16 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 18.720 BY 3.780 ;
+  SYMMETRY X Y ;
+  SITE CoreSite ;
+  PIN A
+    ANTENNAGATEAREA 3.868800 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 11.510 1.585 18.035 1.845 ;
+    END
+  END A
+  PIN Z
+    ANTENNADIFFAREA 5.654400 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 10.340 1.270 11.035 2.155 ;
+    END
+  END Z
+  PIN TE_B
+    ANTENNAGATEAREA 2.571400 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.300 1.370 0.630 1.820 ;
+    END
+  END TE_B
+  PIN VDD
+    USE POWER ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 3.560 18.720 4.000 ;
+    END
+  END VDD
+  PIN VSS
+    USE GROUND ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 -0.220 18.720 0.220 ;
+    END
+  END VSS
+  OBS
+      LAYER GatPoly ;
+        RECT 0.000 0.000 18.720 3.780 ;
+      LAYER Metal1 ;
+        RECT 0.350 2.335 18.260 3.380 ;
+        RECT 0.350 2.000 10.160 2.335 ;
+        RECT 0.810 1.190 10.160 2.000 ;
+        RECT 0.350 1.090 10.160 1.190 ;
+        RECT 11.215 2.025 18.260 2.335 ;
+        RECT 11.215 1.405 11.330 2.025 ;
+        RECT 18.215 1.405 18.260 2.025 ;
+        RECT 11.215 1.090 18.260 1.405 ;
+        RECT 0.350 0.400 18.260 1.090 ;
+  END
+  PROPERTY CatenaDesignType "deviceLevel" ;
+END custom_einvn_16
+MACRO custom_einvn_1
+  CLASS Core ;
+  FOREIGN custom_einvn_1 ;
+  ORIGIN 0.000 0.000 ;
+  SIZE 3.255 BY 3.780 ;
+  SYMMETRY X Y ;
+  SITE CoreSite ;
+  PIN A
+    ANTENNAGATEAREA 0.241800 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 2.160 1.315 2.490 2.055 ;
+    END
+  END A
+  PIN VDD
+    USE POWER ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 3.560 3.255 4.000 ;
+    END
+  END VDD
+  PIN TE_B
+    ANTENNAGATEAREA 0.283400 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.280 1.320 0.995 2.330 ;
+    END
+  END TE_B
+  PIN VSS
+    USE GROUND ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0.000 -0.220 3.255 0.220 ;
+    END
+  END VSS
+  PIN Z
+    ANTENNADIFFAREA 1.404300 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 2.670 1.005 3.000 2.825 ;
+    END
+  END Z
+  OBS
+      LAYER GatPoly ;
+        RECT 0.000 0.000 3.255 3.780 ;
+      LAYER Metal1 ;
+        RECT 0.600 2.510 1.920 3.380 ;
+        RECT 1.175 1.140 1.920 2.510 ;
+        RECT 0.600 0.400 1.920 1.140 ;
+  END
+  PROPERTY CatenaDesignType "deviceLevel" ;
+END custom_einvn_1
+END LIBRARY

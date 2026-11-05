@@ -1,0 +1,111 @@
+************************************************************************
+* Library Name: custom_stdcell
+* Cell Name:    custom_einvn_1
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT custom_einvn_1 Z A TE_B VDD VSS
+*.PININFO A:I TE_B:I Z:O VDD:B VSS:B
+MN0 TE TE_B VSS VSS sg13_lv_nmos m=1 w=420.00n l=130.00n ng=1
+MN2 net1 TE VSS VSS sg13_lv_nmos m=1 w=0.74u l=130.00n ng=1
+MN1 Z A net1 VSS sg13_lv_nmos m=1 w=0.74u l=130.00n ng=1
+MP0 TE TE_B VDD VDD sg13_lv_pmos m=1 w=640.00n l=130.00n ng=1
+MP1 net2 TE_B VDD VDD sg13_lv_pmos m=1 w=1.12u l=130.00n ng=1
+MP2 Z A net2 VDD sg13_lv_pmos m=1 w=1.12u l=130.00n ng=1
+.ENDS
+
+************************************************************************
+* Library Name: custom_stdcell
+* Cell Name:    custom_einvn_16
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT custom_einvn_16 Z A TE_B VDD VSS
+*.PININFO A:I TE_B:I Z:O VDD:B VSS:B
+MN1 Z A net29 VSS sg13_lv_nmos m=1 w=11.84u l=130.00n ng=16
+MN0 TE TE_B VSS VSS sg13_lv_nmos m=1 w=740.00n l=130.00n ng=1
+MN2 net29 TE VSS VSS sg13_lv_nmos m=1 w=11.84u l=130.00n ng=16
+MP1 net28 TE_B VDD VDD sg13_lv_pmos m=1 w=17.92u l=130.00n ng=16
+MP2 Z A net28 VDD sg13_lv_pmos m=1 w=17.92u l=130.00n ng=16
+MP0 TE TE_B VDD VDD sg13_lv_pmos m=1 w=1.12u l=130.00n ng=1
+.ENDS
+
+.SUBCKT custom_einvn_p5 Z A TE_B VDD VSS
+*.PININFO A:I TE_B:I Z:O VDD:B VSS:B
+MN0 TE TE_B VSS VSS sg13_lv_nmos m=1 w=420.00n l=130.00n ng=1
+MN2 net1 TE VSS VSS sg13_lv_nmos m=1 w=0.37u l=130.00n ng=1
+MN1 Z A net1 VSS sg13_lv_nmos m=1 w=0.37u l=130.00n ng=1
+MP0 TE TE_B VDD VDD sg13_lv_pmos m=1 w=640.00n l=130.00n ng=1
+MP1 net2 TE_B VDD VDD sg13_lv_pmos m=1 w=0.56u l=130.00n ng=1
+MP2 Z A net2 VDD sg13_lv_pmos m=1 w=0.56u l=130.00n ng=1
+.ENDS
+
+.SUBCKT custom_cap_16 C A VDD VSS
+M1 A C net2 VSS sg13_lv_nmos w=1.48u l=0.13u ng=2 m=1
+M2 net1 C VDD VDD sg13_lv_pmos w=1.12u l=0.13u ng=1 m=1
+M3 net2 net1 A VDD sg13_lv_pmos w=2.24u l=0.13u ng=2 m=1
+M4 net1 C VSS VSS sg13_lv_nmos w=0.74u l=0.13u ng=1 m=1
+M5 VDD net2 VDD VDD sg13_lv_pmos w=1.12u l=3.42u ng=1 m=1
+M6 VSS net2 VSS VSS sg13_lv_nmos w=0.74u l=3.42u ng=1 m=1
+.ENDS
+
+.SUBCKT custom_cap_8 C A VDD VSS
+M1 A C net2 VSS sg13_lv_nmos w=1.11u l=0.13u ng=1 m=1
+M2 net1 C VDD VDD sg13_lv_pmos w=1.12u l=0.13u ng=1 m=1
+M3 net2 net1 A VDD sg13_lv_pmos w=1.68u l=0.13u ng=2 m=1
+M4 net1 C VSS VSS sg13_lv_nmos w=0.74u l=0.13u ng=1 m=1
+M5 VDD net2 VDD VDD sg13_lv_pmos w=1.12u l=1.62u ng=1 m=1
+M6 VSS net2 VSS VSS sg13_lv_nmos w=0.74u l=1.62u ng=1 m=1
+.ENDS
+
+.SUBCKT custom_cap_4 C A VDD VSS
+M1 A C net2 VSS sg13_lv_nmos w=0.78u l=0.13u ng=1 m=1
+M2 net1 C VDD VDD sg13_lv_pmos w=1.12u l=0.13u ng=1 m=1
+M3 net2 net1 A VDD sg13_lv_pmos w=1.19u l=0.13u ng=1 m=1
+M4 net1 C VSS VSS sg13_lv_nmos w=0.74u l=0.13u ng=1 m=1
+M5 VDD net2 VDD VDD sg13_lv_pmos w=1.12u l=0.74u ng=1 m=1
+M6 VSS net2 VSS VSS sg13_lv_nmos w=0.755u l=0.74u ng=1 m=1
+.ENDS
+
+.SUBCKT custom_cap_2 C A VDD VSS
+M1 A C net2 VSS sg13_lv_nmos w=0.53u l=0.13u ng=1 m=1
+M2 net1 C VDD VDD sg13_lv_pmos w=1.12u l=0.13u ng=1 m=1
+M3 net2 net1 A VDD sg13_lv_pmos w=0.82u l=0.13u ng=1 m=1
+M4 net1 C VSS VSS sg13_lv_nmos w=0.74u l=0.13u ng=1 m=1
+M5 VDD net2 VDD VDD sg13_lv_pmos w=1.13u l=0.32u ng=1 m=1
+M6 VSS net2 VSS VSS sg13_lv_nmos w=0.77u l=0.32u ng=1 m=1
+.ENDS
+
+.SUBCKT custom_cap_1 C A VDD VSS
+M1 A C net2 VSS sg13_lv_nmos w=0.36u l=0.13u ng=1 m=1
+M2 net1 C VDD VDD sg13_lv_pmos w=1.12u l=0.13u ng=1 m=1
+M3 net2 net1 A VDD sg13_lv_pmos w=0.55u l=0.13u ng=1 m=1
+M4 net1 C VSS VSS sg13_lv_nmos w=0.74u l=0.13u ng=1 m=1
+M5 VDD net2 VDD VDD sg13_lv_pmos w=1.12u l=0.13u ng=1 m=1
+M6 VSS net2 VSS VSS sg13_lv_nmos w=0.74u l=0.13u ng=1 m=1
+.ENDS
+
+.SUBCKT custom_cap_p5 C A VDD VSS
+M1 A C net2 VSS sg13_lv_nmos w=0.30u l=0.13u ng=1 m=1
+M2 net1 C VDD VDD sg13_lv_pmos w=1.12u l=0.13u ng=1 m=1
+M3 net2 net1 A VDD sg13_lv_pmos w=0.30u l=0.13u ng=1 m=1
+M4 net1 C VSS VSS sg13_lv_nmos w=0.74u l=0.13u ng=1 m=1
+M5 VDD net2 VDD VDD sg13_lv_pmos w=0.495u l=0.13u ng=1 m=1
+M6 VSS net2 VSS VSS sg13_lv_nmos w=0.30u l=0.13u ng=1 m=1
+.ENDS
+
+.SUBCKT custom_cap_p25 C A VDD VSS
+M1 A C net2 VSS sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1
+M2 net1 C VDD VDD sg13_lv_pmos w=1.12u l=0.13u ng=1 m=1
+M3 net2 net1 A VDD sg13_lv_pmos w=0.30u l=0.13u ng=1 m=1
+M4 net1 C VSS VSS sg13_lv_nmos w=0.74u l=0.13u ng=1 m=1
+M5 VSS net2 VSS VDD sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1
+M6 VDD net2 VDD VSS sg13_lv_nmos w=0.15u l=0.13u ng=1 m=1
+.ENDS
+
+.SUBCKT custom_cap_p125 C A VDD VSS
+M1 net2 C A VSS sg13_lv_nmos w=0.18u l=0.13u ng=1 m=1
+M2 net1 C VDD VDD sg13_lv_pmos w=1.12u l=0.13u ng=1 m=1
+M3 net3 net1 A VDD sg13_lv_pmos w=0.15u l=0.13u ng=1 m=1
+M4 net1 C VSS VSS sg13_lv_nmos w=0.74u l=0.13u ng=1 m=1
+.ENDS

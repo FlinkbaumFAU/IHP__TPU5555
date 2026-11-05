@@ -1,0 +1,307 @@
+# MDLL top-level macro -- LibreLane, IHP sg13g2 (and sg13cmos5l). No pads: the pad ring /
+# shuttle harness is a separate, later step (TAPEOUT.md).
+#
+# The four blocks are hardened on their own (clk_gen/, tdc/, bbpd/, lock_ctrl/
+# `make netlist harden`) and placed here as macros. `make macros` copies each
+# block's latest pnr/runs/*/final/ views into build/macros/<block>/ and records
+# which run they came from in build/macros/RUNS.txt; this file only ever points
+# there. Glue at this level: x5 (sg13g2_lgcp_1, the always-on clock gate that
+# starts the clk_ref replica: x5 -> x7 buf_1 -> clk_ref_g, x8 a dummy load)
+# and the tie-high x6.
+
+DESIGN_NAME: mdll
+VERILOG_FILES:
+  - dir::../build/01-synth/mdll.flat.v
+SYNTH_ELABORATE_ONLY: true
+# STD_CELL_LIBRARY: the PDK's default (see the sg13cmos5l section below).
+# A netlist of macros and two cells; verilator has no source for any of them.
+RUN_LINTER: false
+
+CLOCK_PORT: clk_ref
+CLOCK_PERIOD: 10
+PNR_SDC_FILE: dir::base.sdc
+SIGNOFF_SDC_FILE: dir::base.sdc
+RUN_CTS: false
+
+# ---------------------------------------------------------------------------
+# Macros. Orientation FS mirrors a block about its horizontal axis, so its
+# north-edge pins face down. Locations are the lower-left corners of the
+# placed bounding boxes, on the 0.48 x 3.78 um site grid.
+#
+#   tdc (FS)        lock_ctrl (N)       Clk_out/Clk_ref/Sel... and seed/load/
+#   ---- channel (x5, x6) ----------     code/tdc_f face the channel
+#   clk_gen (N)     bbpd (FS)           div/sel/C[7:4] and clk_ref/div/seed/
+#                                       load face the channel
+#
+# tdc is 20 um shorter than lock_ctrl; its top is aligned with lock_ctrl's,
+# not its bottom. Bottom-aligned, the strip of rows left above it lay between
+# two Metal5 straps and PDN-0179 could not connect its rails.
+#
+# clk_gen's div pin (x 31.7) sits under tdc's Clk_out (x 32.7), and x5 is put
+# between them (MANUAL_GLOBAL_PLACEMENTS), so div and clk_ref_g leave from the
+# same spot and run in parallel to the tdc and the bbpd: their route delays
+# must match (see base.sdc and pnr/match_report.tcl).
+# ---------------------------------------------------------------------------
+MACROS:
+  clk_gen:
+    instances: &clk_gen_at
+      x1: {location: [10.08, 15.12], orientation: N}
+    gds: [dir::../build/macros/clk_gen/gds/clk_gen.gds]
+    lef: [dir::../build/macros/clk_gen/lef/clk_gen.lef]
+    nl: [dir::../build/macros/clk_gen/nl/clk_gen.nl.v]
+    pnl: [dir::../build/macros/clk_gen/pnl/clk_gen.pnl.v]
+    vh: [dir::../build/macros/clk_gen/vh/clk_gen.vh]
+    spice: [dir::../build/macros/clk_gen/spice/clk_gen.spice]
+    lib:
+      "*_typ_1p20V_25C": [dir::../build/macros/clk_gen/lib/nom_typ_1p20V_25C/clk_gen__nom_typ_1p20V_25C.lib]
+      "*_slow_1p08V_125C": [dir::../build/macros/clk_gen/lib/nom_slow_1p08V_125C/clk_gen__nom_slow_1p08V_125C.lib]
+      "*_fast_1p32V_m40C": [dir::../build/macros/clk_gen/lib/nom_fast_1p32V_m40C/clk_gen__nom_fast_1p32V_m40C.lib]
+  tdc:
+    instances: &tdc_at
+      x2: {location: [10.08, 170.1], orientation: FS}
+    gds: [dir::../build/macros/tdc/gds/tdc.gds]
+    lef: [dir::../build/macros/tdc/lef/tdc.lef]
+    nl: [dir::../build/macros/tdc/nl/tdc.nl.v]
+    pnl: [dir::../build/macros/tdc/pnl/tdc.pnl.v]
+    vh: [dir::../build/macros/tdc/vh/tdc.vh]
+    spice: [dir::../build/macros/tdc/spice/tdc.spice]
+    lib:
+      "*_typ_1p20V_25C": [dir::../build/macros/tdc/lib/nom_typ_1p20V_25C/tdc__nom_typ_1p20V_25C.lib]
+      "*_slow_1p08V_125C": [dir::../build/macros/tdc/lib/nom_slow_1p08V_125C/tdc__nom_slow_1p08V_125C.lib]
+      "*_fast_1p32V_m40C": [dir::../build/macros/tdc/lib/nom_fast_1p32V_m40C/tdc__nom_fast_1p32V_m40C.lib]
+  bbpd:
+    instances: &bbpd_at
+      # y 22.68 since 2026-10-29: bbpd grew to 92.9 x 96.5 um (Gray dlf, delay
+      # chains); at y 45.36 its top reached 141.9 um and left rows between it
+      # and lock_ctrl that no Metal5 strap reached (PDN-0179). Top edge now at
+      # 119.2 um, close to the old 121.2.
+      # y 18.90 since 2026-11-03 (one row lower): bbpd's top + halo has to end
+      # in a row whose upper boundary is a VSS rail. At 22.68 it ended just
+      # under the VDD rail at y 124.74, so the row below was cut and the row
+      # above was not; their shared NWell then has a notch at the cut, and the
+      # upper row's N+ rail tap sat 0.24 um from it: NW.d (0.31), whatever cell
+      # filled the corner. The full PDK DRC (run_drc.py) reports it, LibreLane's
+      # KLayout DRC does not. bbpd's die is fixed (bbpd/pnr/config.yaml) so
+      # this corner stays where it is.
+      x3: {location: [120.96, 18.90], orientation: FS}
+    gds: [dir::../build/macros/bbpd/gds/bbpd.gds]
+    lef: [dir::../build/macros/bbpd/lef/bbpd.lef]
+    nl: [dir::../build/macros/bbpd/nl/bbpd.nl.v]
+    pnl: [dir::../build/macros/bbpd/pnl/bbpd.pnl.v]
+    vh: [dir::../build/macros/bbpd/vh/bbpd.vh]
+    spice: [dir::../build/macros/bbpd/spice/bbpd.spice]
+    lib:
+      "*_typ_1p20V_25C": [dir::../build/macros/bbpd/lib/nom_typ_1p20V_25C/bbpd__nom_typ_1p20V_25C.lib]
+      "*_slow_1p08V_125C": [dir::../build/macros/bbpd/lib/nom_slow_1p08V_125C/bbpd__nom_slow_1p08V_125C.lib]
+      "*_fast_1p32V_m40C": [dir::../build/macros/bbpd/lib/nom_fast_1p32V_m40C/bbpd__nom_fast_1p32V_m40C.lib]
+  lock_ctrl:
+    instances: &lock_ctrl_at
+      x4: {location: [123.84, 151.2], orientation: N}
+    gds: [dir::../build/macros/lock_ctrl/gds/lock_ctrl.gds]
+    lef: [dir::../build/macros/lock_ctrl/lef/lock_ctrl.lef]
+    nl: [dir::../build/macros/lock_ctrl/nl/lock_ctrl.nl.v]
+    pnl: [dir::../build/macros/lock_ctrl/pnl/lock_ctrl.pnl.v]
+    vh: [dir::../build/macros/lock_ctrl/vh/lock_ctrl.vh]
+    spice: [dir::../build/macros/lock_ctrl/spice/lock_ctrl.spice]
+    lib:
+      "*_typ_1p20V_25C": [dir::../build/macros/lock_ctrl/lib/nom_typ_1p20V_25C/lock_ctrl__nom_typ_1p20V_25C.lib]
+      "*_slow_1p08V_125C": [dir::../build/macros/lock_ctrl/lib/nom_slow_1p08V_125C/lock_ctrl__nom_slow_1p08V_125C.lib]
+      "*_fast_1p32V_m40C": [dir::../build/macros/lock_ctrl/lib/nom_fast_1p32V_m40C/lock_ctrl__nom_fast_1p32V_m40C.lib]
+
+# Time the macros by their abstract .lib models. The default (gate netlist +
+# SPEF) would have STA walk clk_gen's ring -- a deliberate combinational loop --
+# and need Liberty for the custom caps inside it.
+STA_MACRO_PRIORITIZE_NL: false
+
+# The clk_ref replica (x5 lgcp_1 -> x7 buf_1 -> clk_ref_g, x8 the dummy load)
+# between clk_gen's div pin and tdc's Clk_out/Clk_ref pins, in the channel, in
+# a row: x5 and x7 adjacent like clk_gen's x11.x5 and x11.x9. Detailed
+# placement legalises them onto the nearest sites. x6 cannot be placed here:
+# the resizer's tie-fanout repair replaces tie cells with copies placed next to
+# their loads before this step runs.
+MANUAL_GLOBAL_PLACEMENTS:
+  x5: {location: [33.6, 124.74], orientation: N}
+  x7: {location: [41.76, 124.74], orientation: N}
+  x8: {location: [45.6, 124.74], orientation: N}
+
+# The macros' CDL netlists, and the custom unit caps inside clk_gen and tdc,
+# for OpenROAD.WriteCDL and KLayout LVS. The caps reach the GDS inside the
+# macros' own streamouts.
+EXTRA_CDLS:
+  - dir::../build/macros/clk_gen/cdl/clk_gen.cdl
+  - dir::../build/macros/tdc/cdl/tdc.cdl
+  - dir::../build/macros/bbpd/cdl/bbpd.cdl
+  - dir::../build/macros/lock_ctrl/cdl/lock_ctrl.cdl
+  - dir::../../custom_stdcell/custom_stdcell.cdl
+
+# ---------------------------------------------------------------------------
+# Floorplan: absolute, sized around the macros. 537 x 78 sites.
+# ---------------------------------------------------------------------------
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 257.76, 294.84]
+# Rows survive only in the channel and the margins: with the default 10 um
+# halo the 30 um channel would keep about two rows.
+FP_MACRO_HORIZONTAL_HALO: 5
+FP_MACRO_VERTICAL_HALO: 5
+
+# ---------------------------------------------------------------------------
+# Layers. Every block uses Metal1..Metal3 only (power pins: Metal3 stripes
+# inset to each block's core). This level adds Metal4/Metal5 for its PDN and
+# for signals crossing the macros, and leaves TopMetal1/2 to the parent.
+# ---------------------------------------------------------------------------
+RT_MIN_LAYER: Metal2
+RT_MAX_LAYER: Metal5
+
+PDN_RAIL_LAYER: Metal1
+PDN_VERTICAL_LAYER: Metal4
+PDN_HORIZONTAL_LAYER: Metal5
+PDN_MULTILAYER: true
+PDN_ENABLE_RAILS: true
+PDN_CORE_RING: false
+PDN_ENABLE_PINS: true
+# Inset to the core, as in the blocks, so the edges stay free for signal pins.
+PDN_EXTEND_TO: core_ring
+PDN_VWIDTH: 1.6
+PDN_VSPACING: 1.6
+PDN_VPITCH: 30
+PDN_VOFFSET: 10
+PDN_HWIDTH: 1.6
+PDN_HSPACING: 1.6
+PDN_HPITCH: 30
+PDN_HOFFSET: 10
+# The default macro grid only connects PDN_VERTICAL_LAYER to
+# PDN_HORIZONTAL_LAYER -- right for macros whose power pins reach Metal4, but
+# ours stop at Metal3. pdn_cfg.tcl is LibreLane's default plus a Metal3-Metal4
+# connect for the macro grid.
+PDN_CFG: dir::pdn_cfg.tcl
+PDN_MACRO_CONNECTIONS:
+  - "x1 VPWR VGND VPWR VGND"
+  - "x2 VPWR VGND VPWR VGND"
+  - "x3 VPWR VGND VPWR VGND"
+  - "x4 VPWR VGND VPWR VGND"
+
+IO_PIN_V_LAYER: Metal2
+IO_PIN_H_LAYER: Metal3
+IO_PIN_ORDER_CFG: dir::pin_order.cfg
+ERRORS_ON_UNMATCHED_IO: both
+
+# Merging the macros' GDS: every block carries its own copy of the standard
+# cells (and clk_gen and tdc of custom_cap_4). The default RenameCell kept the
+# first copy and renamed the rest (sg13g2_buf_1$1, ...), which no schematic
+# cell matches -- LVS then failed every block on its first shared cell. All
+# copies come from the same PDK / custom_stdcell GDS, so the first one is kept
+# and later same-named cells are dropped. (The macros' own top cells are not
+# affected: streamout clears them before the merge and they are filled, not
+# conflicted.) DRC and LVS of the final GDS would catch a copy that differed.
+KLAYOUT_CONFLICT_RESOLUTION: SkipNewCell
+
+# LVS reference: no pads, and see common/pnr/cdl_tail.cdl.
+PAD_CDLS:
+  - dir::../common/pnr/cdl_tail.cdl
+
+# Signoff via KLayout; magic only writes the LEF, as in the blocks.
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+RUN_MAGIC_STREAMOUT: false
+RUN_MAGIC_DRC: false
+RUN_MAGIC_WRITE_LEF: true
+RUN_KLAYOUT_STREAMOUT: true
+RUN_KLAYOUT_DRC: true
+
+# ---------------------------------------------------------------------------
+# SG13CMOS5L (`make macros_cmos5l harden_cmos5l`). The blocks' CMOS5L runs
+# (build/sg13cmos5l/macros/, same placements -- the YAML aliases), the netlist
+# with its cells renamed (common/pnr/retarget.py), and the one real difference:
+# the stack ends at Metal4 + TopMetal1, with no Metal5. This level stops at
+# Metal4 there and leaves TopMetal1 alone, so the layout uses only layers
+# that sg13g2 has in the same place (M1..M4), and sg13g2's Calibre decks
+# (LVS, and the PEX calibration) describe it. IHP has no Calibre deck for
+# CMOS5L; its sg13g2 one connects TopVia1 to Metal5, not Metal4, and split
+# the two nets routed on TopMetal1 (2026-10-26). The PDN is the Metal4 straps
+# alone (PDN_MULTILAYER false): TopMetal1 straps had been tried, but
+# OpenROAD found no Metal4-TopMetal1 via for them and removed them as floating
+# (PDN-0110/0200), so that was the grid already. PDN_HORIZONTAL_LAYER only
+# replaces Metal5, which CMOS5L does not have; with one layer it is unused.
+#
+# Last in the file on purpose: a pdk:: section is applied where it stands, and
+# a key further down would override it again.
+# ---------------------------------------------------------------------------
+"pdk::ihp-sg13cmos5l":
+  VERILOG_FILES:
+    - dir::../build/sg13cmos5l/mdll.flat.v
+  MACROS:
+    clk_gen:
+      instances: *clk_gen_at
+      gds: [dir::../build/sg13cmos5l/macros/clk_gen/gds/clk_gen.gds]
+      lef: [dir::../build/sg13cmos5l/macros/clk_gen/lef/clk_gen.lef]
+      nl: [dir::../build/sg13cmos5l/macros/clk_gen/nl/clk_gen.nl.v]
+      pnl: [dir::../build/sg13cmos5l/macros/clk_gen/pnl/clk_gen.pnl.v]
+      vh: [dir::../build/sg13cmos5l/macros/clk_gen/vh/clk_gen.vh]
+      spice: [dir::../build/sg13cmos5l/macros/clk_gen/spice/clk_gen.spice]
+      lib:
+        "*_typ_1p20V_25C": [dir::../build/sg13cmos5l/macros/clk_gen/lib/nom_typ_1p20V_25C/clk_gen__nom_typ_1p20V_25C.lib]
+        "*_slow_1p08V_125C": [dir::../build/sg13cmos5l/macros/clk_gen/lib/nom_slow_1p08V_125C/clk_gen__nom_slow_1p08V_125C.lib]
+        "*_fast_1p32V_m40C": [dir::../build/sg13cmos5l/macros/clk_gen/lib/nom_fast_1p32V_m40C/clk_gen__nom_fast_1p32V_m40C.lib]
+    tdc:
+      instances: *tdc_at
+      gds: [dir::../build/sg13cmos5l/macros/tdc/gds/tdc.gds]
+      lef: [dir::../build/sg13cmos5l/macros/tdc/lef/tdc.lef]
+      nl: [dir::../build/sg13cmos5l/macros/tdc/nl/tdc.nl.v]
+      pnl: [dir::../build/sg13cmos5l/macros/tdc/pnl/tdc.pnl.v]
+      vh: [dir::../build/sg13cmos5l/macros/tdc/vh/tdc.vh]
+      spice: [dir::../build/sg13cmos5l/macros/tdc/spice/tdc.spice]
+      lib:
+        "*_typ_1p20V_25C": [dir::../build/sg13cmos5l/macros/tdc/lib/nom_typ_1p20V_25C/tdc__nom_typ_1p20V_25C.lib]
+        "*_slow_1p08V_125C": [dir::../build/sg13cmos5l/macros/tdc/lib/nom_slow_1p08V_125C/tdc__nom_slow_1p08V_125C.lib]
+        "*_fast_1p32V_m40C": [dir::../build/sg13cmos5l/macros/tdc/lib/nom_fast_1p32V_m40C/tdc__nom_fast_1p32V_m40C.lib]
+    bbpd:
+      instances: *bbpd_at
+      gds: [dir::../build/sg13cmos5l/macros/bbpd/gds/bbpd.gds]
+      lef: [dir::../build/sg13cmos5l/macros/bbpd/lef/bbpd.lef]
+      nl: [dir::../build/sg13cmos5l/macros/bbpd/nl/bbpd.nl.v]
+      pnl: [dir::../build/sg13cmos5l/macros/bbpd/pnl/bbpd.pnl.v]
+      vh: [dir::../build/sg13cmos5l/macros/bbpd/vh/bbpd.vh]
+      spice: [dir::../build/sg13cmos5l/macros/bbpd/spice/bbpd.spice]
+      lib:
+        "*_typ_1p20V_25C": [dir::../build/sg13cmos5l/macros/bbpd/lib/nom_typ_1p20V_25C/bbpd__nom_typ_1p20V_25C.lib]
+        "*_slow_1p08V_125C": [dir::../build/sg13cmos5l/macros/bbpd/lib/nom_slow_1p08V_125C/bbpd__nom_slow_1p08V_125C.lib]
+        "*_fast_1p32V_m40C": [dir::../build/sg13cmos5l/macros/bbpd/lib/nom_fast_1p32V_m40C/bbpd__nom_fast_1p32V_m40C.lib]
+    lock_ctrl:
+      instances: *lock_ctrl_at
+      gds: [dir::../build/sg13cmos5l/macros/lock_ctrl/gds/lock_ctrl.gds]
+      lef: [dir::../build/sg13cmos5l/macros/lock_ctrl/lef/lock_ctrl.lef]
+      nl: [dir::../build/sg13cmos5l/macros/lock_ctrl/nl/lock_ctrl.nl.v]
+      pnl: [dir::../build/sg13cmos5l/macros/lock_ctrl/pnl/lock_ctrl.pnl.v]
+      vh: [dir::../build/sg13cmos5l/macros/lock_ctrl/vh/lock_ctrl.vh]
+      spice: [dir::../build/sg13cmos5l/macros/lock_ctrl/spice/lock_ctrl.spice]
+      lib:
+        "*_typ_1p20V_25C": [dir::../build/sg13cmos5l/macros/lock_ctrl/lib/nom_typ_1p20V_25C/lock_ctrl__nom_typ_1p20V_25C.lib]
+        "*_slow_1p08V_125C": [dir::../build/sg13cmos5l/macros/lock_ctrl/lib/nom_slow_1p08V_125C/lock_ctrl__nom_slow_1p08V_125C.lib]
+        "*_fast_1p32V_m40C": [dir::../build/sg13cmos5l/macros/lock_ctrl/lib/nom_fast_1p32V_m40C/lock_ctrl__nom_fast_1p32V_m40C.lib]
+  EXTRA_CDLS:
+    - dir::../build/sg13cmos5l/macros/clk_gen/cdl/clk_gen.cdl
+    - dir::../build/sg13cmos5l/macros/tdc/cdl/tdc.cdl
+    - dir::../build/sg13cmos5l/macros/bbpd/cdl/bbpd.cdl
+    - dir::../build/sg13cmos5l/macros/lock_ctrl/cdl/lock_ctrl.cdl
+    - dir::../../custom_stdcell/custom_stdcell.cdl
+  RT_MAX_LAYER: Metal4
+  PDN_MULTILAYER: false
+  PDN_HORIZONTAL_LAYER: TopMetal1
+
+meta:
+  version: 2
+  flow: Classic
+  substituting_steps:
+    # No magic anywhere (2026-10-23): the PDK's sg13cmos5l magic tech needs
+    # magic >= 8.3.657 and LibreLane 3.0.16's shell has 8.3.623, which then
+    # cannot read the standard cells and spins forever in Magic.WriteLEF.
+    # LibreLane 3.0.16 has no other step that writes the design LEF, so the
+    # root Makefile's `macros` writes each block's LEF from its final ODB with
+    # OpenROAD's write_abstract_lef (common/pnr/write_lef.tcl), as LibreLane's
+    # own OpenROAD LEF would. Odb.CheckDesignAntennaProperties only reads the
+    # flow's LEF, so it goes too. Magic's StreamOut and DRC are gated off by
+    # default.
+    Magic.WriteLEF: null
+    Odb.CheckDesignAntennaProperties: null
+    Magic.SpiceExtraction: OpenROAD.WriteCDL
+    Checker.IllegalOverlap: null
+    Netgen.LVS: KLayout.LVS

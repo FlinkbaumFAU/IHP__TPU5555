@@ -1,0 +1,5 @@
+drc_*
+*.cir
+*.lyrdb
+pex
+lvs_run_*

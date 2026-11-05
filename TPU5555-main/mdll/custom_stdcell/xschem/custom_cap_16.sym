@@ -1,0 +1,37 @@
+v {xschem version=3.4.7 file_version=1.2
+* Copyright 2023 IHP PDK Authors
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+*     https://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+}
+G {}
+K {type=primitive
+format="@name @@C @@A @VDD @VSS @prefix\\\\cap_16"
+template="name=x1 VDD=VDD VSS=VSS prefix=custom_ "
+extra="VDD VSS prefix"
+highlight=true}
+V {}
+S {}
+E {}
+L 4 0 22.5 0 30 {}
+L 4 0 5 0 15 {}
+L 4 -10 5 10 5 {}
+L 4 -10 -5 10 -5 {}
+L 4 0 -15 0 -5 {}
+L 4 -30 0 -22.5 0 {}
+B 5 -32.5 -2.5 -27.5 2.5 {name=A dir=in goto=2 propag=2 }
+B 5 -2.5 27.5 2.5 32.5 {name=C dir=in goto=2 propag=2 }
+A 4 0 0 22.3606797749979 296.565051177078 360 {}
+T {A} -30 1 0 0 0.2 0.2 {}
+T {C} 12.5 39 2 0 0.2 0.2 {}
+T {@name} -20 7.5 0 0 0.2 0.2 {}
+T {@symname} -27.5 -30 0 0 0.2 0.2 {}

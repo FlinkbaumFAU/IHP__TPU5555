@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Launch xschem with this repository as its symbol library root.
+#
+# Why this exists
+# ---------------
+# xschem resolves a symbol reference like `clk_gen/src/dco.sym` against the
+# entries of XSCHEM_LIBRARY_PATH -- NOT against the directory of the schematic
+# that names it. So a bare `src/dco.sym` means "whichever directory on the
+# path happens to have a src/ subdir", which depends on the working directory
+# xschem was started in. Descending from bbpd/test_fine_loop.sch into clk_gen then
+# looked for clk_gen's sub-symbols under bbpd/ and failed.
+#
+# The fix has two halves and both are needed:
+#   1. every project symbol is referenced relative to the REPO ROOT, so the
+#      reference is unique repo-wide (clk_gen/src/dco.sym, bbpd/src/pd.sym);
+#   2. the repo root is the single project entry on XSCHEM_LIBRARY_PATH.
+#
+# Running from the root also matters on SAVE: xschem rewrites symbol paths
+# relative to the working directory, so editing from anywhere else would
+# quietly un-qualify them again. Hence the cd.
+#
+# No absolute paths are stored in any .sch file, so the repo stays portable --
+# the root is discovered from this script's own location.
+#
+# Usage:  tools/xschem [xschem args...] [file.sch]
+#         works from any directory; path arguments may be relative to $PWD.
+
+set -euo pipefail
+
+ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+
+export MSDB_ROOT="$ROOT"
+# The user's xschemrc appends this to XSCHEM_LIBRARY_PATH (and separately
+# hard-codes the custom_stdcell symbol dir, so that is already covered).
+export XSCHEM_USER_LIBRARY_PATH="$ROOT"
+
+# Arguments that name an existing file or directory are made absolute, since
+# the cd below would otherwise change what they point at. Everything else --
+# flags, and -N output filenames that do not exist yet -- is passed through.
+args=()
+for a in "$@"; do
+    if [ -e "$a" ]; then
+        args+=("$(cd -- "$(dirname -- "$a")" && pwd)/$(basename -- "$a")")
+    else
+        args+=("$a")
+    fi
+done
+
+# Batch runs (-q: every Makefile call) use the repo's own rc and no display,
+# so netlists are the same on any machine; interactive ones the user's rc.
+for a in "$@"; do
+    if [ "$a" = "-q" ]; then
+        args=(--rcfile "$ROOT/tools/xschemrc" -x "${args[@]}")
+        break
+    fi
+done
+
+cd -- "$ROOT"
+exec xschem "${args[@]}"

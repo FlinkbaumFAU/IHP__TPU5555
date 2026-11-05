@@ -1,0 +1,149 @@
+# bbpd hardening -- LibreLane, IHP sg13g2 (and sg13cmos5l).
+#
+# Netlist is already fully mapped (common/pnr/mk_netlist.py), so synthesis only
+# elaborates. Unlike clk_gen that is not about combinational loops -- there are
+# none here -- but about src/pd.sch: x1.x1 is deliberately the small
+# sg13g2_dfrbpq_1 so its own pins stay lightly loaded and its metastability
+# window stays narrow, and to a resizer that cell just looks under-driven.
+
+DESIGN_NAME: bbpd
+VERILOG_FILES:
+  - dir::../build/01-synth/bbpd.flat.v
+SYNTH_ELABORATE_ONLY: true
+
+# STD_CELL_LIBRARY: the PDK's default. SG13CMOS5L (`make harden_cmos5l`):
+# the same netlist, cells renamed -- see clk_gen/pnr/config.yaml.
+"pdk::ihp-sg13cmos5l":
+  VERILOG_FILES:
+    - dir::../build/sg13cmos5l/bbpd.flat.v
+
+# The input is a pre-mapped gate netlist, not RTL, so verilator has no source
+# for the sg13g2_* cells and reports every one as MODMISSING. Linting a netlist
+# the tools already mapped buys nothing.
+RUN_LINTER: false
+
+# clk_ref is the system reference; div is the divider pulse coming back from
+# clk_gen. Both are declared in pnr/base.sdc, which is also where the
+# deliberate asynchrony between them is stated.
+CLOCK_PORT: clk_ref
+CLOCK_PERIOD: 10
+PNR_SDC_FILE: dir::base.sdc
+SIGNOFF_SDC_FILE: dir::base.sdc
+
+# ---------------------------------------------------------------------------
+# Layer budget: Metal1..Metal3 only.
+#
+# Same recipe as clk_gen/pnr/config.yaml, which reached DRC 0 / LVS clean at
+# run12. PDK defaults put the PDN on TopMetal1/2 and allow routing to
+# TopMetal2 -- seven layers for what is here a 90-cell block.
+#
+# Metal2 straps are required, not optional: Metal1 and Metal3 are both
+# HORIZONTAL in this stack, so they never cross and cannot be via-stacked
+# directly. Metal2 is the only vertical layer below Metal4.
+# ---------------------------------------------------------------------------
+RT_MIN_LAYER: Metal2
+RT_MAX_LAYER: Metal3
+
+PDN_RAIL_LAYER: Metal1
+PDN_VERTICAL_LAYER: Metal2
+PDN_HORIZONTAL_LAYER: Metal3
+PDN_MULTILAYER: true
+PDN_ENABLE_RAILS: true
+PDN_CORE_RING: false
+
+# Promote the straps to block pins so Metal3 carries the power pins.
+PDN_ENABLE_PINS: true
+
+# Stripes stop at the core, NOT the die boundary. With `boundary` every edge
+# carries power pins and signal pins collide with them wherever they coincide
+# -- that cost clk_gen three runs and an LVS short. Insetting to the core
+# leaves the whole die margin free for signal pins; a parent still connects by
+# dropping vias from Metal4+ onto the stripes, and this design leaves Metal4+
+# entirely free.
+PDN_EXTEND_TO: core_ring
+
+# Sized for a small die: the PDK defaults (2.2 um wide, 75.6 um pitch) are
+# TopMetal geometry and would yield barely one stripe here.
+PDN_VWIDTH: 1.2
+PDN_VSPACING: 1.2
+PDN_VPITCH: 20
+PDN_VOFFSET: 5
+PDN_HWIDTH: 1.2
+PDN_HSPACING: 1.2
+PDN_HPITCH: 20
+PDN_HOFFSET: 5
+
+# Metal2 is vertical (top/bottom edges), Metal3 horizontal (left/right edges).
+IO_PIN_V_LAYER: Metal2
+IO_PIN_H_LAYER: Metal3
+
+# All signal pins forced to north/south, i.e. onto Metal2. PDN_HORIZONTAL_LAYER
+# is Metal3 and those stripes terminate on the east and west edges;
+# IO_PIN_H_LAYER is Metal3 too, so horizontal signal pins would compete for the
+# same edges. Leaving east/west entirely to power avoided an LVS short in
+# clk_gen and there is no reason to rediscover it here.
+#
+# pin_order.cfg puts clk_ref and div ADJACENT on the south edge. That is the
+# one placement constraint this block actually has: any mismatch between the
+# two pin-to-x1.x1 routes shows up directly as a static phase offset at lock.
+#
+# NOTE: pin_order.cfg has no comment syntax -- '#' introduces a direction
+# (#N/#S/#E/#W), so a '# comment' line is parsed as a malformed direction.
+IO_PIN_ORDER_CFG: dir::pin_order.cfg
+ERRORS_ON_UNMATCHED_IO: both
+
+# Absolute: the die as it came out at 35 % utilisation on 2026-11-03. Its
+# height decides where its halo cuts the top level's rows, and a corner on a
+# VDD rail is an NW.d violation (pnr/config.yaml, x3); the top-level placement
+# assumes exactly this size.
+FP_SIZING: absolute
+DIE_AREA: [0, 0, 93.42, 97.02]
+
+# Core margins. The defaults are 4 site *heights* top/bottom but 12 site
+# *widths* left/right -- and a site is 3.780 um tall vs 0.480 wide, so that is
+# 15.12 um of vertical margin against 5.76 um horizontal. Two rows top and
+# bottom (7.56 um) still leaves room for the Metal2 pins to reach the core.
+TOP_MARGIN_MULT: 2
+BOTTOM_MARGIN_MULT: 2
+
+# No clock tree, initially.
+#
+# ~10 flops on clk_ref in a die this small: the skew a tree would remove is
+# small, and the buffers it inserts would sit between the clk_ref->x1.x1/D
+# branch (a DATA path -- clk_ref is the sampled signal here) and the
+# clk_ref->accumulator branch. Any delay difference between those two becomes
+# the comparator's static offset, which is exactly the number this design is
+# trying to keep small. Read the clk_ref skew out of post-PnR STA and revisit
+# only if it is material.
+RUN_CTS: false
+
+# LVS reference: no pads, and see common/pnr/cdl_tail.cdl.
+PAD_CDLS:
+  - dir::../../common/pnr/cdl_tail.cdl
+
+# Signoff via KLayout; magic is disabled for this project.
+PRIMARY_GDSII_STREAMOUT_TOOL: klayout
+RUN_MAGIC_STREAMOUT: false
+RUN_MAGIC_DRC: false
+RUN_MAGIC_WRITE_LEF: true
+RUN_KLAYOUT_STREAMOUT: true
+RUN_KLAYOUT_DRC: true
+
+meta:
+  version: 2
+  flow: Classic
+  substituting_steps:
+    # No magic anywhere (2026-10-23): the PDK's sg13cmos5l magic tech needs
+    # magic >= 8.3.657 and LibreLane 3.0.16's shell has 8.3.623, which then
+    # cannot read the standard cells and spins forever in Magic.WriteLEF.
+    # LibreLane 3.0.16 has no other step that writes the design LEF, so the
+    # root Makefile's `macros` writes each block's LEF from its final ODB with
+    # OpenROAD's write_abstract_lef (common/pnr/write_lef.tcl), as LibreLane's
+    # own OpenROAD LEF would. Odb.CheckDesignAntennaProperties only reads the
+    # flow's LEF, so it goes too. Magic's StreamOut and DRC are gated off by
+    # default.
+    Magic.WriteLEF: null
+    Odb.CheckDesignAntennaProperties: null
+    Magic.SpiceExtraction: OpenROAD.WriteCDL
+    Checker.IllegalOverlap: null
+    Netgen.LVS: KLayout.LVS

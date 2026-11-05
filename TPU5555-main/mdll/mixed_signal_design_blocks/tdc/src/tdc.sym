@@ -1,0 +1,43 @@
+v {xschem version=3.4.7 file_version=1.2}
+G {}
+K {type=subcircuit
+format="@name @pinlist @VDD @VSS @symname"
+template="name=x1 VDD=VDD VSS=VSS"
+extra="VDD VSS"
+}
+V {}
+S {}
+E {}
+L 4 -130 -100 130 -100 {}
+L 4 130 -100 130 100 {}
+L 4 130 100 -130 100 {}
+L 4 -130 100 -130 -100 {}
+L 4 -150 -60 -130 -60 {}
+L 4 -150 -20 -130 -20 {}
+L 4 -150 20 -130 20 {}
+L 4 -150 60 -130 60 {}
+L 4 130 -60 150 -60 {}
+L 4 130 -20 150 -20 {}
+L 4 130 20 150 20 {}
+L 4 130 60 150 60 {}
+L 4 130 80 150 80 {}
+B 5 -152.5 -62.5 -147.5 -57.5 {name=Clk_out dir=in}
+B 5 -152.5 -22.5 -147.5 -17.5 {name=Clk_ref dir=in}
+B 5 -152.5 17.5 -147.5 22.5 {name=Sel dir=in}
+B 5 -152.5 57.5 -147.5 62.5 {name=Start dir=in}
+B 5 147.5 -62.5 152.5 -57.5 {name=tdc_s[7:0] dir=out}
+B 5 147.5 -22.5 152.5 -17.5 {name=tdc_f[7:0] dir=out}
+B 5 147.5 17.5 152.5 22.5 {name=hit dir=out}
+B 5 147.5 57.5 152.5 62.5 {name=valid dir=out}
+B 5 147.5 77.5 152.5 82.5 {name=busy dir=out}
+T {Clk_out} -125 -64 0 0 0.2 0.2 {}
+T {Clk_ref} -125 -24 0 0 0.2 0.2 {}
+T {Sel} -125 16 0 0 0.2 0.2 {}
+T {Start (active-low reset)} -125 56 0 0 0.2 0.2 {}
+T {tdc_s[7:0]} 125 -64 0 1 0.2 0.2 {}
+T {tdc_f[7:0]} 125 -24 0 1 0.2 0.2 {}
+T {hit} 125 16 0 1 0.2 0.2 {}
+T {valid} 125 56 0 1 0.2 0.2 {}
+T {busy} 125 76 0 1 0.2 0.2 {}
+T {@symname} -30 -10 0 0 0.3 0.3 {}
+T {@name} -125 -120 0 0 0.2 0.2 {}

@@ -1,0 +1,180 @@
+{
+  "design": "lock_ctrl",
+  "run": "RUN_2026-11-03_12-46-43",
+  "corners": {
+    "typ": "nom_typ_1p20V_25C",
+    "slow": "nom_slow_1p08V_125C",
+    "fast": "nom_fast_1p32V_m40C"
+  },
+  "units": "ns, arrival at the port from the clock source edge, propagated clocks, late (max) path",
+  "outputs": {
+    "load": {
+      "typ": {
+        "rise": 0.8083,
+        "fall": 0.7919
+      },
+      "slow": {
+        "rise": 1.2785,
+        "fall": 1.2422
+      },
+      "fast": {
+        "rise": 0.5505,
+        "fall": 0.5448
+      }
+    },
+    "locked": {
+      "typ": {
+        "rise": 0.5952,
+        "fall": 0.5626
+      },
+      "slow": {
+        "rise": 0.9348,
+        "fall": 0.8928
+      },
+      "fast": {
+        "rise": 0.3955,
+        "fall": 0.3798
+      }
+    },
+    "seed[0]": {
+      "typ": {
+        "rise": 0.8292,
+        "fall": 0.8305
+      },
+      "slow": {
+        "rise": 1.3052,
+        "fall": 1.317
+      },
+      "fast": {
+        "rise": 0.5637,
+        "fall": 0.565
+      }
+    },
+    "seed[1]": {
+      "typ": {
+        "rise": 0.8335,
+        "fall": 0.8343
+      },
+      "slow": {
+        "rise": 1.3122,
+        "fall": 1.3234
+      },
+      "fast": {
+        "rise": 0.5663,
+        "fall": 0.5673
+      }
+    },
+    "seed[2]": {
+      "typ": {
+        "rise": 0.8109,
+        "fall": 0.8143
+      },
+      "slow": {
+        "rise": 1.2741,
+        "fall": 1.2896
+      },
+      "fast": {
+        "rise": 0.5531,
+        "fall": 0.5547
+      }
+    },
+    "seed[3]": {
+      "typ": {
+        "rise": 0.8422,
+        "fall": 0.837
+      },
+      "slow": {
+        "rise": 1.3358,
+        "fall": 1.3156
+      },
+      "fast": {
+        "rise": 0.5731,
+        "fall": 0.5712
+      }
+    },
+    "seed[4]": {
+      "typ": {
+        "rise": 0.8453,
+        "fall": 0.8321
+      },
+      "slow": {
+        "rise": 1.3394,
+        "fall": 1.3086
+      },
+      "fast": {
+        "rise": 0.5737,
+        "fall": 0.5688
+      }
+    },
+    "seed[5]": {
+      "typ": {
+        "rise": 0.8133,
+        "fall": 0.8157
+      },
+      "slow": {
+        "rise": 1.277,
+        "fall": 1.2913
+      },
+      "fast": {
+        "rise": 0.5549,
+        "fall": 0.5555
+      }
+    },
+    "seed[6]": {
+      "typ": {
+        "rise": 0.8243,
+        "fall": 0.8251
+      },
+      "slow": {
+        "rise": 1.2958,
+        "fall": 1.3075
+      },
+      "fast": {
+        "rise": 0.5612,
+        "fall": 0.5616
+      }
+    },
+    "seed[7]": {
+      "typ": {
+        "rise": 0.7915,
+        "fall": 0.7972
+      },
+      "slow": {
+        "rise": 1.2413,
+        "fall": 1.2612
+      },
+      "fast": {
+        "rise": 0.5418,
+        "fall": 0.5434
+      }
+    },
+    "sel": {
+      "typ": {
+        "rise": 0.3828,
+        "fall": 0.3795
+      },
+      "slow": {
+        "rise": 0.5988,
+        "fall": 0.5953
+      },
+      "fast": {
+        "rise": 0.2608,
+        "fall": 0.2604
+      }
+    },
+    "start": {
+      "typ": {
+        "rise": 0.4471,
+        "fall": 0.4314
+      },
+      "slow": {
+        "rise": 0.6996,
+        "fall": 0.6817
+      },
+      "fast": {
+        "rise": 0.2997,
+        "fall": 0.294
+      }
+    }
+  }
+}

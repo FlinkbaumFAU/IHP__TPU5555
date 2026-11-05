@@ -1,0 +1,138 @@
+** dlf: 8-bit saturating bang-bang accumulator (the MDLL loop filter)
+** Generated from build/01-synth/dlf.v by common/sim/gen_rtl_spice.py
+** -- do not edit by hand; regenerate through make.
+
+.subckt dlf clk_ref clk resetb comp load seed[7] seed[6] seed[5] seed[4] seed[3] seed[2] seed[1] seed[0] code[7] code[6] code[5] code[4] code[3] code[2] code[1] code[0]
+x_043_ _009_ \g_bit[4].u_xor.y VDD VSS sg13g2_inv_1
+x_044_ _008_ seed[3] VDD VSS sg13g2_inv_1
+x_045_ _007_ seed[4] VDD VSS sg13g2_inv_1
+x_046_ _006_ load VDD VSS sg13g2_inv_1
+x_047_ _005_ \g_bit[2].u_xor.y VDD VSS sg13g2_inv_1
+x_048_ _011_ code[7] VDD VSS sg13g2_inv_1
+x_049_ g[2] _000_ VDD VSS sg13g2_inv_1
+x_050_ load_q _001_ VDD VSS sg13g2_inv_1
+x_051_ g[4] _004_ VDD VSS sg13g2_inv_1
+x_052_ _012_ g[6] code[7] VDD VSS sg13g2_xnor2_1
+x_053_ _013_ g[5] _012_ VDD VSS sg13g2_xnor2_1
+x_054_ _014_ _004_ _013_ VDD VSS sg13g2_nand2_1
+x_055_ _015_ _004_ _013_ VDD VSS sg13g2_xnor2_1
+x_056_ _016_ g[3] _015_ VDD VSS sg13g2_nor2_1
+x_057_ _017_ g[3] _015_ VDD VSS sg13g2_xor2_1
+x_058_ _018_ g[2] _017_ VDD VSS sg13g2_xnor2_1
+x_059_ _019_ g[1] g[0] VDD VSS sg13g2_nor2_1
+x_060_ _020_ _000_ _016_ _019_ VDD VSS sg13g2_nand3_1
+x_061_ _021_ g[5] _000_ _016_ _019_ VDD VSS sg13g2_nand4_1
+x_062_ _022_ g[6] _021_ VDD VSS sg13g2_nand2_1
+x_063_ gd[6] _011_ _021_ _022_ VDD VSS sg13g2_o21ai_1
+x_064_ _023_ _000_ _012_ _016_ _019_ VDD VSS sg13g2_nand4_1
+x_065_ _024_ g[5] _020_ VDD VSS sg13g2_nand2b_1
+x_066_ gd[5] _023_ _024_ VDD VSS sg13g2_and2_1
+x_067_ _025_ g[3] _018_ _019_ VDD VSS sg13g2_nand3_1
+x_068_ gd[4] _013_ g[4] _025_ VDD VSS sg13g2_mux2_1
+x_069_ _026_ g[1] g[0] _000_ VDD VSS sg13g2_nor3_1
+x_070_ _027_ g[3] _026_ VDD VSS sg13g2_nor2_1
+x_071_ gd[3] g[3] _015_ _026_ VDD VSS sg13g2_mux2_1
+x_072_ _028_ g[0] g[1] VDD VSS sg13g2_nand2b_1
+x_073_ _029_ _017_ _028_ VDD VSS sg13g2_nor2_1
+x_074_ gd[2] _000_ _028_ _029_ VDD VSS sg13g2_a21oi_1
+x_075_ _030_ g[0] _018_ VDD VSS sg13g2_nand2_1
+x_076_ gd[1] g[0] _018_ _019_ VDD VSS sg13g2_a21oi_1
+x_077_ gd[0] g[1] _018_ VDD VSS sg13g2_xnor2_1
+x_078_ gu[0] gd[0] VDD VSS sg13g2_inv_1
+x_079_ _031_ _000_ _017_ _019_ VDD VSS sg13g2_nand3_1
+x_080_ _032_ _014_ _031_ VDD VSS sg13g2_nor2_1
+x_081_ gu[6] g[6] _011_ _032_ VDD VSS sg13g2_mux2_1
+x_082_ _033_ _004_ _031_ VDD VSS sg13g2_nor2_1
+x_083_ gu[5] g[5] _012_ _033_ VDD VSS sg13g2_mux2_1
+x_084_ _034_ _013_ _004_ _031_ VDD VSS sg13g2_mux2_1
+x_085_ gu[4] _034_ VDD VSS sg13g2_inv_1
+x_086_ gu[3] _015_ _026_ _027_ VDD VSS sg13g2_a21oi_1
+x_087_ gu[2] g[2] _028_ _029_ VDD VSS sg13g2_a21o_1
+x_088_ gu[1] _028_ _030_ VDD VSS sg13g2_nand2_1
+x_089_ gseed[5] seed_q[5] seed_q[6] VDD VSS sg13g2_xor2_1
+x_090_ gseed[4] seed_q[5] _002_ VDD VSS sg13g2_xnor2_1
+x_091_ gseed[3] _002_ _003_ VDD VSS sg13g2_xor2_1
+x_092_ gseed[2] seed_q[2] _003_ VDD VSS sg13g2_xnor2_1
+x_093_ gseed[1] seed_q[2] seed_q[1] VDD VSS sg13g2_xor2_1
+x_094_ gseed[0] seed_q[1] seed_q[0] VDD VSS sg13g2_xor2_1
+x_095_ gseed[6] seed_q[6] gseed[7] VDD VSS sg13g2_xor2_1
+x_096_ _010_ g[5] _023_ code[7] VDD VSS sg13g2_o21ai_1
+x_097_ gd[7] _010_ VDD VSS sg13g2_inv_1
+x_098_ gu[7] g[6] _032_ code[7] VDD VSS sg13g2_a21o_1
+x_099_ g[0] clk \g_bit[0].u_xor.y resetb VDD VSS sg13g2_dfrbpq_1
+x_100_ g[1] clk \g_bit[1].u_xor.y resetb VDD VSS sg13g2_dfrbpq_1
+x_101_ _000_ clk _005_ resetb VDD VSS sg13g2_dfrbpq_1
+x_102_ g[3] clk \g_bit[3].u_xor.y resetb VDD VSS sg13g2_dfrbpq_1
+x_103_ _004_ clk _009_ resetb VDD VSS sg13g2_dfrbpq_1
+x_104_ g[5] clk \g_bit[5].u_xor.y resetb VDD VSS sg13g2_dfrbpq_1
+x_105_ g[6] clk \g_bit[6].u_xor.y resetb VDD VSS sg13g2_dfrbpq_1
+x_106_ code[7] clk \g_bit[7].u_xor.y resetb VDD VSS sg13g2_dfrbpq_1
+x_107_ _001_ clk_ref _006_ resetb VDD VSS sg13g2_dfrbpq_1
+x_108_ seed_q[0] clk_ref seed[0] resetb VDD VSS sg13g2_dfrbpq_1
+x_109_ seed_q[1] clk_ref seed[1] resetb VDD VSS sg13g2_dfrbpq_1
+x_110_ seed_q[2] clk_ref seed[2] resetb VDD VSS sg13g2_dfrbpq_1
+x_111_ _003_ clk_ref _008_ resetb VDD VSS sg13g2_dfrbpq_1
+x_112_ _002_ clk_ref _007_ resetb VDD VSS sg13g2_dfrbpq_1
+x_113_ seed_q[5] clk_ref seed[5] resetb VDD VSS sg13g2_dfrbpq_1
+x_114_ seed_q[6] clk_ref seed[6] resetb VDD VSS sg13g2_dfrbpq_1
+x_115_ gseed[7] clk_ref seed[7] resetb VDD VSS sg13g2_dfrbpq_1
+x_116_ g[7] code[7] VDD VSS sg13g2_buf_1
+x_117_ seed_q[7] gseed[7] VDD VSS sg13g2_buf_1
+x_118_ cd[0] comp diff[0] VDD VSS sg13g2_and2_1
+x_119_ \g_bit[0].u_xor.y \g_bit[0].u_xor.a cd[0] VDD VSS sg13g2_xor2_1
+x_120_ cd[1] comp diff[1] VDD VSS sg13g2_and2_1
+x_121_ \g_bit[1].u_xor.y \g_bit[1].u_xor.a cd[1] VDD VSS sg13g2_xor2_1
+x_122_ cd[2] comp diff[2] VDD VSS sg13g2_and2_1
+x_123_ \g_bit[2].u_xor.y \g_bit[2].u_xor.a cd[2] VDD VSS sg13g2_xor2_1
+x_124_ cd[3] comp diff[3] VDD VSS sg13g2_and2_1
+x_125_ \g_bit[3].u_xor.y \g_bit[3].u_xor.a cd[3] VDD VSS sg13g2_xor2_1
+x_126_ cd[4] comp diff[4] VDD VSS sg13g2_and2_1
+x_127_ \g_bit[4].u_xor.y \g_bit[4].u_xor.a cd[4] VDD VSS sg13g2_xor2_1
+x_128_ cd[5] comp diff[5] VDD VSS sg13g2_and2_1
+x_129_ \g_bit[5].u_xor.y \g_bit[5].u_xor.a cd[5] VDD VSS sg13g2_xor2_1
+x_130_ cd[6] comp diff[6] VDD VSS sg13g2_and2_1
+x_131_ \g_bit[6].u_xor.y \g_bit[6].u_xor.a cd[6] VDD VSS sg13g2_xor2_1
+x_132_ cd[7] comp diff[7] VDD VSS sg13g2_and2_1
+x_133_ \g_bit[7].u_xor.y \g_bit[7].u_xor.a cd[7] VDD VSS sg13g2_xor2_1
+x_134_ \g_g2b[0].l1.u.y g[0] g[1] VDD VSS sg13g2_xor2_1
+x_135_ \g_g2b[0].l2.u.y \g_g2b[0].l1.u.y \g_g2b[0].l2.u.b VDD VSS sg13g2_xor2_1
+x_136_ code[0] \g_g2b[0].l2.u.y code[4] VDD VSS sg13g2_xor2_1
+x_137_ \g_g2b[1].l1.u.y g[1] g[2] VDD VSS sg13g2_xor2_1
+x_138_ \g_g2b[1].l2.u.y \g_g2b[1].l1.u.y \g_g2b[1].l2.u.b VDD VSS sg13g2_xor2_1
+x_139_ code[1] \g_g2b[1].l2.u.y code[5] VDD VSS sg13g2_xor2_1
+x_140_ \g_g2b[0].l2.u.b g[2] g[3] VDD VSS sg13g2_xor2_1
+x_141_ \g_g2b[2].l2.u.y \g_g2b[0].l2.u.b \g_g2b[2].l2.u.b VDD VSS sg13g2_xor2_1
+x_142_ code[2] \g_g2b[2].l2.u.y code[6] VDD VSS sg13g2_xor2_1
+x_143_ \g_g2b[1].l2.u.b g[3] g[4] VDD VSS sg13g2_xor2_1
+x_144_ \g_g2b[3].l2.u.y \g_g2b[1].l2.u.b \g_g2b[3].l2.u.b VDD VSS sg13g2_xor2_1
+x_145_ code[3] \g_g2b[3].l2.u.y code[7] VDD VSS sg13g2_xor2_1
+x_146_ \g_g2b[2].l2.u.b g[4] g[5] VDD VSS sg13g2_xor2_1
+x_147_ code[4] \g_g2b[2].l2.u.b code[6] VDD VSS sg13g2_xor2_1
+x_148_ \g_g2b[3].l2.u.b g[5] g[6] VDD VSS sg13g2_xor2_1
+x_149_ code[5] \g_g2b[3].l2.u.b code[7] VDD VSS sg13g2_xor2_1
+x_150_ code[6] g[6] code[7] VDD VSS sg13g2_xor2_1
+x_151_ _035_ gu[6] gd[6] VDD VSS sg13g2_xnor2_1
+x_152_ diff[6] load_q _035_ VDD VSS sg13g2_nor2_1
+x_153_ _036_ gu[5] gd[5] VDD VSS sg13g2_xnor2_1
+x_154_ diff[5] load_q _036_ VDD VSS sg13g2_nor2_1
+x_155_ _037_ gu[4] gd[4] VDD VSS sg13g2_xnor2_1
+x_156_ diff[4] load_q _037_ VDD VSS sg13g2_nor2_1
+x_157_ _038_ gu[3] gd[3] VDD VSS sg13g2_xnor2_1
+x_158_ diff[3] load_q _038_ VDD VSS sg13g2_nor2_1
+x_159_ _039_ gu[2] gd[2] VDD VSS sg13g2_xnor2_1
+x_160_ diff[2] load_q _039_ VDD VSS sg13g2_nor2_1
+x_161_ _040_ gu[1] gd[1] VDD VSS sg13g2_xnor2_1
+x_162_ diff[1] load_q _040_ VDD VSS sg13g2_nor2_1
+x_163_ _041_ gu[0] gd[0] VDD VSS sg13g2_xnor2_1
+x_164_ diff[0] load_q _041_ VDD VSS sg13g2_nor2_1
+x_165_ \g_bit[6].u_xor.a gu[6] gseed[6] load_q VDD VSS sg13g2_mux2_1
+x_166_ \g_bit[5].u_xor.a gu[5] gseed[5] load_q VDD VSS sg13g2_mux2_1
+x_167_ \g_bit[4].u_xor.a gu[4] gseed[4] load_q VDD VSS sg13g2_mux2_1
+x_168_ \g_bit[3].u_xor.a gu[3] gseed[3] load_q VDD VSS sg13g2_mux2_1
+x_169_ \g_bit[2].u_xor.a gu[2] gseed[2] load_q VDD VSS sg13g2_mux2_1
+x_170_ \g_bit[1].u_xor.a gu[1] gseed[1] load_q VDD VSS sg13g2_mux2_1
+x_171_ \g_bit[0].u_xor.a gu[0] gseed[0] load_q VDD VSS sg13g2_mux2_1
+x_172_ _042_ gu[7] gd[7] VDD VSS sg13g2_xnor2_1
+x_173_ diff[7] load_q _042_ VDD VSS sg13g2_nor2_1
+x_174_ \g_bit[7].u_xor.a gu[7] gseed[7] load_q VDD VSS sg13g2_mux2_1
+.ends

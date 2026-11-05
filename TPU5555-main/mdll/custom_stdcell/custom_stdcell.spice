@@ -1,0 +1,96 @@
+.subckt custom_einvn_1 Z A TE_B VDD VSS
+XP0 TE TE_B VDD VDD sg13_lv_pmos w=6.4e-07 l=1.3e-07 as=2.176e-13 ad=2.176e-13 ps=1.96e-06 pd=1.96e-06 m=1 ng=1
+XP1 net2 TE_B VDD VDD sg13_lv_pmos w=1.12e-06 l=1.3e-07 as=3.808e-13 ad=1.008e-13 ps=2.92e-06 pd=1.3e-06 m=1 ng=1
+XP2 Z A net2 VDD sg13_lv_pmos w=1.12e-06 l=1.3e-07 as=1.008e-13 ad=8.456e-13 ps=1.3e-06 pd=3.75e-06 m=1 ng=1
+XN0 TE TE_B VSS VSS sg13_lv_nmos w=4.2e-07 l=1.3e-07 as=1.428e-13 ad=1.449e-13 ps=1.52e-06 pd=1.53e-06 m=1 ng=1
+XN1 Z A net1 VSS sg13_lv_nmos w=7.4e-07 l=1.3e-07 as=6.66e-14 ad=5.587e-13 ps=9.2e-07 pd=2.99e-06 m=1 ng=1
+XN2 net1 TE VSS VSS sg13_lv_nmos w=7.4e-07 l=1.3e-07 as=2.516e-13 ad=6.66e-14 ps=2.16e-06 pd=9.2e-07 m=1 ng=1
+.ends
+
+.SUBCKT custom_einvn_16 Z A TE_B VDD VSS
+XP0 TE TE_B VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u m=1 ng=1
+XP1 net2 TE_B VDD VDD sg13_lv_pmos L=0.13u W=17.92u AS=3.5784p AD=3.556p PS=25.43u PD=24.27u m=1 ng=16
+XP2 Z A net2 VDD sg13_lv_pmos L=0.13u W=17.92u AS=3.5504p AD=3.5728p PS=24.26u PD=25.42u m=1 ng=16
+XN0 TE TE_B VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u m=1 ng=1
+XN1 Z A net1 VSS sg13_lv_nmos L=0.13u W=11.84u AS=2.2496p AD=2.3606p PS=17.92u PD=18.96u m=1 ng=16
+XN2 net1 TE VSS VSS sg13_lv_nmos L=0.13u W=11.84u AS=2.3606p AD=2.2496p PS=18.96u PD=17.92u m=1 ng=16
+.ENDS custom_einvn_16
+
+.SUBCKT custom_einvn_p5 Z A TE_B VDD VSS
+XP0 TE TE_B VDD VDD sg13_lv_pmos L=0.13u W=0.64u AS=0.2176p AD=0.2176p PS=1.96u PD=1.96u
+XP1 net2 TE_B VDD VDD sg13_lv_pmos L=0.13u W=0.56u AS=0.1904p AD=0.0504p PS=1.8u PD=0.74u
+XP2 Z A net2 VDD sg13_lv_pmos L=0.13u W=0.56u AS=0.0504p AD=0.4228p PS=0.74u PD=2.63u
+XN0 TE TE_B VSS VSS sg13_lv_nmos L=0.13u W=0.42u AS=0.1428p AD=0.1449p PS=1.52u PD=1.53u
+XN1 Z A net1 VSS sg13_lv_nmos L=0.13u W=0.37u AS=0.0333p AD=0.27935p PS=0.55u PD=2.25u
+XN2 net1 TE VSS VSS sg13_lv_nmos L=0.13u W=0.37u AS=0.1258p AD=0.0333p PS=1.42u PD=0.55u
+.ENDS custom_einvn_p5
+
+.SUBCKT custom_cap_p125 C A VDD VSS
+Xn1 net5 C VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xn2 net3 C A VSS sg13_lv_nmos L=0.13u W=0.18u AS=0.1026p AD=0.1026p PS=1.34u PD=1.34u rfmode=0
+Xp3 net5 C VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+Xp4 net6 net5 A VDD sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p PS=1.34u PD=1.34u rfmode=0
+.ENDS custom_cap_p125
+
+.SUBCKT custom_cap_p25 C A VDD VSS
+Xn1 net5 C VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xn2 VDD net3 VDD VSS sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p PS=1.34u PD=1.34u rfmode=0
+Xn3 net3 C A VSS sg13_lv_nmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p PS=1.34u PD=1.34u rfmode=0
+Xp4 net5 C VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+Xp5 VSS net3 VSS VDD sg13_lv_pmos L=0.13u W=0.15u AS=0.1005p AD=0.1005p PS=1.34u PD=1.34u rfmode=0
+Xp6 net3 net5 A VDD sg13_lv_pmos L=0.13u W=0.3u AS=0.111p AD=0.111p PS=1.34u PD=1.34u rfmode=0
+.ENDS custom_cap_p25
+
+.SUBCKT custom_cap_p5 C A VDD VSS
+Xn1 VSS net3 VSS VSS sg13_lv_nmos L=0.13u W=0.3u AS=0.102p AD=0.102p PS=1.28u PD=1.28u rfmode=0
+Xn2 net5 C VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xn3 net3 C A VSS sg13_lv_nmos L=0.13u W=0.3u AS=0.102p AD=0.102p PS=1.28u PD=1.28u rfmode=0
+Xp4 net5 C VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+Xp5 net3 net5 A VDD sg13_lv_pmos L=0.13u W=0.3u AS=0.102p AD=0.102p PS=1.28u PD=1.28u rfmode=0
+Xp6 VDD net3 VDD VDD sg13_lv_pmos L=0.13u W=0.495u AS=0.1683p AD=0.1683p PS=1.67u PD=1.67u rfmode=0
+.ENDS custom_cap_p5
+
+.SUBCKT custom_cap_1 C A VDD VSS
+Xn1 VSS net4 VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xn2 net3 C VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xn3 net4 C A VSS sg13_lv_nmos L=0.13u W=0.36u AS=0.1224p AD=0.1224p PS=1.4u PD=1.4u rfmode=0
+Xp4 net3 C VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+Xp5 VDD net4 VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+Xp6 net4 net3 A VDD sg13_lv_pmos L=0.13u W=0.55u AS=0.187p AD=0.187p PS=1.78u PD=1.78u rfmode=0
+.ENDS custom_cap_1
+
+.SUBCKT custom_cap_2 C A VDD VSS
+Xn1 VSS net4 VSS VSS sg13_lv_nmos L=0.32u W=0.77u AS=0.3003p AD=0.2618p PS=2.32u PD=2.22u rfmode=0
+Xn2 net3 C VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xn3 net4 C A VSS sg13_lv_nmos L=0.13u W=0.53u AS=0.1802p AD=0.1802p PS=1.74u PD=1.74u rfmode=0
+Xp4 net3 C VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+Xp5 VDD net4 VDD VDD sg13_lv_pmos L=0.32u W=1.13u AS=0.4407p AD=0.3842p PS=3.04u PD=2.94u rfmode=0
+Xp6 net4 net3 A VDD sg13_lv_pmos L=0.13u W=0.82u AS=0.2788p AD=0.2788p PS=2.32u PD=2.32u rfmode=0
+.ENDS custom_cap_2
+
+.SUBCKT custom_cap_4 C A VDD VSS
+Xn1 net3 C A VSS sg13_lv_nmos L=0.13u W=0.78u AS=0.2652p AD=0.2652p PS=2.24u PD=2.24u rfmode=0
+Xn2 VSS net3 VSS VSS sg13_lv_nmos L=0.74u W=0.755u AS=0.2567p AD=0.2567p PS=2.19u PD=2.19u rfmode=0
+Xn3 net4 C VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xp4 net3 net4 A VDD sg13_lv_pmos L=0.13u W=1.19u AS=0.4046p AD=0.4046p PS=3.06u PD=3.06u rfmode=0
+Xp5 net4 C VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+Xp6 VDD net3 VDD VDD sg13_lv_pmos L=0.74u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+.ENDS custom_cap_4
+
+.SUBCKT custom_cap_8 C A VDD VSS
+Xn1 net4 C A VSS sg13_lv_nmos L=0.13u W=1.11u AS=0.3774p AD=0.3774p PS=2.9u PD=2.9u rfmode=0
+Xn2 VSS net4 VSS VSS sg13_lv_nmos L=1.62u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xn3 net3 C VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xp4 net3 C VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+Xp5 net4 net3 A VDD sg13_lv_pmos L=0.13u W=1.68u AS=0.4452p AD=0.4452p PS=3.58u PD=3.58u rfmode=0
+Xp7 VDD net4 VDD VDD sg13_lv_pmos L=1.62u W=1.12u AS=0.3808p AD=0.4368p PS=2.92u PD=3.02u rfmode=0
+.ENDS custom_cap_8
+
+.SUBCKT custom_cap_16 C A VDD VSS
+Xn1 net2 C A VSS sg13_lv_nmos L=0.13u W=1.48u AS=0.3922p AD=0.3922p PS=3.28u PD=3.28u rfmode=0
+Xn3 VSS net2 VSS VSS sg13_lv_nmos L=3.42u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xn4 net5 C VSS VSS sg13_lv_nmos L=0.13u W=0.74u AS=0.2516p AD=0.2516p PS=2.16u PD=2.16u rfmode=0
+Xp5 net5 C VDD VDD sg13_lv_pmos L=0.13u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+Xp6 net2 net5 A VDD sg13_lv_pmos L=0.13u W=2.24u AS=0.5936p AD=0.5936p PS=4.42u PD=4.42u rfmode=0
+Xp8 VDD net2 VDD VDD sg13_lv_pmos L=3.42u W=1.12u AS=0.3808p AD=0.3808p PS=2.92u PD=2.92u rfmode=0
+.ENDS custom_cap_16

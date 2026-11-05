@@ -1,0 +1,31 @@
+v {xschem version=3.4.5 file_version=1.2
+}
+G {}
+K {type=subcircuit
+format="@name @pinlist @VDD @VSS @symname"
+template="name=x1 VDD=VDD VSS=VSS"
+extra="VDD VSS"
+}
+V {}
+S {}
+E {}
+L 4 -130 -30 -130 30 {}
+L 4 30 -30 30 30 {}
+L 4 -150 -20 -130 -20 {}
+L 4 30 -20 50 -20 {}
+L 4 -150 0 -130 0 {}
+L 4 -150 20 -130 20 {}
+L 4 -130 30 30 30 {}
+L 4 -130 -30 30 -30 {}
+B 5 -152.5 -22.5 -147.5 -17.5 {name=fast_osci dir=in}
+B 5 47.5 -22.5 52.5 -17.5 {name=detect dir=out}
+B 5 -152.5 -2.5 -147.5 2.5 {name=slow_osci dir=in}
+B 5 -152.5 17.5 -147.5 22.5 {name=reset dir=in}
+P 4 4 -70 20 -60 20 -60 -20 -50 -20 {bezier=true}
+P 4 4 -60 20 -50 20 -50 -20 -40 -20 {bezier=true}
+T {@symname} -32 34 0 0 0.3 0.3 {}
+T {@name} -15 -52 0 0 0.2 0.2 {}
+T {fast_osci} -125 -24 0 0 0.2 0.2 {}
+T {detect} 25 -24 0 1 0.2 0.2 {}
+T {slow_osci} -125 -4 0 0 0.2 0.2 {}
+T {reset} -125 16 0 0 0.2 0.2 {}

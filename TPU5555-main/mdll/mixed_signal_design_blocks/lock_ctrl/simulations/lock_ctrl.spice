@@ -1,0 +1,412 @@
+** lock_ctrl: coarse-acquisition controller (TDC -> DCO code)
+** Generated from build/01-synth/lock_ctrl.v by common/sim/gen_rtl_spice.py
+** -- do not edit by hand; regenerate through make.
+
+.subckt lock_ctrl clk resetb inj busy hit tdc_s[7] tdc_s[6] tdc_s[5] tdc_s[4] tdc_s[3] tdc_s[2] tdc_s[1] tdc_s[0] tdc_f[7] tdc_f[6] tdc_f[5] tdc_f[4] tdc_f[3] tdc_f[2] tdc_f[1] tdc_f[0] code[7] code[6] code[5] code[4] code[3] code[2] code[1] code[0] start sel load seed[7] seed[6] seed[5] seed[4] seed[3] seed[2] seed[1] seed[0] locked
+x_373_ seed[3] _007_ VDD VSS sg13g2_inv_1
+x_374_ seed[4] _006_ VDD VSS sg13g2_inv_1
+x_375_ _364_ tdc_f[3] VDD VSS sg13g2_inv_1
+x_376_ _365_ tdc_f[4] VDD VSS sg13g2_inv_1
+x_377_ _366_ tdc_f[6] VDD VSS sg13g2_inv_1
+x_378_ _367_ tdc_f[7] VDD VSS sg13g2_inv_1
+x_379_ _368_ code[6] VDD VSS sg13g2_inv_1
+x_380_ _369_ code[7] VDD VSS sg13g2_inv_1
+x_381_ _370_ locked VDD VSS sg13g2_inv_1
+x_382_ _371_ tmo[2] VDD VSS sg13g2_inv_1
+x_383_ _372_ tmo[3] VDD VSS sg13g2_inv_1
+x_384_ _031_ miss[0] VDD VSS sg13g2_inv_1
+x_385_ _032_ irun[3] VDD VSS sg13g2_inv_1
+x_386_ _033_ hit VDD VSS sg13g2_inv_1
+x_387_ load _004_ VDD VSS sg13g2_inv_1
+x_388_ _034_ tdc_f[1] tdc_s[1] VDD VSS sg13g2_nand2b_1
+x_389_ _035_ tdc_s[0] tdc_f[0] VDD VSS sg13g2_nor2b_1
+x_390_ _036_ tdc_f[1] tdc_s[1] VDD VSS sg13g2_xor2_1
+x_391_ _037_ _035_ _036_ _034_ VDD VSS sg13g2_o21ai_1
+x_392_ _038_ tdc_f[2] tdc_s[2] VDD VSS sg13g2_nor2b_1
+x_393_ _039_ tdc_f[2] tdc_s[2] VDD VSS sg13g2_xnor2_1
+x_394_ _040_ _037_ _039_ VDD VSS sg13g2_xor2_1
+x_395_ _041_ _037_ _039_ _038_ VDD VSS sg13g2_a21oi_1
+x_396_ _042_ tdc_s[3] _364_ VDD VSS sg13g2_nor2_1
+x_397_ _043_ tdc_s[3] tdc_f[3] VDD VSS sg13g2_xor2_1
+x_398_ _044_ _041_ _043_ VDD VSS sg13g2_xnor2_1
+x_399_ _045_ _044_ _040_ VDD VSS sg13g2_nand2b_1
+x_400_ _046_ tdc_f[4] tdc_s[4] VDD VSS sg13g2_nor2b_1
+x_401_ _047_ tdc_f[4] tdc_s[4] VDD VSS sg13g2_xor2_1
+x_402_ _048_ tdc_s[3] _364_ _037_ _039_ _038_ VDD VSS sg13g2_a221oi_1
+x_403_ _049_ _042_ _047_ _048_ VDD VSS sg13g2_nor3_1
+x_404_ _050_ _042_ _048_ _047_ VDD VSS sg13g2_o21ai_1
+x_405_ _051_ _049_ _050_ VDD VSS sg13g2_nor2b_1
+x_406_ _052_ _051_ VDD VSS sg13g2_inv_1
+x_407_ _053_ _040_ _044_ VDD VSS sg13g2_xnor2_1
+x_408_ _054_ _051_ _053_ VDD VSS sg13g2_nand2_1
+x_409_ _055_ _045_ _054_ VDD VSS sg13g2_nand2_1
+x_410_ _056_ _046_ _049_ VDD VSS sg13g2_nor2_1
+x_411_ _057_ tdc_s[5] tdc_f[5] VDD VSS sg13g2_nor2b_1
+x_412_ _058_ tdc_s[5] tdc_f[5] VDD VSS sg13g2_nand2b_1
+x_413_ _059_ tdc_f[5] tdc_s[5] VDD VSS sg13g2_nor2b_1
+x_414_ _060_ tdc_f[5] tdc_s[5] VDD VSS sg13g2_nand2b_1
+x_415_ _061_ _058_ _060_ VDD VSS sg13g2_nand2_1
+x_416_ _062_ _056_ _061_ VDD VSS sg13g2_xor2_1
+x_417_ _063_ _056_ _061_ VDD VSS sg13g2_xnor2_1
+x_418_ _064_ _044_ _051_ VDD VSS sg13g2_xnor2_1
+x_419_ _065_ _062_ _064_ VDD VSS sg13g2_nand2_1
+x_420_ _066_ _062_ _064_ VDD VSS sg13g2_xnor2_1
+x_421_ _067_ _066_ _055_ VDD VSS sg13g2_nor2b_1
+x_422_ _068_ tdc_f[6] tdc_s[6] VDD VSS sg13g2_xor2_1
+x_423_ _069_ _046_ _049_ _058_ VDD VSS sg13g2_o21ai_1
+x_424_ _070_ _046_ _049_ _059_ VDD VSS sg13g2_nor3_1
+x_425_ _071_ _057_ _068_ _070_ VDD VSS sg13g2_nor3_1
+x_426_ _072_ _057_ _068_ _070_ VDD VSS sg13g2_or3_1
+x_427_ _073_ _060_ _068_ _069_ VDD VSS sg13g2_and3_1
+x_428_ _074_ _057_ _070_ _068_ VDD VSS sg13g2_o21ai_1
+x_429_ _075_ _072_ _074_ VDD VSS sg13g2_nand2_1
+x_430_ _076_ _055_ _066_ VDD VSS sg13g2_xnor2_1
+x_431_ _077_ _075_ _076_ VDD VSS sg13g2_nand2b_1
+x_432_ _078_ _067_ _077_ VDD VSS sg13g2_nand2b_1
+x_433_ _079_ _044_ _052_ _065_ VDD VSS sg13g2_o21ai_1
+x_434_ _080_ _062_ _075_ VDD VSS sg13g2_nor2_1
+x_435_ _081_ _062_ _075_ VDD VSS sg13g2_nand2_1
+x_436_ _082_ _063_ _071_ _073_ VDD VSS sg13g2_nor3_1
+x_437_ _083_ _062_ _072_ _074_ VDD VSS sg13g2_nand3_1
+x_438_ _084_ _072_ _074_ _062_ VDD VSS sg13g2_a21oi_1
+x_439_ _085_ _071_ _073_ _063_ VDD VSS sg13g2_o21ai_1
+x_440_ _086_ _083_ _085_ VDD VSS sg13g2_nand2_1
+x_441_ _087_ _051_ _083_ _085_ VDD VSS sg13g2_nand3_1
+x_442_ _088_ _082_ _084_ _052_ VDD VSS sg13g2_o21ai_1
+x_443_ _089_ _079_ _087_ _088_ VDD VSS sg13g2_nand3_1
+x_444_ _090_ _087_ _088_ _079_ VDD VSS sg13g2_a21o_1
+x_445_ _091_ _366_ tdc_s[6] _071_ VDD VSS sg13g2_a21oi_1
+x_446_ _092_ tdc_s[7] _367_ VDD VSS sg13g2_nor2_1
+x_447_ _093_ tdc_s[7] _367_ VDD VSS sg13g2_nand2_1
+x_448_ _094_ _092_ _093_ VDD VSS sg13g2_nor2b_1
+x_449_ _095_ _091_ _094_ VDD VSS sg13g2_xnor2_1
+x_450_ _096_ _089_ _090_ _095_ VDD VSS sg13g2_nand3_1
+x_451_ _097_ _089_ _090_ _095_ VDD VSS sg13g2_a21o_1
+x_452_ _098_ _078_ _096_ _097_ VDD VSS sg13g2_and3_1
+x_453_ _099_ _035_ _036_ VDD VSS sg13g2_xor2_1
+x_454_ _100_ _040_ _099_ VDD VSS sg13g2_xor2_1
+x_455_ _101_ _044_ _100_ VDD VSS sg13g2_nor2b_1
+x_456_ _102_ _040_ _099_ _101_ VDD VSS sg13g2_a21o_1
+x_457_ _103_ _051_ _053_ VDD VSS sg13g2_xor2_1
+x_458_ _104_ _102_ _103_ VDD VSS sg13g2_and2_1
+x_459_ _105_ _102_ _103_ VDD VSS sg13g2_xor2_1
+x_460_ _106_ _062_ _105_ _104_ VDD VSS sg13g2_a21oi_1
+x_461_ _107_ _075_ _076_ VDD VSS sg13g2_xnor2_1
+x_462_ _108_ _106_ _107_ VDD VSS sg13g2_nand2b_1
+x_463_ _109_ tdc_s[0] tdc_f[0] VDD VSS sg13g2_xor2_1
+x_464_ _110_ _099_ _109_ VDD VSS sg13g2_and2_1
+x_465_ _111_ _099_ _109_ VDD VSS sg13g2_nand2_1
+x_466_ _112_ _036_ _109_ VDD VSS sg13g2_nor2_1
+x_467_ _113_ _099_ _109_ _112_ VDD VSS sg13g2_a21oi_1
+x_468_ _114_ _113_ VDD VSS sg13g2_inv_1
+x_469_ _115_ _040_ _113_ VDD VSS sg13g2_nand2_1
+x_470_ _116_ _040_ _113_ _110_ VDD VSS sg13g2_a21oi_1
+x_471_ _117_ _044_ _100_ VDD VSS sg13g2_xnor2_1
+x_472_ _118_ _116_ _117_ VDD VSS sg13g2_nand2b_1
+x_473_ _119_ _116_ _117_ VDD VSS sg13g2_xnor2_1
+x_474_ _120_ _051_ _119_ VDD VSS sg13g2_nand2_1
+x_475_ _121_ _118_ _120_ VDD VSS sg13g2_nand2_1
+x_476_ _122_ _062_ _105_ VDD VSS sg13g2_xnor2_1
+x_477_ _123_ _122_ _121_ VDD VSS sg13g2_nor2b_1
+x_478_ _124_ _051_ _119_ VDD VSS sg13g2_xnor2_1
+x_479_ _125_ _040_ _110_ VDD VSS sg13g2_and2_1
+x_480_ _126_ _040_ _110_ VDD VSS sg13g2_nand2_1
+x_481_ _127_ _040_ _113_ VDD VSS sg13g2_xnor2_1
+x_482_ _128_ _111_ _127_ _044_ VDD VSS sg13g2_a21oi_1
+x_483_ _129_ _125_ _128_ VDD VSS sg13g2_nor2_1
+x_484_ _130_ _124_ _129_ VDD VSS sg13g2_nor2_1
+x_485_ _131_ _111_ _127_ _125_ VDD VSS sg13g2_a21o_1
+x_486_ _132_ _115_ _131_ _044_ VDD VSS sg13g2_a21oi_1
+x_487_ _133_ _044_ _115_ _131_ VDD VSS sg13g2_and3_1
+x_488_ _134_ _126_ _132_ _133_ VDD VSS sg13g2_or3_1
+x_489_ _135_ _045_ _114_ _134_ VDD VSS sg13g2_o21ai_1
+x_490_ _136_ _124_ _129_ VDD VSS sg13g2_nand2_1
+x_491_ _137_ _124_ _129_ VDD VSS sg13g2_xnor2_1
+x_492_ _138_ _135_ _136_ _130_ VDD VSS sg13g2_a21o_1
+x_493_ _139_ _121_ _122_ VDD VSS sg13g2_xnor2_1
+x_494_ _140_ _138_ _139_ _123_ VDD VSS sg13g2_a21oi_1
+x_495_ _141_ _107_ _106_ VDD VSS sg13g2_nor2b_1
+x_496_ _142_ _106_ _107_ VDD VSS sg13g2_xnor2_1
+x_497_ _143_ _140_ _141_ _108_ VDD VSS sg13g2_o21ai_1
+x_498_ _144_ _096_ _097_ _078_ VDD VSS sg13g2_a21o_1
+x_499_ _145_ _098_ _144_ VDD VSS sg13g2_nor2b_1
+x_500_ _146_ _143_ _144_ _098_ VDD VSS sg13g2_a21oi_1
+x_501_ _147_ _089_ _096_ VDD VSS sg13g2_nand2_1
+x_502_ _148_ _086_ _095_ VDD VSS sg13g2_xnor2_1
+x_503_ _149_ _052_ _083_ _084_ VDD VSS sg13g2_a21oi_1
+x_504_ _150_ _148_ _149_ VDD VSS sg13g2_nand2_1
+x_505_ _151_ _148_ _149_ VDD VSS sg13g2_xnor2_1
+x_506_ _152_ _089_ _096_ _151_ VDD VSS sg13g2_a21oi_1
+x_507_ _153_ _147_ _151_ VDD VSS sg13g2_xor2_1
+x_508_ _154_ _146_ _153_ VDD VSS sg13g2_nor2_1
+x_509_ _155_ _146_ _153_ VDD VSS sg13g2_xor2_1
+x_510_ _156_ _138_ _139_ VDD VSS sg13g2_xnor2_1
+x_511_ _157_ _367_ _156_ VDD VSS sg13g2_nor2_1
+x_512_ _158_ _135_ _137_ VDD VSS sg13g2_xnor2_1
+x_513_ _159_ tdc_f[6] _158_ VDD VSS sg13g2_nand2_1
+x_514_ _160_ _132_ _133_ _126_ VDD VSS sg13g2_o21ai_1
+x_515_ _161_ tdc_f[5] _134_ _160_ VDD VSS sg13g2_nand3_1
+x_516_ _162_ _134_ _160_ tdc_f[5] VDD VSS sg13g2_a21o_1
+x_517_ _163_ tdc_f[3] _113_ VDD VSS sg13g2_nand2_1
+x_518_ _164_ tdc_f[2] _109_ VDD VSS sg13g2_nand2_1
+x_519_ _165_ tdc_f[3] _113_ VDD VSS sg13g2_xnor2_1
+x_520_ _166_ _164_ _165_ VDD VSS sg13g2_or2_1
+x_521_ _167_ _365_ _131_ VDD VSS sg13g2_xnor2_1
+x_522_ _168_ _163_ _166_ _167_ VDD VSS sg13g2_a21o_1
+x_523_ _169_ _365_ _131_ _168_ VDD VSS sg13g2_o21ai_1
+x_524_ _170_ _161_ _162_ _169_ VDD VSS sg13g2_nand3_1
+x_525_ _171_ _161_ _170_ VDD VSS sg13g2_and2_1
+x_526_ _172_ tdc_f[6] _158_ VDD VSS sg13g2_xnor2_1
+x_527_ _173_ _171_ _172_ _159_ VDD VSS sg13g2_o21ai_1
+x_528_ _174_ tdc_f[7] _156_ VDD VSS sg13g2_xnor2_1
+x_529_ _175_ _173_ _174_ _157_ VDD VSS sg13g2_a21oi_1
+x_530_ _176_ _140_ _142_ VDD VSS sg13g2_xnor2_1
+x_531_ _177_ _175_ _176_ VDD VSS sg13g2_nor2b_1
+x_532_ _178_ _143_ _145_ VDD VSS sg13g2_xor2_1
+x_533_ _179_ _177_ _178_ VDD VSS sg13g2_nor2_1
+x_534_ _180_ _091_ _093_ _092_ VDD VSS sg13g2_a21o_1
+x_535_ _181_ _091_ _093_ _092_ VDD VSS sg13g2_a21oi_1
+x_536_ _182_ _177_ _178_ _180_ VDD VSS sg13g2_a21oi_1
+x_537_ _183_ _179_ _182_ VDD VSS sg13g2_nor2b_1
+x_538_ _184_ _155_ _183_ VDD VSS sg13g2_nand2_1
+x_539_ _185_ _177_ _178_ _155_ VDD VSS sg13g2_a21o_1
+x_540_ _186_ _155_ _177_ _178_ VDD VSS sg13g2_nand3_1
+x_541_ _187_ _181_ _185_ _186_ VDD VSS sg13g2_and3_1
+x_542_ _188_ _183_ _187_ VDD VSS sg13g2_nor2_1
+x_543_ _189_ _155_ _183_ _188_ VDD VSS sg13g2_a21oi_1
+x_544_ _190_ _175_ _176_ VDD VSS sg13g2_xnor2_1
+x_545_ _191_ _181_ _190_ VDD VSS sg13g2_and2_1
+x_546_ _192_ _183_ _191_ VDD VSS sg13g2_or2_1
+x_547_ _193_ _178_ _191_ VDD VSS sg13g2_nand2_1
+x_548_ _194_ _173_ _174_ VDD VSS sg13g2_xnor2_1
+x_549_ _195_ _180_ _194_ VDD VSS sg13g2_nor2_1
+x_550_ _196_ _190_ _195_ VDD VSS sg13g2_nor2b_1
+x_551_ _197_ _191_ _194_ _196_ VDD VSS sg13g2_a21o_1
+x_552_ _198_ _171_ _172_ VDD VSS sg13g2_xor2_1
+x_553_ _199_ _181_ _198_ VDD VSS sg13g2_and2_1
+x_554_ _200_ _181_ _198_ VDD VSS sg13g2_nand2_1
+x_555_ _201_ _180_ _194_ _200_ VDD VSS sg13g2_o21ai_1
+x_556_ _202_ _161_ _162_ _169_ VDD VSS sg13g2_a21o_1
+x_557_ _203_ _170_ _181_ _202_ VDD VSS sg13g2_and3_1
+x_558_ _204_ _198_ _203_ VDD VSS sg13g2_nand2_1
+x_559_ _205_ _199_ _203_ _204_ VDD VSS sg13g2_o21ai_1
+x_560_ _206_ _163_ _166_ _167_ VDD VSS sg13g2_nand3_1
+x_561_ _207_ _168_ _206_ VDD VSS sg13g2_and2_1
+x_562_ _208_ _181_ _207_ VDD VSS sg13g2_and2_1
+x_563_ _209_ _203_ _208_ VDD VSS sg13g2_nor2_1
+x_564_ _210_ _164_ _165_ VDD VSS sg13g2_xor2_1
+x_565_ _211_ _181_ _210_ VDD VSS sg13g2_nand2_1
+x_566_ _212_ _181_ _207_ _210_ VDD VSS sg13g2_and3_1
+x_567_ _213_ tdc_f[2] _109_ VDD VSS sg13g2_xor2_1
+x_568_ _214_ tdc_f[1] _213_ _210_ VDD VSS sg13g2_a21o_1
+x_569_ _215_ tdc_f[1] tdc_f[0] _213_ VDD VSS sg13g2_a21o_1
+x_570_ _216_ _181_ _214_ _215_ VDD VSS sg13g2_and3_1
+x_571_ _217_ _208_ _211_ VDD VSS sg13g2_xnor2_1
+x_572_ _218_ _216_ _217_ _212_ VDD VSS sg13g2_a21oi_1
+x_573_ _219_ _209_ _218_ VDD VSS sg13g2_nor2_1
+x_574_ _220_ _203_ _208_ _219_ VDD VSS sg13g2_a21oi_1
+x_575_ _221_ _205_ _220_ _204_ VDD VSS sg13g2_o21ai_1
+x_576_ _222_ _194_ _200_ VDD VSS sg13g2_nor2_1
+x_577_ _223_ _201_ _221_ _222_ VDD VSS sg13g2_a21o_1
+x_578_ _224_ _201_ _221_ _222_ VDD VSS sg13g2_a21oi_1
+x_579_ _225_ _190_ _195_ VDD VSS sg13g2_and2_1
+x_580_ _226_ _197_ _223_ _225_ VDD VSS sg13g2_a21o_1
+x_581_ _227_ _178_ _191_ _192_ _226_ VDD VSS sg13g2_a22oi_1
+x_582_ _228_ _188_ _227_ _184_ VDD VSS sg13g2_o21ai_1
+x_583_ _229_ _152_ _154_ VDD VSS sg13g2_nor2_1
+x_584_ _230_ _081_ _095_ _080_ VDD VSS sg13g2_a21oi_1
+x_585_ _231_ _150_ _230_ VDD VSS sg13g2_and2_1
+x_586_ _232_ _150_ _230_ VDD VSS sg13g2_or2_1
+x_587_ _233_ _231_ _232_ VDD VSS sg13g2_nand2b_1
+x_588_ _234_ _229_ _233_ VDD VSS sg13g2_xor2_1
+x_589_ _235_ _234_ _186_ VDD VSS sg13g2_nor2b_1
+x_590_ _236_ _186_ _234_ VDD VSS sg13g2_nor2b_1
+x_591_ _237_ _180_ _235_ _236_ VDD VSS sg13g2_nor3_1
+x_592_ _238_ _187_ _237_ VDD VSS sg13g2_or2_1
+x_593_ _239_ _187_ _234_ VDD VSS sg13g2_nand2_1
+x_594_ _240_ _187_ _237_ _239_ VDD VSS sg13g2_o21ai_1
+x_595_ _241_ _228_ _240_ VDD VSS sg13g2_xor2_1
+x_596_ _242_ _229_ _232_ _231_ VDD VSS sg13g2_a21oi_1
+x_597_ _243_ _082_ _095_ VDD VSS sg13g2_nor2_1
+x_598_ _244_ _085_ _095_ _243_ VDD VSS sg13g2_a21oi_1
+x_599_ _245_ _242_ _244_ VDD VSS sg13g2_nor2_1
+x_600_ _246_ _082_ _095_ _236_ _242_ VDD VSS sg13g2_nor4_1
+x_601_ _247_ _180_ _246_ _239_ VDD VSS sg13g2_o21ai_1
+x_602_ _248_ _228_ _238_ _245_ _237_ _247_ VDD VSS sg13g2_a221oi_1
+x_603_ _249_ _189_ _227_ VDD VSS sg13g2_xor2_1
+x_604_ _250_ _183_ _191_ _193_ VDD VSS sg13g2_o21ai_1
+x_605_ _251_ _226_ _250_ VDD VSS sg13g2_xnor2_1
+x_606_ _252_ _197_ _224_ VDD VSS sg13g2_xnor2_1
+x_607_ _253_ _194_ _200_ _201_ VDD VSS sg13g2_o21ai_1
+x_608_ _254_ _221_ _253_ VDD VSS sg13g2_xnor2_1
+x_609_ _255_ _205_ _220_ VDD VSS sg13g2_xor2_1
+x_610_ _256_ _203_ _208_ VDD VSS sg13g2_xor2_1
+x_611_ _257_ _218_ _256_ VDD VSS sg13g2_xnor2_1
+x_612_ _258_ _252_ _254_ _255_ _257_ VDD VSS sg13g2_nor4_1
+x_613_ _259_ _251_ _258_ VDD VSS sg13g2_nor2b_1
+x_614_ _260_ _241_ _248_ _249_ _259_ VDD VSS sg13g2_nand4_1
+x_615_ _261_ _033_ _260_ VDD VSS sg13g2_nand2_1
+x_616_ _262_ busy_s seen_busy VDD VSS sg13g2_nor2b_1
+x_617_ _263_ state[2] _033_ _260_ _262_ VDD VSS sg13g2_nand4_1
+x_618_ _264_ rail[1] rail[0] VDD VSS sg13g2_nand2_1
+x_619_ _265_ code[6] code[3] code[0] VDD VSS sg13g2_nor3_1
+x_620_ _266_ code[5] code[4] code[2] code[1] VDD VSS sg13g2_nor4_1
+x_621_ _267_ _369_ _265_ _266_ VDD VSS sg13g2_nand3_1
+x_622_ _268_ code[2] code[1] code[0] code[7] VDD VSS sg13g2_nand4_1
+x_623_ _269_ code[6] code[5] code[4] code[3] VDD VSS sg13g2_nand4_1
+x_624_ _270_ _268_ _269_ _267_ VDD VSS sg13g2_o21ai_1
+x_625_ _271_ rail[1] rail[0] rail[2] _270_ VDD VSS sg13g2_and4_1
+x_626_ _272_ _031_ inj_q miss[1] VDD VSS sg13g2_nor3_1
+x_627_ _273_ _271_ _272_ locked VDD VSS sg13g2_o21ai_1
+x_628_ _274_ _263_ _273_ VDD VSS sg13g2_and2_1
+x_629_ _275_ start inj VDD VSS sg13g2_and2_1
+x_630_ _276_ start inj VDD VSS sg13g2_nand2_1
+x_631_ _277_ tmo[1] tmo[0] tmo[2] VDD VSS sg13g2_nand3_1
+x_632_ _278_ _372_ _277_ VDD VSS sg13g2_nor2_1
+x_633_ _279_ tmo[4] _278_ VDD VSS sg13g2_and2_1
+x_634_ _280_ _005_ _275_ _279_ VDD VSS sg13g2_nor3_1
+x_635_ _009_ _280_ _274_ VDD VSS sg13g2_nor2b_1
+x_636_ _281_ locked state[2] VDD VSS sg13g2_nor2_1
+x_637_ _282_ _262_ state[2] VDD VSS sg13g2_nand2b_1
+x_638_ _283_ _279_ _282_ VDD VSS sg13g2_nor2_1
+x_639_ _284_ _005_ _281_ _283_ VDD VSS sg13g2_a21o_1
+x_640_ _001_ _005_ _276_ VDD VSS sg13g2_nor2_1
+x_641_ _285_ _276_ _279_ _005_ VDD VSS sg13g2_a21oi_1
+x_642_ _286_ _284_ _285_ VDD VSS sg13g2_nor2_1
+x_643_ _008_ _274_ _286_ VDD VSS sg13g2_and2_1
+x_644_ _287_ _271_ locked VDD VSS sg13g2_nand2b_1
+x_645_ _288_ _272_ _287_ VDD VSS sg13g2_nor2_1
+x_646_ _289_ _270_ _288_ VDD VSS sg13g2_nand2_1
+x_647_ _290_ rail[1] rail[0] VDD VSS sg13g2_xnor2_1
+x_648_ _000_[1] _289_ _290_ VDD VSS sg13g2_nor2_1
+x_649_ _000_[0] rail[0] _289_ VDD VSS sg13g2_nor2_1
+x_650_ _291_ state[2] _261_ _262_ VDD VSS sg13g2_nand3_1
+x_651_ _292_ _005_ _275_ _282_ VDD VSS sg13g2_o21ai_1
+x_652_ _293_ _279_ _292_ _288_ VDD VSS sg13g2_a21oi_1
+x_653_ _002_ _291_ _293_ VDD VSS sg13g2_nand2_1
+x_654_ _003_ _283_ _001_ VDD VSS sg13g2_or2_1
+x_655_ _294_ rail[2] _264_ VDD VSS sg13g2_xor2_1
+x_656_ _000_[2] _289_ _294_ VDD VSS sg13g2_nor2_1
+x_657_ _295_ state[2] locked VDD VSS sg13g2_nand2b_1
+x_658_ _296_ _263_ _295_ _288_ VDD VSS sg13g2_a21oi_1
+x_659_ _297_ _216_ _217_ VDD VSS sg13g2_xor2_1
+x_660_ _298_ code[0] _297_ VDD VSS sg13g2_nand2_1
+x_661_ _299_ code[0] _297_ VDD VSS sg13g2_xnor2_1
+x_662_ _300_ _368_ _249_ VDD VSS sg13g2_nor2_1
+x_663_ _301_ code[6] _249_ VDD VSS sg13g2_xnor2_1
+x_664_ _302_ code[5] _251_ VDD VSS sg13g2_nand2_1
+x_665_ _303_ code[4] _252_ VDD VSS sg13g2_and2_1
+x_666_ _304_ code[3] _254_ VDD VSS sg13g2_nand2_1
+x_667_ _305_ code[2] _255_ VDD VSS sg13g2_and2_1
+x_668_ _306_ code[1] _257_ VDD VSS sg13g2_nand2_1
+x_669_ _307_ code[1] _257_ VDD VSS sg13g2_xnor2_1
+x_670_ _308_ _298_ _307_ _306_ VDD VSS sg13g2_o21ai_1
+x_671_ _309_ code[2] _255_ VDD VSS sg13g2_xor2_1
+x_672_ _310_ _308_ _309_ _305_ VDD VSS sg13g2_a21oi_1
+x_673_ _311_ code[3] _254_ VDD VSS sg13g2_xnor2_1
+x_674_ _312_ _310_ _311_ _304_ VDD VSS sg13g2_o21ai_1
+x_675_ _313_ code[4] _252_ VDD VSS sg13g2_xor2_1
+x_676_ _314_ _312_ _313_ _303_ VDD VSS sg13g2_a21oi_1
+x_677_ _315_ code[5] _251_ VDD VSS sg13g2_xnor2_1
+x_678_ _316_ _314_ _315_ _302_ VDD VSS sg13g2_o21ai_1
+x_679_ _317_ _301_ _316_ _300_ VDD VSS sg13g2_a21o_1
+x_680_ _318_ _369_ _241_ _248_ VDD VSS sg13g2_o21ai_1
+x_681_ _319_ _369_ _241_ _248_ VDD VSS sg13g2_nand3_1
+x_682_ _320_ _317_ _318_ _319_ VDD VSS sg13g2_o21ai_1
+x_683_ _321_ _299_ _320_ locked VDD VSS sg13g2_a21oi_1
+x_684_ _010_ seed[0] _321_ _296_ VDD VSS sg13g2_mux2_1
+x_685_ _322_ _301_ _316_ VDD VSS sg13g2_xnor2_1
+x_686_ _323_ _320_ _322_ locked VDD VSS sg13g2_a21oi_1
+x_687_ _011_ seed[6] _323_ _296_ VDD VSS sg13g2_mux2_1
+x_688_ _324_ _314_ _315_ VDD VSS sg13g2_xnor2_1
+x_689_ _325_ _320_ _324_ locked VDD VSS sg13g2_a21oi_1
+x_690_ _012_ seed[5] _325_ _296_ VDD VSS sg13g2_mux2_1
+x_691_ _326_ _005_ _281_ _288_ VDD VSS sg13g2_a21oi_1
+x_692_ _327_ _326_ VDD VSS sg13g2_inv_1
+x_693_ _328_ _277_ _326_ VDD VSS sg13g2_nand2b_1
+x_694_ _329_ _276_ _281_ VDD VSS sg13g2_nand2_1
+x_695_ _330_ _282_ _329_ VDD VSS sg13g2_nand2_1
+x_696_ _331_ _330_ VDD VSS sg13g2_inv_1
+x_697_ _332_ _278_ _331_ VDD VSS sg13g2_nor2_1
+x_698_ _333_ _327_ _332_ VDD VSS sg13g2_nor2_1
+x_699_ _013_ _372_ _328_ _333_ VDD VSS sg13g2_a21oi_1
+x_700_ _334_ tmo[1] tmo[0] _326_ VDD VSS sg13g2_nand3_1
+x_701_ _335_ _277_ _330_ VDD VSS sg13g2_nand2_1
+x_702_ _014_ _371_ _334_ _335_ _326_ VDD VSS sg13g2_a22oi_1
+x_703_ _336_ _327_ _331_ VDD VSS sg13g2_nor2_1
+x_704_ _337_ _278_ _336_ tmo[4] VDD VSS sg13g2_a21oi_1
+x_705_ _015_ tmo[4] _333_ _337_ VDD VSS sg13g2_a21oi_1
+x_706_ _338_ miss[0] inj_q _287_ VDD VSS sg13g2_nor3_1
+x_707_ _339_ _271_ inj_q locked VDD VSS sg13g2_nand3b_1
+x_708_ _340_ irun[1] irun[0] irun[2] VDD VSS sg13g2_nand3_1
+x_709_ _341_ _032_ _340_ VDD VSS sg13g2_or2_1
+x_710_ _342_ _339_ _341_ VDD VSS sg13g2_nor2b_1
+x_711_ _016_ miss[0] _342_ _338_ VDD VSS sg13g2_a21o_1
+x_712_ _343_ busy_s seen_busy VDD VSS sg13g2_nor2_1
+x_713_ _344_ seen_busy _005_ state[2] VDD VSS sg13g2_a21oi_1
+x_714_ _017_ _343_ _344_ VDD VSS sg13g2_nor2_1
+x_715_ _345_ tmo[0] _331_ _326_ VDD VSS sg13g2_o21ai_1
+x_716_ _346_ tmo[1] _345_ VDD VSS sg13g2_nand2_1
+x_717_ _347_ tmo[1] tmo[0] _336_ VDD VSS sg13g2_nand3b_1
+x_718_ _018_ _346_ _347_ VDD VSS sg13g2_nand2_1
+x_719_ _348_ _338_ _342_ miss[1] VDD VSS sg13g2_o21ai_1
+x_720_ _019_ _348_ VDD VSS sg13g2_inv_1
+x_721_ _349_ tmo[0] _326_ _345_ VDD VSS sg13g2_o21ai_1
+x_722_ _020_ _349_ VDD VSS sg13g2_inv_1
+x_723_ _350_ _312_ _313_ VDD VSS sg13g2_xnor2_1
+x_724_ _351_ _370_ _320_ _350_ VDD VSS sg13g2_and3_1
+x_725_ _021_ _006_ _351_ _296_ VDD VSS sg13g2_mux2_1
+x_726_ _352_ start _284_ _285_ _281_ VDD VSS sg13g2_a22oi_1
+x_727_ _022_ _352_ VDD VSS sg13g2_inv_1
+x_728_ _353_ _310_ _311_ VDD VSS sg13g2_xnor2_1
+x_729_ _354_ _370_ _320_ _353_ VDD VSS sg13g2_and3_1
+x_730_ _023_ _007_ _354_ _296_ VDD VSS sg13g2_mux2_1
+x_731_ _024_ _032_ _340_ _339_ VDD VSS sg13g2_a21oi_1
+x_732_ _355_ irun[3] _340_ VDD VSS sg13g2_nor2_1
+x_733_ _356_ irun[1] irun[0] irun[2] VDD VSS sg13g2_a21oi_1
+x_734_ _025_ _339_ _355_ _356_ VDD VSS sg13g2_nor3_1
+x_735_ _357_ irun[1] irun[0] VDD VSS sg13g2_xnor2_1
+x_736_ _026_ _341_ _357_ _339_ VDD VSS sg13g2_a21oi_1
+x_737_ _027_ irun[0] _341_ _339_ VDD VSS sg13g2_a21oi_1
+x_738_ _358_ _308_ _309_ VDD VSS sg13g2_xnor2_1
+x_739_ _359_ _320_ _358_ locked VDD VSS sg13g2_a21oi_1
+x_740_ _028_ seed[2] _359_ _296_ VDD VSS sg13g2_mux2_1
+x_741_ _360_ _298_ _307_ VDD VSS sg13g2_xnor2_1
+x_742_ _361_ _320_ _360_ locked VDD VSS sg13g2_a21oi_1
+x_743_ _029_ seed[1] _361_ _296_ VDD VSS sg13g2_mux2_1
+x_744_ _362_ _317_ _319_ VDD VSS sg13g2_nor2_1
+x_745_ _363_ locked _362_ VDD VSS sg13g2_nor2_1
+x_746_ _030_ seed[7] _363_ _296_ VDD VSS sg13g2_mux2_1
+x_747_ seen_busy clk _017_ resetb VDD VSS sg13g2_dfrbpq_1
+x_748_ miss[0] clk _016_ resetb VDD VSS sg13g2_dfrbpq_1
+x_749_ miss[1] clk _019_ resetb VDD VSS sg13g2_dfrbpq_1
+x_750_ start clk _022_ resetb VDD VSS sg13g2_dfrbpq_1
+x_751_ irun[0] clk _027_ resetb VDD VSS sg13g2_dfrbpq_1
+x_752_ irun[1] clk _026_ resetb VDD VSS sg13g2_dfrbpq_1
+x_753_ irun[2] clk _025_ resetb VDD VSS sg13g2_dfrbpq_1
+x_754_ irun[3] clk _024_ resetb VDD VSS sg13g2_dfrbpq_1
+x_755_ tmo[0] clk _020_ resetb VDD VSS sg13g2_dfrbpq_1
+x_756_ tmo[1] clk _018_ resetb VDD VSS sg13g2_dfrbpq_1
+x_757_ tmo[2] clk _014_ resetb VDD VSS sg13g2_dfrbpq_1
+x_758_ tmo[3] clk _013_ resetb VDD VSS sg13g2_dfrbpq_1
+x_759_ tmo[4] clk _015_ resetb VDD VSS sg13g2_dfrbpq_1
+x_760_ seed[0] clk _010_ resetb VDD VSS sg13g2_dfrbpq_1
+x_761_ seed[1] clk _029_ resetb VDD VSS sg13g2_dfrbpq_1
+x_762_ seed[2] clk _028_ resetb VDD VSS sg13g2_dfrbpq_1
+x_763_ _007_ clk _023_ resetb VDD VSS sg13g2_dfrbpq_1
+x_764_ _006_ clk _021_ resetb VDD VSS sg13g2_dfrbpq_1
+x_765_ seed[5] clk _012_ resetb VDD VSS sg13g2_dfrbpq_1
+x_766_ seed[6] clk _011_ resetb VDD VSS sg13g2_dfrbpq_1
+x_767_ seed[7] clk _030_ resetb VDD VSS sg13g2_dfrbpq_1
+x_768_ _005_ clk _009_ resetb VDD VSS sg13g2_dfrbpq_1
+x_769_ locked clk _002_ resetb VDD VSS sg13g2_dfrbpq_1
+x_770_ state[2] clk _003_ resetb VDD VSS sg13g2_dfrbpq_1
+x_771_ sel clk _001_ resetb VDD VSS sg13g2_dfrbpq_1
+x_772_ _004_ clk _008_ resetb VDD VSS sg13g2_dfrbpq_1
+x_773_ inj_q clk inj resetb VDD VSS sg13g2_dfrbpq_1
+x_774_ rail[0] clk _000_[0] resetb VDD VSS sg13g2_dfrbpq_1
+x_775_ rail[1] clk _000_[1] resetb VDD VSS sg13g2_dfrbpq_1
+x_776_ rail[2] clk _000_[2] resetb VDD VSS sg13g2_dfrbpq_1
+x_777_ busy_m clk busy resetb VDD VSS sg13g2_dfrbpq_1
+x_778_ busy_s clk busy_m resetb VDD VSS sg13g2_dfrbpq_1
+.ends
