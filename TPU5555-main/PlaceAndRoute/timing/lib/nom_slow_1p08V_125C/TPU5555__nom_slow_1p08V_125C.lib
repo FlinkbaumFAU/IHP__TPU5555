@@ -25,6 +25,13 @@ library (TPU5555) {
   nom_temperature                : 125.0;
   nom_voltage                    : 1.08;
 
+  type ("pad_mdll_code") {
+    base_type : array;
+    data_type : bit;
+    bit_width : 8;
+    bit_from : 7;
+    bit_to : 0;
+  }
   type ("pad_spare") {
     base_type : array;
     data_type : bit;
@@ -34,7 +41,7 @@ library (TPU5555) {
   }
 
   cell ("TPU5555") {
-    area : 4020235.750 
+    area : 3761015.750 
     is_macro_cell : true;
     pin("pad_clk") {
       direction : inout;
@@ -47,6 +54,26 @@ library (TPU5555) {
     pin("pad_led") {
       direction : inout;
       capacitance : 0.0000;
+    }
+    pin("pad_mdll_clk") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_clk_raw") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_clk_ref") {
+      direction : inout;
+      capacitance : 0.2678;
+    }
+    pin("pad_mdll_locked") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_resetb") {
+      direction : inout;
+      capacitance : 0.2678;
     }
     pin("pad_miso") {
       direction : inout;
@@ -63,6 +90,43 @@ library (TPU5555) {
     pin("pad_sclk") {
       direction : inout;
       capacitance : 0.2678;
+    }
+    bus("pad_mdll_code") {
+      bus_type : pad_mdll_code;
+      direction : inout;
+      capacitance : 0.0000;
+    pin("pad_mdll_code[7]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_code[6]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_code[5]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_code[4]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_code[3]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_code[2]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_code[1]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
+    pin("pad_mdll_code[0]") {
+      direction : inout;
+      capacitance : 0.0000;
+    }
     }
     bus("pad_spare") {
       bus_type : pad_spare;
