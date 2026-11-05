@@ -1,0 +1,11 @@
+test sample 0: label 0, predicted 0
+test sample 1: label 1, predicted 1
+test sample 2: label 2, predicted 4
+test sample 3: label 3, predicted 3
+test sample 4: label 4, predicted 4
+5 training, 5 test samples, 4/5 correct
+- tb_hdc_word40_gate.v:316: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.044 2026-01-01
+- Verilator: $finish at 27ms; walltime 2.471 s; speed 11.170 ms/s
+- Verilator: cpu 2.457 s on 1 threads; alloced 18 MB
+2.47 s wall

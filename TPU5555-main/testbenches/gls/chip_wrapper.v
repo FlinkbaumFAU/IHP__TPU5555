@@ -20,6 +20,13 @@ module hdc_word40_top (
     wire pad_cs_n = cs_n_i;
     wire pad_led, pad_miso;
     wire [4:0] pad_spare = 5'b0;   // unused inputs, tied low as on the board
+    // MDLL test structure (v.2.0.0): its inputs tied low, i.e. held in reset,
+    // its outputs left open. The MDLL itself is the stub below; this
+    // simulation covers the HDC chip, the MDLL is verified at transistor level.
+    wire pad_mdll_clk_ref = 1'b0;
+    wire pad_mdll_resetb  = 1'b0;
+    wire pad_mdll_clk, pad_mdll_clk_raw, pad_mdll_locked;
+    wire [7:0] pad_mdll_code;
 
     TPU5555 chip (
         .pad_clk  (pad_clk),
@@ -29,7 +36,13 @@ module hdc_word40_top (
         .pad_cs_n (pad_cs_n),
         .pad_led  (pad_led),
         .pad_miso (pad_miso),
-        .pad_spare(pad_spare)
+        .pad_spare(pad_spare),
+        .pad_mdll_clk_ref(pad_mdll_clk_ref),
+        .pad_mdll_resetb (pad_mdll_resetb),
+        .pad_mdll_clk    (pad_mdll_clk),
+        .pad_mdll_clk_raw(pad_mdll_clk_raw),
+        .pad_mdll_locked (pad_mdll_locked),
+        .pad_mdll_code   (pad_mdll_code)
     );
 
     assign led_o  = pad_led;
@@ -40,4 +53,19 @@ endmodule
 // declared as an input (no driver) so that Verilator's tristate resolution
 // does not see a second, undriven inout on every pad net.
 module bondpad_70x70 (input PAD);
+endmodule
+
+// The MDLL hard macro (TPU5555-main/mdll/) has no digital model: a ring
+// oscillator and a sampler that is metastable by design. Stub with its ports;
+// outputs low, as while the MDLL is held in reset.
+module mdll (
+    input  wire       clk_ref,
+    input  wire       resetb,
+    output wire       clk_out,
+    output wire       locked,
+    output wire [7:0] code
+);
+    assign clk_out = 1'b0;
+    assign locked  = 1'b0;
+    assign code    = 8'h00;
 endmodule

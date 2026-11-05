@@ -1,0 +1,6 @@
+g++ (GCC) 14.2.1 20250110 (Red Hat 14.2.1-7)
+Verilator 5.044 2026-01-01 rev v5.040
+8a37d0333a5caebe16cc89949586f214fa46fcfdbbb7fbe8f0a6c3121ec82f3d  ../../synthesis/netlist/TPU5555.nl.v
+d9dfb6213d00db4819a1a6d9d39d0e88e9a08a4de468787a7a26b4f349420df0  chip_wrapper.v
+d051f03e534656ee11fc266474f2740fa27db4fdcf86f83ecf76ce3397095492  tb_hdc_word40_gate.v
+28d02b42bc9d613040cb2a771671cc41975e92d6224207bdc3b20b4f02456ab4  hdc_word40_top_rtl.v

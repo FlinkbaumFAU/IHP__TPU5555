@@ -2,7 +2,28 @@
 
 This simulation runs the complete routed chip netlist `TPU5555` through the HDC classifier flow, driven only through its SPI pads. The netlist (`../../synthesis/netlist/TPU5555.nl.v`) is the one written after routing, so it includes the clock trees, hold buffers and ECO diodes. The simulation covers the IO pads, the SPI front end with its clock-domain crossings, the command loader, the accelerator and the SRAM macros.
 
-## Result
+Since v.2.0.0 the chip also contains the MDLL test structure. Here the MDLL is a stub with its ports (`mdll` in `chip_wrapper.v`, outputs low): it is a ring oscillator with a metastable-by-design sampler and has no digital model. It is verified at transistor level instead (`../../mdll/`). Its two input pads are tied low, as with the MDLL held in reset, and its output pads stay open.
+
+## Result, v.2.0.0
+
+All 4347 training and 1088 test samples of `data/TestData/P01_Noshy` (EMG data, 5 classes), on the v.2.0.0 netlist (flow run `mdll-v2`):
+
+| Model | Protocol trace | Predictions | Accuracy | Runtime |
+| --- | --- | --- | --- | --- |
+| RTL reference | – | – | 1039/1088 (95.5 %) | 2.8 min |
+| Gate level, power-up seed 1 | identical to RTL | identical to RTL (1088/1088) | 1039/1088 | 132 min |
+| Gate level, power-up seed 2 | identical to RTL | identical to RTL (1088/1088) | 1039/1088 | 134 min |
+| Gate level, power-up seed 3 | identical to RTL | identical to RTL (1088/1088) | 1039/1088 | 130 min |
+
+- The RTL predictions are identical to v.1.0.0's (the classifier RTL is unchanged).
+- A short case (one sample per class) was also run: output and predictions identical to RTL.
+- The runtimes are about twice v.1.0.0's; cae02 was running 54 SPICE simulations at the same time.
+- Results are in `results/v.2.0.0/`: `full_result.txt`, the prediction files `pred_*.txt`,
+  the full logs `full_*_s1.log.xz`, the short case `short_*.log`, and `build_env.txt`
+  (tool versions and the hashes of the netlist, wrapper and testbench simulated).
+- Environment: Verilator 5.044, GCC 14.2, IHP-Open-PDK `3f66c91`, cae02, 2026-11-05.
+
+## Result, v.1.0.0
 
 All 4347 training and 1088 test samples of `data/TestData/P01_Noshy` (EMG data, 5 classes):
 
@@ -16,7 +37,7 @@ All 4347 training and 1088 test samples of `data/TestData/P01_Noshy` (EMG data, 
 - **Protocol trace:** every SPI command, acknowledgement and result byte with its simulation timestamp. The gate-level traces match the RTL trace line by line, timestamps included (`results/full_*.log.xz`).
 - **Power-up seeds:** each gate-level run starts from different random contents of all flops and SRAMs (`+verilator+rand+reset+2 +verilator+seed+N`). The identical results show that the chip doesn't depend on its undefined power-up state, given the dummy finalize after reset (see below).
 
-Results: `results/full_result.txt`, prediction files `results/pred_*.txt` (one `sample label prediction` line per test sample), and the short-case traces `results/short_trace_*.log`.
+Results (v.1.0.0): `results/full_result.txt`, prediction files `results/pred_*.txt` (one `sample label prediction` line per test sample), and the short-case traces `results/short_trace_*.log`.
 
 Environment: Verilator 5.044, GCC 14.2, IHP-Open-PDK `3f66c91`, on cae02 (2026-10-30). Each run is single-threaded. A model built with `--threads 8` was about 4× slower on this netlist.
 
@@ -25,7 +46,7 @@ Environment: Verilator 5.044, GCC 14.2, IHP-Open-PDK `3f66c91`, on cae02 (2026-1
 | File | Purpose |
 | --- | --- |
 | `tb_hdc_word40_gate.v` | SPI-level testbench by the HDC developer, with small additions (below) |
-| `chip_wrapper.v` | Maps the testbench's `hdc_word40_top` ports onto the `TPU5555` pads; stub for the bondpad cell |
+| `chip_wrapper.v` | Maps the testbench's `hdc_word40_top` ports onto the `TPU5555` pads (MDLL pads tied low/open); stubs for the bondpad cell and the MDLL macro |
 | `functional_stdcells.py` | Generates a functional copy of the PDK standard-cell models (below) |
 | `build.sh` | Builds the Verilator models `gate` (netlist) and `rtl` (reference) |
 | `data/` | Item and level vectors (`position-vectors.txt`, `value_vectors.txt`). The EMG training and test recordings are **not published** in this repository; see below |
@@ -71,4 +92,4 @@ The SG13CMOS5L SRAM wrappers reference a core model that this PDK version doesn'
 
 ## Scope
 
-This is a **functional, zero-delay** simulation of the post-layout netlist: Verilator ignores the cell timing. Timing is covered by static timing analysis (setup and hold met in all corners, see `release/v.1.0.0/doc/Signoff.md`). The testbench includes `$sdf_annotate` support (`SDF_FILE`) for an event-driven simulator, but no SDF-annotated run has been done.
+This is a **functional, zero-delay** simulation of the post-layout netlist: Verilator ignores the cell timing. Timing is covered by static timing analysis (setup and hold met in all corners, see `release/v.2.0.0/doc/Signoff.md`). The testbench includes `$sdf_annotate` support (`SDF_FILE`) for an event-driven simulator, but no SDF-annotated run has been done.
